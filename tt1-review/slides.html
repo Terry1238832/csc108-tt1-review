@@ -386,9 +386,28 @@
   body:not(.toc-open) .toc-body,
   body:not(.toc-open) .toc-head strong { display: none; }
   body:not(.toc-open) .toc-head { justify-content: center; padding: 12px 6px; }
+
+  #fs-toggle {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 50;
+    font-family: "Noto Sans SC", Nunito, "Segoe UI", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    background: #fff;
+    border: 1px solid #9fb3c8;
+    border-radius: 4px;
+    padding: 0.35em 0.8em;
+    cursor: pointer;
+    box-shadow: 0 1px 4px rgba(26, 58, 92, 0.12);
+  }
+  #fs-toggle:hover { background: var(--navy); color: #fff; }
 </style>
 </head>
 <body class="toc-open">
+<button type="button" id="fs-toggle" aria-pressed="false">全屏</button>
 <div class="reveal">
   <div class="slides">
 
@@ -2724,6 +2743,29 @@ def calculate_age(birth_date: str) -> int:
     Reveal.addKeyBinding({ keyCode: 78, key: "N", description: "显示 / 隐藏讲解备注" }, function () {
       document.body.classList.toggle("show-notes");
     });
+
+    var fsBtn = document.getElementById("fs-toggle");
+    function fullscreenElement() {
+      return document.fullscreenElement || document.webkitFullscreenElement || null;
+    }
+    function syncFullscreenButton() {
+      var on = !!fullscreenElement();
+      fsBtn.textContent = on ? "退出全屏" : "全屏";
+      fsBtn.setAttribute("aria-pressed", on ? "true" : "false");
+      window.setTimeout(function () { Reveal.layout(); }, 60);
+    }
+    fsBtn.addEventListener("click", function () {
+      if (fullscreenElement()) {
+        var exit = document.exitFullscreen || document.webkitExitFullscreen;
+        if (exit) exit.call(document);
+        return;
+      }
+      var root = document.documentElement;
+      var enter = root.requestFullscreen || root.webkitRequestFullscreen;
+      if (enter) enter.call(root);
+    });
+    document.addEventListener("fullscreenchange", syncFullscreenButton);
+    document.addEventListener("webkitfullscreenchange", syncFullscreenButton);
   })();
 
   document.querySelectorAll(".slide-timer-row").forEach(function (row) {
