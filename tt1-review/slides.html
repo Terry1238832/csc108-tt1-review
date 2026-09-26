@@ -788,7 +788,7 @@ else:
     print("A")</code></pre></div>
         </div>
       </div>
-      <p class="note">为什么 B 那行不用写 <code>x &lt; 80</code>？因为能走到这一行，说明上面的 <code>x &gt;= 80</code> 已经是 False。</p>
+      <p class="note">为什么 B 不用写 <code>x &gt;= 70 and x &lt; 80</code>？<br>因为能走到这一行，就说明前面的 <code>x &gt;= 80</code> 已经是 False，也就是 <code>x &lt; 80</code> 已经确定了。所以这里只需要再判断 <code>x &gt;= 70</code>。</p>
     </section>
 
     <section id="if-order">
