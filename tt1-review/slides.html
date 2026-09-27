@@ -1898,13 +1898,13 @@ return False</code></pre></div>
       </table>
       <div class="cols">
         <div>
-          <div class="src small-code"><pre id="err-sub" class="stepper"><code class="py">'a' - 'a'
-ord('a')
+          <div class="src small-code"><pre id="err-sub" class="stepper"><code class="py">'a' &lt; 'b'
+'a' - 'a'
 ord('a') - ord('a')</code></pre></div>
           <div class="steps">
-            <p class="fragment" data-fragment-index="0" data-target="#err-sub" data-lines="1"><code>'a'</code> 是文字，不是 97。减号不会自动查编码 → <strong>TypeError</strong>。</p>
-            <p class="fragment" data-fragment-index="1" data-target="#err-sub" data-lines="2">要数字得自己写 <code>ord('a')</code> → <strong>97</strong>。</p>
-            <p class="fragment" data-fragment-index="2" data-target="#err-sub" data-lines="3"><code>ord('a') - ord('a')</code> 才是 97 − 97 → <strong>0</strong>。</p>
+            <p class="fragment" data-fragment-index="0" data-target="#err-sub" data-lines="1">只有比较才不用 <code>ord</code>。<code>'a' &lt; 'b'</code> 直接比谁靠前。</p>
+            <p class="fragment" data-fragment-index="1" data-target="#err-sub" data-lines="2">相减不是比较。减号不会自动查编码 → <strong>TypeError</strong>。</p>
+            <p class="fragment" data-fragment-index="2" data-target="#err-sub" data-lines="3">要减编码得自己写 <code>ord</code>：97 − 97 → <strong>0</strong>。</p>
           </div>
         </div>
         <div>
