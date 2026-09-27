@@ -401,7 +401,6 @@
       <p class="kicker">知识点复习 · 卷子补充 · 2024 TT1 真题逐题讲</p>
       <aside class="notes">开场先说今天三块内容：先把基础过一遍，再补真题里考到的新东西，最后一起做 2024 年的 TT1。</aside>
     </section>
-
     <section id="how-to">
       <h2>怎么用这套课件</h2>
       <table>
@@ -420,7 +419,6 @@
       </div>
       <p class="note">标题后面有 <span class="tag new">卷子补充</span> 的页，是原复习 PPT 没讲、但 2024 TT1 考到的内容。</p>
     </section>
-
     <section id="agenda">
       <h2>今天的路线</h2>
       <div class="cols">
@@ -430,10 +428,8 @@
           <li><a href="#/part-if">条件语句</a></li>
           <li><a href="#/part-scope">函数与 scope</a></li>
           <li><a href="#/part-str">字符串</a></li>
-          <li><a href="#/part-list">List</a> <span class="tag new">新</span></li>
         </ol>
-        <ol start="7">
-          <li><a href="#/part-loop">循环</a> <span class="tag new">新</span></li>
+        <ol start="6">
           <li><a href="#/part-fdr">函数设计、测试、重构</a></li>
           <li><a href="#/part-err">常见 Error</a></li>
           <li><a href="#/part-gloss">定义与 API sheet</a></li>
@@ -441,17 +437,13 @@
           <li><a href="#/part-exam"><strong>2024 TT1 真题逐题讲</strong></a></li>
         </ol>
       </div>
-      <aside class="notes">第 6、7 两章是原 PPT 完全没有、但卷子占了很多分的。时间紧的话，1–5 章可以快过，把时间留给 6、7 和真题。</aside>
+      <aside class="notes">List 和循环已经拆到附录。这份主课件从运算符讲到真题里剩下的题。</aside>
     </section>
-
-    <!-- ============ Part 1 运算符 ============ -->
-
     <section id="part-ops" class="section-slide" data-part="运算符">
-      <p class="part-no">PART 1 / 12</p>
+      <p class="part-no">PART 1 / 10</p>
       <h1>运算符</h1>
       <p class="subtitle"><code>//</code> &nbsp; <code>**</code> &nbsp; <code>%</code></p>
     </section>
-
     <section id="op-floor">
       <h2><code>//</code> 整除：往下取整</h2>
       <div class="definition"><code>a // b</code> = 不超过 <code>a / b</code> 的最大整数（floor）</div>
@@ -466,7 +458,6 @@
       <div class="warn">不是四舍五入。<code>3 // 2</code> 是 1，不是 2。</div>
       <aside class="notes">先问大家 3 // 2 是多少，很多人会说 2。最后一行先藏着，揭开后直接翻到下一页用数轴讲负数。</aside>
     </section>
-
     <section id="op-floor-neg">
       <h2>负数：在数轴上往左走</h2>
       <svg class="numline" viewBox="0 0 820 150" aria-label="number line">
@@ -497,7 +488,6 @@
       </table>
       <p class="note">卷子后面附的 API sheet 写着：<code>int(x)</code> 对 float 是 “truncated towards zero”。正数两者一样，负数不一样。</p>
     </section>
-
     <section id="op-power">
       <h2><code>**</code> 乘方</h2>
       <p><code>a ** b</code> 是 a 的 b 次方。Python 里 <code>^</code> 不是乘方。</p>
@@ -510,7 +500,6 @@
         <tr><td><code>2 ** 0</code></td><td>1</td><td>任何数的 0 次方是 1</td></tr>
       </table>
     </section>
-
     <section id="op-mod">
       <h2><code>%</code> 取余数</h2>
       <div class="bigdiv">5 ÷ 3 = <span class="q">1</span> … <span class="r">2</span></div>
@@ -524,7 +513,6 @@
       </table>
       <div class="takeaway">除数是正数时，<code>a % b</code> 一定在 0 到 b - 1 之间。常见用法：<code>n % 2 == 0</code> 判断偶数，<code>n % 10</code> 取个位。</div>
     </section>
-
     <section id="op-formula">
       <h2>一个公式管住 <code>//</code> 和 <code>%</code></h2>
       <div class="definition" style="font-size:1.15em">
@@ -541,7 +529,6 @@
       <div class="warn fragment">负数的 <code>%</code> 不要凭感觉写 -1。先算 <code>//</code>，再代公式。</div>
       <aside class="notes">一步一步点出来。强调：负数题永远先求 //，再用公式，不要心算余数符号。</aside>
     </section>
-
     <section id="op-digits">
       <h2>常考：取出某一位数字</h2>
       <div class="digits">
@@ -557,7 +544,6 @@
       </table>
       <p class="note">2024 TT1 第 1 题就是这个：三位数取中间那一位。</p>
     </section>
-
     <section id="op-prec">
       <h2>先算谁</h2>
       <div class="cols">
@@ -579,7 +565,6 @@
         </div>
       </div>
     </section>
-
     <section id="op-practice">
       <h2>练一练 · 运算符</h2>
       <div class="exercise" style="font-size:1.1em">
@@ -604,15 +589,11 @@
       </div>
       <aside class="notes">给 3 分钟。第二题提醒：有 / 所以答案是 -1.0，写 -1 会扣分。</aside>
     </section>
-
-    <!-- ============ Part 2 and / or ============ -->
-
     <section id="part-logic" class="section-slide" data-part="and / or">
-      <p class="part-no">PART 2 / 12</p>
+      <p class="part-no">PART 2 / 10</p>
       <h1><code>and</code> 和 <code>or</code></h1>
       <p class="subtitle">混在一行里时，先看谁</p>
     </section>
-
     <section id="logic-rule">
       <h2>规则只有两条</h2>
       <div class="cols">
@@ -630,7 +611,6 @@
       </div>
       <div class="definition">没有括号时：<code>not</code> 先，<code>and</code> 其次，<code>or</code> 最后。<br>看到连续的 <code>and</code>，先给它们打上括号。</div>
     </section>
-
     <section id="logic-walk">
       <h2>拆开看</h2>
       <div class="cols">
@@ -648,7 +628,6 @@
         </div>
       </div>
     </section>
-
     <section id="logic-short">
       <h2>了解：<code>and</code> / <code>or</code> 返回的是操作数</h2>
       <div class="definition">
@@ -667,7 +646,6 @@
       </div>
       <p class="note">0、<code>""</code>、<code>[]</code>、<code>None</code> 当条件用时算假，其余大多算真。</p>
     </section>
-
     <section id="logic-practice">
       <h2>练一练 · and / or</h2>
       <div class="exercise">
@@ -685,15 +663,11 @@
       </div>
       <p class="note fragment">小技巧：只要 or 连起来的某一段是 <code>True</code>，整个式子就是 True。</p>
     </section>
-
-    <!-- ============ Part 3 条件语句 ============ -->
-
     <section id="part-if" class="section-slide" data-part="条件语句">
-      <p class="part-no">PART 3 / 12</p>
+      <p class="part-no">PART 3 / 10</p>
       <h1>条件语句</h1>
       <p class="subtitle"><code>if</code> &nbsp; <code>elif</code> &nbsp; <code>else</code></p>
     </section>
-
     <section id="if-basic">
       <h2><code>if</code> / <code>elif</code> / <code>else</code></h2>
       <div class="cols">
@@ -716,7 +690,6 @@ else:
       </div>
       <div class="takeaway">从上往下检查，<strong>第一个</strong>为 True 的分支执行，其余全部跳过。</div>
     </section>
-
     <section id="if-chain">
       <h2>走一遍：<code>x = 75</code></h2>
       <div class="cols">
@@ -738,7 +711,6 @@ else:
       </div>
       <aside class="notes">按 → 会高亮当前执行到的行。最后一步强调：虽然 75 >= 60 也成立，但前面已经命中 B，后面的分支根本不看。</aside>
     </section>
-
     <section id="if-grades" class="mid-code">
       <h2>分数等级：两种顺序都对</h2>
       <p class="note">80+ A，70–79 B，60–69 C，50–59 D，不到 50 是 F。x 在 0 到 100。</p>
@@ -772,7 +744,6 @@ else:
       </div>
       <p class="note">为什么 B 那行不用写 <code>x &lt; 80</code>？因为能走到这一行，说明上面的 <code>x &gt;= 80</code> 已经是 False。</p>
     </section>
-
     <section id="if-order">
       <h2>顺序写反就错</h2>
       <div class="cols">
@@ -786,7 +757,6 @@ elif x >= 80:
       <div class="warn">条件是“往下越来越宽”的时候，窄的要放前面。90 先撞上 <code>x &gt;= 50</code>，就停在 D 了。</div>
       <p class="note">如果 x 可能不在 0–100，就把区间写全，比如 <code>elif 70 &lt;= x &lt; 80:</code>。</p>
     </section>
-
     <section id="if-separate">
       <h2><code>if…elif</code> 和两个独立的 <code>if</code> 不一样 <span class="tag new">卷子补充</span></h2>
       <div class="cols">
@@ -814,7 +784,6 @@ elif x >= 80:
       <p class="note">2024 TT1 第 9 题的 <code>func_b</code> 就是两个独立的 if。</p>
       <aside class="notes">让大家先猜 x = 12 两个函数返回什么。g 里第二个 if 和第一个没有关系，会再检查一次。</aside>
     </section>
-
     <section id="if-nested">
       <h2>嵌套 if：else 里面再判断 <span class="tag new">卷子补充</span></h2>
       <div class="cols">
@@ -841,15 +810,11 @@ else:
       </table>
       <p class="note">2024 TT1 第 2 题：用表格反推嵌套 if 的两个空。</p>
     </section>
-
-    <!-- ============ Part 4 函数与 scope ============ -->
-
     <section id="part-scope" class="section-slide" data-part="函数与 scope">
-      <p class="part-no">PART 4 / 12</p>
+      <p class="part-no">PART 4 / 10</p>
       <h1>函数与 Scope</h1>
       <p class="subtitle">函数里面的名字，和函数外面的名字</p>
     </section>
-
     <section id="fn-anatomy">
       <h2>一个函数由哪几块组成</h2>
       <div class="src"><pre class="stepper"><code class="py">def triangle_area(base: float, height: float) -> float:
@@ -865,7 +830,6 @@ area = triangle_area(3, 4)</code></pre></div>
         <tr class="fragment" data-lines="4"><td>实参 argument</td><td><code>3</code>, <code>4</code></td><td>按位置交给参数：<code>base = 3</code>，<code>height = 4</code></td></tr>
       </table>
     </section>
-
     <section id="fn-return-print">
       <h2><code>return</code> 和 <code>print</code> 不是一回事 <span class="tag new">卷子补充</span></h2>
       <div class="cols">
@@ -886,7 +850,6 @@ None 6</code></pre></div>
       </div>
       <div class="takeaway">想让别人拿到结果，用 <code>return</code>。题目问“返回什么”，看 <code>return</code>；问“打印什么”，看 <code>print</code>。</div>
     </section>
-
     <section id="scope-local">
       <h2>函数里建的变量，外面看不到</h2>
       <div class="cols">
@@ -913,7 +876,6 @@ None 6</code></pre></div>
       <div class="definition"><strong>local</strong>：在函数里赋值的名字，只活在这次调用里。<strong>global</strong>：在所有函数外面赋值的名字。</div>
       <aside class="notes">用两个框讲：每次调用函数都会新开一个框，调用结束框就消失。外面的 global 框里从来没有 x，所以 NameError。</aside>
     </section>
-
     <section id="scope-shadow">
       <h2>里面再写一次同名变量，外面不会变</h2>
       <div class="cols">
@@ -934,7 +896,6 @@ None 6</code></pre></div>
         </div>
       </div>
     </section>
-
     <section id="scope-global">
       <h2>真要改外面的值：<code>global</code></h2>
       <div class="cols">
@@ -956,7 +917,6 @@ None 6</code></pre></div>
       </div>
       <div class="definition"><code>global x</code> 写在函数里、用 x 之前。意思是：这个函数里的 x 就是外面那个 x。</div>
     </section>
-
     <section id="scope-lookup">
       <h2>读变量：先找自己框里的</h2>
       <div class="cols">
@@ -984,7 +944,6 @@ None 6</code></pre></div>
       </div>
       <div class="takeaway">函数里只要对某个名字<strong>赋值</strong>，这个名字在整个函数里都是 local。没赋值，才去读 global。</div>
     </section>
-
     <section id="scope-unbound">
       <h2><code>UnboundLocalError</code></h2>
       <div class="cols">
@@ -1004,7 +963,6 @@ None 6</code></pre></div>
       </div>
       <div class="definition fragment">修法：在函数第一行写 <code>global y</code>。或者别改 y，改成 <code>return y + 2</code>。</div>
     </section>
-
     <section id="scope-params">
       <h2>参数也是 local 变量 <span class="tag new">卷子补充</span></h2>
       <div class="cols">
@@ -1029,7 +987,6 @@ def add_one(x):
         </div>
       </div>
     </section>
-
     <section id="scope-args">
       <h2>实参按<strong>位置</strong>交给参数，名字无关 <span class="tag new">卷子补充</span></h2>
       <div class="cols">
@@ -1049,7 +1006,6 @@ def add_one(x):
       <div class="warn">不要看到外面叫 x 就以为对上里面的 x。只看<strong>第几个位置</strong>。</div>
       <p class="note">2024 TT1 第 8 题 <code>well(y, x)</code>、<code>hello(z, x)</code> 就是专门考这个。</p>
     </section>
-
     <section id="scope-practice" class="mid-code">
       <h2>练一练 · scope</h2>
       <div class="cols">
@@ -1082,15 +1038,11 @@ a()</code></pre></div>
         </div>
       </div>
     </section>
-
-    <!-- ============ Part 5 字符串 ============ -->
-
     <section id="part-str" class="section-slide" data-part="字符串">
-      <p class="part-no">PART 5 / 12</p>
+      <p class="part-no">PART 5 / 10</p>
       <h1>字符串</h1>
       <p class="subtitle">下标 · slicing · 拼接 · 比较 · 方法</p>
     </section>
-
     <section id="str-index">
       <h2>下标 index</h2>
       <div class="strip" data-text="abc"></div>
@@ -1101,14 +1053,12 @@ a()</code></pre></div>
       </div>
       <div class="warn">下标越界会 <code>IndexError</code>：<code>"abc"[3]</code>。slicing 越界不会报错。</div>
     </section>
-
     <section id="str-index-q">
       <h2>练一练 · <code>"Minecraft"</code> 里的 <code>'a'</code></h2>
       <div class="strip" data-text="Minecraft" data-mark="6,-3"></div>
       <div class="exercise">哪些下标能取到 <code>'a'</code>？ &nbsp; a. 6 &nbsp;&nbsp; b. 7 &nbsp;&nbsp; c. -3 &nbsp;&nbsp; d. -2</div>
       <div class="definition fragment" data-fragment-index="0">答案 a 和 c。<code>s[6]</code> 和 <code>s[-3]</code> 是同一个格子。7 和 -2 都是 <code>'f'</code>。</div>
     </section>
-
     <section id="str-slice">
       <h2>slicing：含头不含尾</h2>
       <div class="strip small" data-text="University of Toronto" data-hit="14:20" data-neg="no"></div>
@@ -1125,7 +1075,6 @@ a()</code></pre></div>
       <div class="definition"><code>s[start:stop]</code> 从 start 开始，到 stop <strong>前一个</strong>为止。黄色就是 <code>x[14:20]</code>，20 号的 <code>'o'</code> 不算。</div>
       <p class="note">结果是一个新字符串，原来的 x 不变。</p>
     </section>
-
     <section id="str-slice-omit">
       <h2>省略起点 / 终点</h2>
       <div class="strip" data-text="Toronto"></div>
@@ -1139,7 +1088,6 @@ a()</code></pre></div>
         <tr><td><code>s[5:2]</code></td><td><code>''</code></td><td>起点在终点右边 → 空字符串</td></tr>
       </table>
     </section>
-
     <section id="str-slice-cs">
       <h2>练一练 · 切出 <code>Computer</code> 和 <code>Science</code></h2>
       <div class="strip small" data-text="Computer Science"></div>
@@ -1150,7 +1098,6 @@ a()</code></pre></div>
         <p class="note">起点终点可以一正一负。先把负数换成格子位置（-8 就是 8 号格的空格），再看范围。</p>
       </div>
     </section>
-
     <section id="str-step">
       <h2>第三个数 step：每次跳几格</h2>
       <p><code>x = "0123456789"</code></p>
@@ -1164,7 +1111,6 @@ a()</code></pre></div>
       </div>
       <div class="definition fragment"><code>s[start:stop:step]</code>：从 start 出发，每次走 step 格，碰到 stop 之前停下。</div>
     </section>
-
     <section id="str-step-neg">
       <h2>step 是负数：从右往左走</h2>
       <p><code>x = "0123456789"</code></p>
@@ -1178,7 +1124,6 @@ a()</code></pre></div>
       </div>
       <div class="warn fragment">step 为负时，省略 start 是“最右边”，省略 stop 是“一直到最左边”。</div>
     </section>
-
     <section id="str-empty">
       <h2>什么时候切出空字符串 <code>''</code></h2>
       <div class="definition">方向和起点终点对不上，就是空的：<br>
@@ -1196,7 +1141,6 @@ a()</code></pre></div>
       <p><code>s[0:11:-1]</code>：从 0 号格往<strong>左</strong>走，想到 11 号格，永远走不到 → 空。</p>
       <div class="takeaway">倒过来用 <code>s[::-1]</code>。</div>
     </section>
-
     <section id="str-plus-mul">
       <h2><code>+</code> 拼接，<code>*</code> 重复 <span class="tag new">卷子补充</span></h2>
       <div class="cols">
@@ -1212,9 +1156,8 @@ a()</code></pre></div>
 TypeError</code></pre></div>
       </div>
       <div class="warn"><code>str + int</code> 会 <code>TypeError</code>。要先 <code>str(10)</code> 把数字变成字符串。</div>
-      <p class="note"><code>'abc' * 2</code> 是整串重复 <code>'abcabc'</code>，不是每个字母重复 <code>'aabbcc'</code>。2024 TT1 第 5、7、10 题都用到。</p>
+      <p class="note"><code>'abc' * 2</code> 是整串重复 <code>'abcabc'</code>，不是每个字母重复 <code>'aabbcc'</code>。2024 TT1 第 7 题用到。</p>
     </section>
-
     <section id="str-in">
       <h2><code>in</code>：有没有这个子串 <span class="tag new">卷子补充</span></h2>
       <div class="cols">
@@ -1228,9 +1171,7 @@ False
 True</code></pre></div>
       </div>
       <div class="definition">对字符串，<code>x in s</code> 问的是：x 是不是 s 里<strong>连续的一段</strong>。大小写要一致。</div>
-      <p class="note">对 list，<code>in</code> 问的是另一件事（有没有一个元素<strong>等于</strong> x），List 那一章会对比。</p>
-    </section>
-
+          </section>
     <section id="str-compare-codes">
       <h2>字符串比较：比的是编码</h2>
       <div class="cols">
@@ -1251,7 +1192,6 @@ True</code></pre></div>
         <li>一直相同、其中一个先比完 → <strong>短的更小</strong></li>
       </ol>
     </section>
-
     <section id="str-compare-examples">
       <h2>练一练 · 字符串比较</h2>
       <table>
@@ -1263,7 +1203,6 @@ True</code></pre></div>
       </table>
       <p class="note"><code>'a' &lt; 'b' &lt; 'c'</code> 是 <code>('a' &lt; 'b') and ('b' &lt; 'c')</code>，结果 True。</p>
     </section>
-
     <section id="str-methods-find">
       <h2>字符串方法 ①：找、数</h2>
       <table>
@@ -1277,7 +1216,6 @@ True</code></pre></div>
       </table>
       <div class="takeaway"><code>find</code> 找不到返回 -1，<code>index</code> 找不到报错。</div>
     </section>
-
     <section id="str-methods-change">
       <h2>字符串方法 ②：变、判断</h2>
       <table>
@@ -1292,321 +1230,11 @@ True</code></pre></div>
       <div class="warn">字符串不能改。<code>s.upper()</code> 返回新字符串，<code>s</code> 本身不变；要写 <code>s = s.upper()</code>。<br>
         方法名写错会 <code>AttributeError</code>：没有 <code>lowercase()</code>，只有 <code>lower()</code>。</div>
     </section>
-
-    <!-- ============ Part 6 List ============ -->
-
-    <section id="part-list" class="section-slide" data-part="List">
-      <p class="part-no">PART 6 / 12 · 卷子补充</p>
-      <h1>List</h1>
-      <p class="subtitle">和字符串很像，但可以改</p>
-      <aside class="notes">原 PPT 没有 list，但 2024 TT1 的第 3、5、6、10、14 题都要用。这一章值得慢慢讲。</aside>
-    </section>
-
-    <section id="list-basics">
-      <h2>List 的下标和 slicing 跟字符串一样</h2>
-      <div class="strip" data-list='["Rutwa", 85, "Dan", 87]'></div>
-      <div class="cols">
-        <div class="src"><pre><code class="py">>>> lst = ['Rutwa', 85, 'Dan', 87]
->>> lst[0]
->>> lst[-1]
->>> lst[1:3]
->>> len(lst)
->>> lst[4]</code></pre></div>
-        <div class="out"><pre><code>
-'Rutwa'
-87
-[85, 'Dan']
-4
-IndexError</code></pre></div>
-      </div>
-      <div class="definition">方括号 <code>[]</code> 包起来、逗号隔开。里面可以放不同类型。slicing 得到的还是 list。</div>
-    </section>
-
-    <section id="list-mutable">
-      <h2>List 可以改，字符串不行</h2>
-      <div class="cols">
-        <div>
-          <div class="src"><pre><code class="py">>>> names = ['June', 'Zephyr']
->>> names[0] = 'june'
->>> names</code></pre></div>
-          <div class="out"><pre><code>['june', 'Zephyr']</code></pre></div>
-        </div>
-        <div>
-          <div class="src"><pre><code class="py">>>> s = 'June'
->>> s[0] = 'j'</code></pre></div>
-          <div class="out"><pre><code>TypeError: 'str' object does not
-support item assignment</code></pre></div>
-        </div>
-      </div>
-      <h3>常见写法：把 list 里每个元素都改掉</h3>
-      <div class="src"><pre><code class="py">for i in range(len(names)):
-    names[i] = names[i].lower()</code></pre></div>
-      <p class="note">要改 list 里的元素，需要下标，所以用 <code>range(len(names))</code>。2024 TT1 第 10 题第三段就是这个写法，只是方法名写错了。</p>
-    </section>
-
-    <section id="list-in">
-      <h2><code>in</code>：字符串 vs list</h2>
-      <div class="cols">
-        <div class="src"><pre><code class="py">>>> 'o' in 'Welcome'
->>> 'o' in ['Welcome', 'to']
->>> 'to' in ['Welcome', 'to']
->>> 6 in [1, 4, 6, 7]</code></pre></div>
-        <div class="out"><pre><code>True
-False
-True
-True</code></pre></div>
-      </div>
-      <table>
-        <tr><th></th><th><code>x in 字符串</code></th><th><code>x in list</code></th></tr>
-        <tr><td>问的是</td><td>x 是不是其中连续的一段</td><td>有没有某个元素 <strong>== x</strong></td></tr>
-        <tr><td>会不会往元素里面找</td><td>—</td><td><strong>不会</strong>。<code>'o'</code> 不等于 <code>'Welcome'</code> 也不等于 <code>'to'</code></td></tr>
-      </table>
-      <p class="note">2024 TT1 第 5 题 A 选项就考这个。</p>
-    </section>
-
-    <section id="list-ops">
-      <h2><code>+</code>、<code>*</code>、比较，也和字符串一样</h2>
-      <div class="cols">
-        <div class="src"><pre><code class="py">>>> [1, 2] + [3]
->>> [0] * 3
->>> [1, 0, 8] > [1, 4, 8]
->>> [1, 2] &lt; [1, 2, 0]</code></pre></div>
-        <div class="out"><pre><code>[1, 2, 3]
-[0, 0, 0]
-False
-True</code></pre></div>
-      </div>
-      <div class="definition">list 比较：从下标 0 开始逐个比，第一个不同的元素决定结果；前面都一样时，短的更小。</div>
-      <div class="steps">
-        <p class="fragment"><code>[1, 0, 8] &gt; [1, 4, 8]</code>：下标 0 都是 1，下标 1 是 <code>0</code> vs <code>4</code></p>
-        <p class="fragment"><code>0 &gt; 4</code> 是 False，后面的 8 不用看 → <strong>False</strong></p>
-      </div>
-    </section>
-
-    <section id="list-methods">
-      <h2>List 方法：大多数<strong>直接改原 list，返回 None</strong></h2>
-      <table>
-        <tr><th>方法</th><th>做什么</th><th>返回</th></tr>
-        <tr><td><code>L.append(x)</code></td><td>在末尾加上 x</td><td><strong>None</strong></td></tr>
-        <tr><td><code>L.insert(i, x)</code></td><td>在下标 i 插入 x</td><td><strong>None</strong></td></tr>
-        <tr><td><code>L.remove(x)</code></td><td>删掉第一个等于 x 的元素</td><td><strong>None</strong></td></tr>
-        <tr><td><code>L.reverse()</code></td><td>原地倒序</td><td><strong>None</strong></td></tr>
-        <tr><td><code>L.sort()</code></td><td>原地从小到大排</td><td><strong>None</strong></td></tr>
-        <tr><td><code>L.pop()</code></td><td>删掉最后一个</td><td>被删掉的那个元素</td></tr>
-        <tr><td><code>L.index(x)</code></td><td>找 x 第一次出现的下标</td><td>int，找不到 ValueError</td></tr>
-      </table>
-      <p class="note">这张表就在卷子后面的 API sheet 上，写着 <code>-&gt; None</code> 的就是“改原 list、不返回东西”。</p>
-    </section>
-
-    <section id="list-none-trap">
-      <h2>最常见的坑：<code>lst = lst.append(1)</code> <span class="tag new">卷子补充</span></h2>
-      <div class="cols">
-        <div>
-          <div class="src"><pre class="stepper"><code class="py">lst = [4, 3, 2]
-lst = lst.append(1)
-print(type(lst[3]))</code></pre></div>
-          <div class="out fragment" data-fragment-index="3"><pre><code>TypeError: 'NoneType' object
-is not subscriptable</code></pre></div>
-        </div>
-        <div class="steps">
-          <p class="fragment" data-fragment-index="0" data-lines="2"><code>lst.append(1)</code> 确实把 1 加进去了……</p>
-          <p class="fragment" data-fragment-index="1" data-lines="2">……但它返回 <code>None</code>，于是 <code>lst = None</code></p>
-          <p class="fragment" data-fragment-index="2" data-lines="3"><code>None[3]</code> → 报错</p>
-        </div>
-      </div>
-      <div class="takeaway">append、sort 这些方法单独写一行：<code>lst.append(1)</code>。不要再赋值给 lst。</div>
-      <p class="note"><code>type(None)</code> 显示 <code>&lt;class 'NoneType'&gt;</code>。2024 TT1 第 6 题原题。</p>
-    </section>
-
-    <!-- ============ Part 7 循环 ============ -->
-
-    <section id="part-loop" class="section-slide" data-part="循环">
-      <p class="part-no">PART 7 / 12 · 卷子补充</p>
-      <h1>循环</h1>
-      <p class="subtitle"><code>for</code> &nbsp; <code>range</code> &nbsp; <code>while</code></p>
-      <aside class="notes">卷子第 3、4、11、14 题都是循环。重点：会追踪 while、知道 return 写在循环里会提前结束函数。</aside>
-    </section>
-
-    <section id="loop-for">
-      <h2><code>for</code>：把每个元素拿出来一次</h2>
-      <div class="cols">
-        <div>
-          <div class="src"><pre><code class="py">for ch in 'hey':
-    print(ch)</code></pre></div>
-          <div class="out"><pre><code>h
-e
-y</code></pre></div>
-        </div>
-        <div>
-          <div class="src"><pre><code class="py">for n in [3, 1, 2]:
-    print(n * 10)</code></pre></div>
-          <div class="out"><pre><code>30
-10
-20</code></pre></div>
-        </div>
-      </div>
-      <div class="definition">字符串：一次拿一个字符。list：一次拿一个元素。循环变量（<code>ch</code>、<code>n</code>）每一轮自动换成下一个。</div>
-    </section>
-
-    <section id="loop-range">
-      <h2><code>range</code>：一串整数，不含 stop</h2>
-      <table>
-        <tr><th>写法</th><th>产生的数</th></tr>
-        <tr><td><code>range(4)</code></td><td>0, 1, 2, 3</td></tr>
-        <tr><td><code>range(2, 6)</code></td><td>2, 3, 4, 5</td></tr>
-        <tr><td><code>range(1, 10, 3)</code></td><td>1, 4, 7</td></tr>
-        <tr><td><code>range(10, 0, -3)</code></td><td>10, 7, 4, 1</td></tr>
-        <tr><td><code>range(len(lst))</code></td><td>lst 的所有下标 0 … len-1</td></tr>
-      </table>
-      <div class="definition">规则和 slicing 一样：<code>range(start, stop, step)</code>，包含 start，不包含 stop。</div>
-      <p><strong>什么时候用</strong> <code>for i in range(len(lst))</code>：需要下标的时候。比如要改 list 里的元素，或者要同时看好几个 list 的同一位置。</p>
-    </section>
-
-    <section id="loop-while">
-      <h2><code>while</code>：条件为 True 就继续</h2>
-      <div class="cols">
-        <div>
-          <div class="src"><pre><code class="py">i = 1
-while i &lt; 10:
-    print(i)
-    i = i + 3</code></pre></div>
-          <p class="note">每一轮：① 检查条件 ② 执行身体 ③ 回到 ①</p>
-        </div>
-        <table>
-          <tr><th>i</th><th><code>i &lt; 10</code>?</th><th>打印</th></tr>
-          <tr class="fragment"><td>1</td><td>True</td><td>1</td></tr>
-          <tr class="fragment"><td>4</td><td>True</td><td>4</td></tr>
-          <tr class="fragment"><td>7</td><td>True</td><td>7</td></tr>
-          <tr class="fragment"><td>10</td><td>False → 停</td><td></td></tr>
-        </table>
-      </div>
-      <p class="fragment">一共打印 <strong>3</strong> 个数；循环结束后 i 是 <strong>10</strong>。</p>
-      <div class="warn">忘了写 <code>i = i + 3</code>，条件永远是 True，就是死循环。</div>
-      <aside class="notes">追踪 while 就画这张表：每一行写当前的 i、条件结果、这一轮做了什么。2024 TT1 第 4 题一模一样的结构。</aside>
-    </section>
-
-    <section id="loop-while-step">
-      <h2><code>while</code> 适合“下标跳着走”</h2>
-      <div class="cols">
-        <div class="src"><pre class="stepper"><code class="py">def every_other(s: str) -> str:
-    result = ''
-    i = 0
-    while i &lt; len(s):
-        result = result + s[i]
-        i = i + 2
-    return result
-
->>> every_other('abcdefg')
-'aceg'</code></pre></div>
-        <div class="steps">
-          <p class="fragment" data-lines="3">i 从 0 开始</p>
-          <p class="fragment" data-lines="4"><code>i &lt; len(s)</code> 保证下标不越界</p>
-          <p class="fragment" data-lines="6">每轮 +2：取到下标 0, 2, 4, 6</p>
-          <p class="fragment">效果和 <code>s[::2]</code> 一样</p>
-        </div>
-      </div>
-      <p class="note">把 <code>+ 2</code> 换成 <code>+ n</code>，就是 2024 TT1 第 11(a) 题的结构。</p>
-    </section>
-
-    <section id="loop-accum" class="mid-code">
-      <h2>累加器：循环前准备，循环里更新，循环后使用</h2>
-      <div class="cols">
-        <div>
-          <h3>数个数</h3>
-          <div class="src"><pre><code class="py">count = 0
-for ch in s:
-    if ch.isdigit():
-        count = count + 1</code></pre></div>
-        </div>
-        <div>
-          <h3>求和</h3>
-          <div class="src"><pre><code class="py">total = 0
-for n in nums:
-    total = total + n</code></pre></div>
-        </div>
-        <div>
-          <h3>造一个新 list</h3>
-          <div class="src"><pre><code class="py">result = []
-for n in nums:
-    result.append(n * 2)</code></pre></div>
-        </div>
-      </div>
-      <div class="takeaway">累加器的初始值写在<strong>循环外面</strong>。写进循环里，每一轮都会被清零。</div>
-      <p class="note">2024 TT1 第 11(b) 题是“数个数”，第 14 题是“造新 list”。</p>
-    </section>
-
-    <section id="loop-early-return">
-      <h2><code>return</code> 写在循环里：函数立刻结束</h2>
-      <div class="cols">
-        <div>
-          <h3>对：发现反例就停</h3>
-          <div class="src"><pre><code class="py">def all_positive(nums):
-    for n in nums:
-        if n &lt;= 0:
-            return False
-    return True</code></pre></div>
-        </div>
-        <div>
-          <h3>错：只看了第一个</h3>
-          <div class="src"><pre><code class="py">def all_positive(nums):
-    for n in nums:
-        if n &lt;= 0:
-            return False
-        else:
-            return True</code></pre></div>
-        </div>
-      </div>
-      <p class="fragment"><code>all_positive([3, -1])</code>：右边第一轮看到 3，直接 <code>return True</code>，-1 根本没机会检查。</p>
-      <div class="takeaway">“全部都满足”：循环里遇到反例 <code>return False</code>，循环<strong>全部走完</strong>才 <code>return True</code>。</div>
-    </section>
-
-    <section id="loop-nested">
-      <h2>嵌套循环</h2>
-      <div class="cols">
-        <div>
-          <div class="src"><pre><code class="py">for a in [1, 2]:
-    for b in ['x', 'y']:
-        print(a, b)</code></pre></div>
-          <div class="out"><pre><code>1 x
-1 y
-2 x
-2 y</code></pre></div>
-        </div>
-        <div>
-          <div class="definition">外层每走一步，内层从头到尾走完一遍。总次数 = 2 × 2 = 4。</div>
-          <p>里面如果有 <code>return</code>，一执行就把<strong>两层循环连同整个函数</strong>一起结束。</p>
-          <p class="note">2024 TT1 第 3 题：两层循环比较 lst1 的每个元素和 lst2 的每个元素。</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="loop-parallel">
-      <h2>几个 list 一一对应：用同一个下标</h2>
-      <div class="src"><pre class="stepper"><code class="py">def label_ages(names: list, ages: list) -> list:
-    """
-    >>> label_ages(['June', 'Atlas'], [21, 18])
-    ['June: 21', 'Atlas: 18']
-    """
-    result = []
-    for i in range(len(names)):
-        result.append(names[i] + ': ' + str(ages[i]))
-    return result</code></pre></div>
-      <div class="steps">
-        <p class="fragment" data-lines="7"><code>names[i]</code> 和 <code>ages[i]</code> 是同一个人，所以循环的是<strong>下标</strong> i</p>
-        <p class="fragment" data-lines="8">数字要先 <code>str()</code> 才能和字符串拼接</p>
-        <p class="fragment" data-lines="6,9">空 list 进来，循环一次也不跑，直接返回 <code>[]</code></p>
-      </div>
-      <p class="note">2024 TT1 第 14 题就是这个模式。</p>
-    </section>
-
-    <!-- ============ Part 8 函数设计 ============ -->
-
     <section id="part-fdr" class="section-slide" data-part="函数设计、测试、重构">
-      <p class="part-no">PART 8 / 12</p>
+      <p class="part-no">PART 6 / 10</p>
       <h1>函数设计、测试、重构</h1>
       <p class="subtitle">Function Design Recipe · test cases · refactoring</p>
     </section>
-
     <section id="fdr-steps">
       <h2>写函数的顺序（Design Recipe）</h2>
       <ol>
@@ -1618,7 +1246,6 @@ for n in nums:
       </ol>
       <div class="takeaway">先想清楚“输入什么、输出什么、做什么”，再写代码。</div>
     </section>
-
     <section id="fdr-doctest">
       <h2>docstring 和 doctest</h2>
       <div class="src"><pre><code class="py">def triangle_area(base: float, height: float) -> float:
@@ -1636,7 +1263,6 @@ for n in nums:
       </ul>
       <div class="warn">原复习 PPT 这一页有两处笔误：doctest 写成了 <code>triangle(...)</code>，<code>triangle_area(4, 5)</code> 的期望值写成了 20.0。正确是 <code>4 * 5 / 2 = 10.0</code>。</div>
     </section>
-
     <section id="fdr-desc">
       <h2>怎么写 description <span class="tag new">卷子补充</span></h2>
       <div class="src"><pre><code class="py">def has_digit(s: str) -> bool:
@@ -1654,9 +1280,7 @@ for n in nums:
         <li>返回 bool 时写 <strong>Return True iff …</strong>（iff = 当且仅当）</li>
         <li>返回类型看 <code>return</code> 后面：<code>return c == n</code> 是 <code>bool</code></li>
       </ul>
-      <p class="note">2024 TT1 第 11 题：给代码，写 description，填返回类型。</p>
-    </section>
-
+          </section>
     <section id="fdr-tests">
       <h2>怎么挑测试用例 <span class="tag new">卷子补充</span></h2>
       <p class="note">例子：<code>letter(x)</code>，0 ≤ x ≤ 100，80 分以上 A，70–79 B …… 50 以下 F</p>
@@ -1671,7 +1295,6 @@ for n in nums:
       <div class="takeaway">每个分支至少测一次；每个分界值测“刚好等于”和“刚好小一点”；范围两端各测一次。</div>
       <p class="note">题目说了范围（如 0.0 ≤ score ≤ 4.0），测试值就不能超出范围。2024 TT1 第 12 题。</p>
     </section>
-
     <section id="fdr-refactor-1">
       <h2>重构 ①：条件本身就是 True / False <span class="tag new">卷子补充</span></h2>
       <div class="cols">
@@ -1699,7 +1322,6 @@ else:
       </div>
       <div class="definition">refactoring：<strong>行为不变</strong>，代码更简单。</div>
     </section>
-
     <section id="fdr-refactor-2">
       <h2>重构 ②：合并分支，删掉到不了的代码</h2>
       <div class="cols">
@@ -1722,15 +1344,11 @@ return False</code></pre></div>
       <div class="takeaway">改完用几组值检查：原来返回什么，现在还得返回什么。</div>
       <p class="note">2024 TT1 第 13 题就是这类。</p>
     </section>
-
-    <!-- ============ Part 9 Error ============ -->
-
     <section id="part-err" class="section-slide" data-part="常见 Error">
-      <p class="part-no">PART 9 / 12</p>
+      <p class="part-no">PART 7 / 10</p>
       <h1>常见 Error</h1>
       <p class="subtitle">看最后一行：错误类型 + 原因</p>
     </section>
-
     <section id="err-1">
       <h2>常见 Error ①</h2>
       <table>
@@ -1738,12 +1356,9 @@ return False</code></pre></div>
         <tr><td><strong>NameError</strong></td><td><code>y</code>（从没赋值）</td><td>这个名字不存在</td></tr>
         <tr><td><strong>TypeError</strong></td><td><code>"Total: " + 10</code></td><td>str 不能和 int 相加</td></tr>
         <tr><td><strong>TypeError</strong></td><td><code>'a' - 'a'</code></td><td>字符串不能相减</td></tr>
-        <tr><td><strong>TypeError</strong> <span class="tag new">卷子</span></td><td><code>ages(2)</code>（ages 是 list）</td><td>用了圆括号，把 list 当函数调用；应写 <code>ages[2]</code></td></tr>
-        <tr><td><strong>TypeError</strong> <span class="tag new">卷子</span></td><td><code>None[3]</code></td><td>None 不能取下标（常见于 <code>lst = lst.append(...)</code>）</td></tr>
         <tr><td><strong>IndexError</strong></td><td><code>'abc'[3]</code></td><td>下标越界</td></tr>
       </table>
     </section>
-
     <section id="err-2">
       <h2>常见 Error ②</h2>
       <table>
@@ -1757,15 +1372,11 @@ return False</code></pre></div>
       </table>
       <div class="takeaway">“解释为什么报错”这种题：写出错误类型，再用一句话说是哪个操作不合法、应该怎么改。</div>
     </section>
-
-    <!-- ============ Part 10 定义与 API ============ -->
-
     <section id="part-gloss" class="section-slide" data-part="定义与 API sheet">
-      <p class="part-no">PART 10 / 12</p>
+      <p class="part-no">PART 8 / 10</p>
       <h1>定义与 API sheet</h1>
       <p class="subtitle">按课件里的英文定义记</p>
     </section>
-
     <section id="gloss-1">
       <h2>定义 ①</h2>
       <table>
@@ -1778,7 +1389,6 @@ return False</code></pre></div>
         <tr><td>return</td><td>A reserved word. It sends a value back to the caller and exits the function.</td></tr>
       </table>
     </section>
-
     <section id="gloss-2">
       <h2>定义 ②</h2>
       <table>
@@ -1791,7 +1401,6 @@ return False</code></pre></div>
         <tr><td>Method</td><td>A function designed for one type, called as <code>value.method(...)</code>.</td></tr>
       </table>
     </section>
-
     <section id="gloss-3">
       <h2>定义 ③</h2>
       <table>
@@ -1802,48 +1411,41 @@ return False</code></pre></div>
       </table>
       <div class="definition">Control structures：<strong>if statements</strong> 和 <strong>loops</strong>。assignment、function、method、expression 都不是。</div>
     </section>
-
     <section id="builtins">
       <h2>内置函数</h2>
       <table>
         <tr><th>函数</th><th>记住</th></tr>
         <tr><td><code>print(...)</code></td><td>显示内容，返回 <code>None</code></td></tr>
-        <tr><td><code>len(x)</code></td><td>字符串、list 的长度</td></tr>
+        <tr><td><code>len(x)</code></td><td>字符串的长度</td></tr>
         <tr><td><code>str(x)</code> <code>float(x)</code> <code>bool(x)</code></td><td>转换类型</td></tr>
         <tr><td><code>int(x)</code></td><td><code>int('12')</code> 是 12；<code>int('2.0')</code> 报 ValueError；<code>int(-2.7)</code> 是 -2（往 0 砍）</td></tr>
         <tr><td><code>type(x)</code></td><td><code>&lt;class 'int'&gt;</code>、<code>&lt;class 'NoneType'&gt;</code> ……</td></tr>
-        <tr><td><code>range(...)</code></td><td>不包含 stop</td></tr>
         <tr><td><code>max</code> / <code>min</code> / <code>ord</code> / <code>chr</code> / <code>input</code></td><td>API sheet 上都有</td></tr>
       </table>
     </section>
-
     <section id="api-sheet">
       <h2>考试附 API sheet：不用背签名，要会看 <span class="tag new">卷子补充</span></h2>
       <div class="cols">
         <div>
-          <h3>返回 <code>None</code>（改原来的东西）</h3>
-          <p><code>print</code>、<code>L.append</code>、<code>L.insert</code>、<code>L.remove</code>、<code>L.reverse</code>、<code>L.sort</code></p>
+          <h3>返回 <code>None</code></h3>
+          <p><code>print</code> 把内容显示出来，返回值是 <code>None</code></p>
           <h3>返回新字符串（原字符串不变）</h3>
           <p><code>lower</code>、<code>upper</code>、<code>capitalize</code>、<code>strip</code>、<code>lstrip</code>、<code>rstrip</code>、<code>replace</code></p>
         </div>
         <div>
           <h3>返回 bool</h3>
-          <p><code>x in s</code>、<code>x in L</code>、<code>isalpha</code>、<code>isdigit</code>、<code>islower</code>、<code>isupper</code></p>
+          <p><code>x in s</code>、<code>isalpha</code>、<code>isdigit</code>、<code>islower</code>、<code>isupper</code></p>
           <h3>返回 int</h3>
           <p><code>len</code>、<code>count</code>、<code>find</code>（找不到 -1）、<code>index</code>（找不到报错）、<code>ord</code></p>
         </div>
       </div>
       <div class="takeaway">API sheet 上 <code>-&gt;</code> 后面写的就是返回类型。看到 <code>-&gt; None</code>，就别把结果赋值给变量。</div>
     </section>
-
-    <!-- ============ Part 11 复习 PPT 疑似考题 ============ -->
-
     <section id="part-ppt" class="section-slide" data-part="复习 PPT 疑似考题">
-      <p class="part-no">PART 11 / 12</p>
+      <p class="part-no">PART 9 / 10</p>
       <h1>复习 PPT 里的疑似考题</h1>
       <p class="subtitle">先做，再按 →</p>
     </section>
-
     <section id="q-cast">
       <h2>从哪一行开始报错</h2>
       <div class="src"><pre class="stepper"><code class="py">print(int("1"))
@@ -1856,7 +1458,6 @@ print(int("2.0"))</code></pre></div>
         <p class="fragment" data-lines="4">答案 <strong>c</strong>。<code>int("2.0")</code> 是 ValueError：<code>int</code> 读字符串时不认小数点。要写 <code>int(float("2.0"))</code>。</p>
       </div>
     </section>
-
     <section id="q-slice-mc">
       <h2><code>"Mississauga"</code> 切片</h2>
       <div class="strip" data-text="Mississauga" data-mark="::3" data-neg="no"></div>
@@ -1873,7 +1474,6 @@ print(int("2.0"))</code></pre></div>
       </div>
       <p class="fragment" data-fragment-index="1">答案 <strong>A</strong>。下标 0、3、6、9 是 M、s、s、g。<code>a[0:11:-1]</code> 从 0 往左走，到不了 11 → <code>''</code>。</p>
     </section>
-
     <section id="q-global">
       <h2>跑完之后 x 和 y 是什么</h2>
       <div class="cols">
@@ -1897,7 +1497,6 @@ b()</code></pre></div>
         </div>
       </div>
     </section>
-
     <section id="q-control">
       <h2>哪些是 control structure</h2>
       <ol class="opts">
@@ -1911,7 +1510,6 @@ b()</code></pre></div>
       </ol>
       <p class="fragment" data-fragment-index="0">control structure 决定“哪些代码执行、执行几次”。只有 loop 和 if-statement。</p>
     </section>
-
     <section id="q-errors">
       <h2>会引发什么 Error</h2>
       <table>
@@ -1922,7 +1520,6 @@ b()</code></pre></div>
         <tr><td><code>x = 3</code> 然后 <code>y</code></td><td class="fragment">NameError</td></tr>
       </table>
     </section>
-
     <section id="q-expr">
       <h2>三道计算，一个公式</h2>
       <table>
@@ -1933,14 +1530,12 @@ b()</code></pre></div>
         <tr><td>用 a、b 填 <code>a = _ % _ + _ // _ * _</code></td><td class="fragment" data-fragment-index="3" colspan="2"><code>a = a % b + a // b * b</code></td></tr>
       </table>
     </section>
-
     <section id="q-replace">
       <h2><code>replace</code> 换掉全部</h2>
       <div class="src"><pre><code class="py">>>> "abs sabs eeabs".replace("abs", "s")</code></pre></div>
       <div class="out fragment"><pre><code>'s ss ees'</code></pre></div>
       <p class="fragment">三处 <code>abs</code> 都换成 <code>s</code>：<code>abs</code> → <code>s</code>，<code>sabs</code> → <code>ss</code>，<code>eeabs</code> → <code>ees</code>。空格保留。</p>
     </section>
-
     <section id="q-find">
       <h2>第二次出现的位置</h2>
       <div class="src"><pre class="stepper"><code class="py">def index_of_the_second_sub(s: str, sub: str) -> int:
@@ -1959,16 +1554,12 @@ b()</code></pre></div>
         <p class="fragment" data-lines="10">外层 <code>find</code> 从 3 找到 <strong>3</strong>；找不到就是 -1</p>
       </div>
     </section>
-
-    <!-- ============ Part 12 2024 TT1 真题 ============ -->
-
     <section id="part-exam" class="section-slide" data-part="2024 TT1 真题">
-      <p class="part-no">PART 12 / 12</p>
+      <p class="part-no">PART 10 / 10</p>
       <h1>2024 Term Test 1 逐题讲</h1>
-      <p class="subtitle">15 题 · 选择题注意 “Circle ALL” 是多选</p>
-      <aside class="notes">每题先给大家时间做，再按 → 揭答案。选择题 1–8 可以一起做 8 分钟再对答案。</aside>
+      <p class="subtitle">8 题 · 选择题注意 “Circle ALL” 是多选</p>
+      <aside class="notes">每题先给大家时间做，再按 → 揭答案。先做再按 → 揭答案。</aside>
     </section>
-
     <section id="exam-map">
       <h2>考点地图</h2>
       <div class="cols">
@@ -1976,26 +1567,18 @@ b()</code></pre></div>
           <tr><th>题</th><th>考点</th><th>复习页</th></tr>
           <tr><td><a href="#/exam-q1">Q1</a></td><td>取中间一位</td><td><a href="#/op-digits">运算符</a></td></tr>
           <tr><td><a href="#/exam-q2">Q2</a></td><td>嵌套 if 填空</td><td><a href="#/if-nested">条件</a></td></tr>
-          <tr><td><a href="#/exam-q3">Q3</a></td><td>嵌套循环 + return</td><td><a href="#/loop-nested">循环</a></td></tr>
-          <tr><td><a href="#/exam-q4">Q4</a></td><td>追踪 while</td><td><a href="#/loop-while">循环</a></td></tr>
-          <tr><td><a href="#/exam-q5">Q5</a></td><td><code>in</code>、<code>*</code>、list 比较</td><td><a href="#/list-in">List</a></td></tr>
-          <tr><td><a href="#/exam-q6">Q6</a></td><td>append 返回 None</td><td><a href="#/list-none-trap">List</a></td></tr>
           <tr><td><a href="#/exam-q7">Q7</a></td><td>拼接 + slicing</td><td><a href="#/str-step">字符串</a></td></tr>
           <tr><td><a href="#/exam-q8">Q8</a></td><td>参数与 scope</td><td><a href="#/scope-args">scope</a></td></tr>
         </table>
         <table>
           <tr><th>题</th><th>考点</th><th>复习页</th></tr>
           <tr><td><a href="#/exam-q9">Q9</a></td><td>if/elif vs 两个 if</td><td><a href="#/if-separate">条件</a></td></tr>
-          <tr><td><a href="#/exam-q10">Q10</a></td><td>解释 Error</td><td><a href="#/err-1">Error</a></td></tr>
-          <tr><td><a href="#/exam-q11a">Q11</a></td><td>写 docstring + 返回类型</td><td><a href="#/fdr-desc">函数设计</a></td></tr>
           <tr><td><a href="#/exam-q12">Q12</a></td><td>设计测试用例</td><td><a href="#/fdr-tests">函数设计</a></td></tr>
           <tr><td><a href="#/exam-q13">Q13</a></td><td>重构条件语句</td><td><a href="#/fdr-refactor-2">函数设计</a></td></tr>
-          <tr><td><a href="#/exam-q14">Q14</a></td><td>平行 list 造新 list</td><td><a href="#/loop-parallel">循环</a></td></tr>
           <tr><td><a href="#/exam-q15">Q15</a></td><td>slicing + int()</td><td><a href="#/str-slice-omit">字符串</a></td></tr>
         </table>
       </div>
     </section>
-
     <section id="exam-q1">
       <h2>Q1 · Python as a Calculator <span class="tag pts">1 pt</span></h2>
       <p>a 是一个正的三位数。哪个表达式得到 a 的<strong>中间一位</strong>？（a = 456 时要得到 5）</p>
@@ -2017,7 +1600,6 @@ b()</code></pre></div>
       <p class="fragment" data-fragment-index="2">A 和 B 都对，所以答案是 <strong>D</strong>。</p>
       <aside class="notes">单选题，别圈 A 和 B 两个，要圈 D。</aside>
     </section>
-
     <section id="exam-q2">
       <h2>Q2 · Conditionals <span class="tag pts">1 pt</span></h2>
       <div class="cols">
@@ -2049,7 +1631,6 @@ else:
       </div>
       <aside class="notes">让大家先看表：60 块出现在哪？只有 silver 且 2 个月以上。所以 (1) 一定是 silver。</aside>
     </section>
-
     <section id="exam-q2-ans">
       <h2>Q2 讲解：答案 A</h2>
       <div class="steps">
@@ -2065,98 +1646,6 @@ else:
       </table>
       <p class="fragment">只有 A 对 → 答案 <strong>A</strong>。</p>
     </section>
-
-    <section id="exam-q3">
-      <h2>Q3 · Loops <span class="tag pts">1 pt</span> <span class="tag">多选</span></h2>
-      <div class="cols w46">
-        <div class="src"><pre><code class="py">def do_something(lst1, lst2):
-    for element1 in lst1:
-        for element2 in lst2:
-            if element1 >= element2:
-                return False
-    return True</code></pre></div>
-        <div style="font-size:0.8em">
-          <ol class="opts">
-            <li>True iff len(lst2) &lt; len(lst1)</li>
-            <li>True iff each element in lst1 is less than the element at the same index in lst2</li>
-            <li class="fragment mark" data-fragment-index="0">True iff every element in lst1 is less than every element in lst2</li>
-            <li>True iff every element in lst1 is less than the first element in lst2</li>
-            <li>True iff every element in lst2 is less than the first element in lst1</li>
-          </ol>
-        </div>
-      </div>
-      <div class="steps">
-        <p class="fragment" data-fragment-index="0">两层循环：lst1 的<strong>每个</strong>元素和 lst2 的<strong>每个</strong>元素都比一次，只要有一对 <code>e1 &gt;= e2</code> 就 False → <strong>C</strong></p>
-        <p class="fragment">B 的反例：<code>[1, 5]</code> 和 <code>[3, 9]</code>，同位置都更小，但 5 ≥ 3，函数返回 False</p>
-        <p class="fragment">D 的反例：<code>[1]</code> 和 <code>[3, 0]</code>，1 &lt; 3，但 1 ≥ 0，函数返回 False</p>
-      </div>
-    </section>
-
-    <section id="exam-q4">
-      <h2>Q4 · Loops <span class="tag pts">1 pt</span> <span class="tag">多选</span></h2>
-      <div class="cols">
-        <div>
-          <div class="src"><pre><code class="py">i = 4
-while i &lt; 20:
-    print(i)
-    i = i + 5</code></pre></div>
-          <ol class="opts" style="font-size:0.85em">
-            <li class="fragment mark" data-fragment-index="5">The first number printed is 4.</li>
-            <li>The first number printed is 9.</li>
-            <li class="fragment mark" data-fragment-index="5">There are four numbers printed in total.</li>
-            <li>There are sixteen numbers printed in total.</li>
-            <li>The number 15 is printed.</li>
-            <li>None of the above.</li>
-          </ol>
-        </div>
-        <table>
-          <tr><th>i</th><th><code>i &lt; 20</code>?</th><th>打印</th></tr>
-          <tr class="fragment" data-fragment-index="0"><td>4</td><td>True</td><td>4</td></tr>
-          <tr class="fragment" data-fragment-index="1"><td>9</td><td>True</td><td>9</td></tr>
-          <tr class="fragment" data-fragment-index="2"><td>14</td><td>True</td><td>14</td></tr>
-          <tr class="fragment" data-fragment-index="3"><td>19</td><td>True</td><td>19</td></tr>
-          <tr class="fragment" data-fragment-index="4"><td>24</td><td>False → 停</td><td></td></tr>
-        </table>
-      </div>
-      <p class="fragment" data-fragment-index="5">打印 4、9、14、19，共 4 个 → <strong>A 和 C</strong>。先 print 再加 5，所以第一个是 4；15 从没出现。</p>
-    </section>
-
-    <section id="exam-q5">
-      <h2>Q5 · General <span class="tag pts">1 pt</span> <span class="tag">多选</span></h2>
-      <p>哪些表达式是 True？</p>
-      <table>
-        <tr><th></th><th>表达式</th><th>结果</th><th>为什么</th></tr>
-        <tr><td>A</td><td><code>'o' in ['Welcome', 'to', 'CSC108']</code></td><td class="fragment">False</td><td class="fragment">list 的 in 看元素是否<strong>相等</strong>，不往字符串里面找</td></tr>
-        <tr><td>B</td><td><code>len("what's") in [1, 4, 6, 7]</code></td><td class="fragment"><strong>True</strong></td><td class="fragment"><code>"what's"</code> 有 6 个字符（撇号也算）</td></tr>
-        <tr><td>C</td><td><code>'aabbcc' == 'abc' * 2</code></td><td class="fragment">False</td><td class="fragment"><code>'abc' * 2</code> 是 <code>'abcabc'</code></td></tr>
-        <tr><td>D</td><td><code>[1, 0, 8] > [1, 4, 8]</code></td><td class="fragment">False</td><td class="fragment">下标 1：<code>0 &gt; 4</code> 是 False</td></tr>
-        <tr><td>E</td><td>None of them</td><td class="fragment">—</td><td class="fragment">B 是 True</td></tr>
-      </table>
-      <p class="fragment">答案 <strong>B</strong>。</p>
-    </section>
-
-    <section id="exam-q6">
-      <h2>Q6 · Lists <span class="tag pts">1 pt</span></h2>
-      <div class="cols">
-        <div class="src"><pre class="stepper"><code class="py">lst = [4, 3, 2]
-lst = lst.append(1)
-print(type(lst[3]))</code></pre></div>
-        <ol class="opts" style="font-size:0.85em">
-          <li><code>&lt;class 'list'&gt;</code></li>
-          <li><code>&lt;class 'int'&gt;</code></li>
-          <li><code>&lt;class 'str'&gt;</code></li>
-          <li><code>&lt;class 'float'&gt;</code></li>
-          <li><code>&lt;class 'NoneType'&gt;</code></li>
-          <li class="fragment mark" data-fragment-index="2">An error occurs.</li>
-        </ol>
-      </div>
-      <div class="steps">
-        <p class="fragment" data-fragment-index="0" data-lines="2"><code>append</code> 返回 <code>None</code>，所以 <code>lst</code> 变成 <code>None</code></p>
-        <p class="fragment" data-fragment-index="1" data-lines="3"><code>None[3]</code> → TypeError</p>
-        <p class="fragment" data-fragment-index="2">答案 <strong>F</strong>。最容易错选 B（以为 <code>lst[3]</code> 是 1）或 E（以为打印 None 的类型）。</p>
-      </div>
-    </section>
-
     <section id="exam-q7">
       <h2>Q7 · Strings <span class="tag pts">1 pt</span></h2>
       <div class="src"><pre><code class="py">s = "We're" + "Here"
@@ -2178,7 +1667,6 @@ print(s[4::2])</code></pre></div>
       </div>
       <p class="fragment" data-fragment-index="2">从下标 4 开始每次 +2：4、6、8 → <code>e</code>、<code>e</code>、<code>e</code>。答案 <strong>B</strong>。撇号在下标 2，取不到。</p>
     </section>
-
     <section id="exam-q8">
       <h2>Q8 · Variables <span class="tag pts">1 pt</span></h2>
       <div class="cols">
@@ -2209,7 +1697,6 @@ def hello(z, x):
       </div>
       <aside class="notes">先问：两个函数里有没有 global 关键字？没有。那不管里面怎么算，外面的 x、y、z 都不会变。下一页再完整追踪一遍，确认不会报错。</aside>
     </section>
-
     <section id="exam-q8-ans">
       <h2>Q8 讲解：答案 A</h2>
       <div class="cols">
@@ -2240,7 +1727,6 @@ def hello(z, x):
         </div>
       </div>
     </section>
-
     <section id="exam-q9">
       <h2>Q9 · Code Tracing <span class="tag pts">4 pts</span></h2>
       <div class="cols mid-code">
@@ -2272,73 +1758,6 @@ def hello(z, x):
       </table>
       <aside class="notes">重点是最后一行：func_b 的两个 if 互不影响，12 两个都要走。很多人写 10。</aside>
     </section>
-
-    <section id="exam-q10">
-      <h2>Q10 · General <span class="tag pts">3 pts</span>：解释为什么报错</h2>
-      <table class="small-code">
-        <tr><th style="width:44%">代码</th><th>原因</th></tr>
-        <tr>
-          <td><div class="src"><pre><code class="py">numbers = [10, 20, 30]
-result = "Total: " + numbers[0]
-print(result)</code></pre></div></td>
-          <td class="fragment"><strong>TypeError</strong>：<code>numbers[0]</code> 是 int，字符串不能直接加 int。改成 <code>"Total: " + str(numbers[0])</code>。</td>
-        </tr>
-        <tr>
-          <td><div class="src"><pre><code class="py">ages = [21, 18, 25, 30]
-print(ages(2))</code></pre></div></td>
-          <td class="fragment"><strong>TypeError</strong>：list 不能用圆括号调用（not callable）。取元素要用方括号 <code>ages[2]</code>。</td>
-        </tr>
-        <tr>
-          <td><div class="src"><pre><code class="py">names = ['June', 'Zephyr', 'Atlas']
-for i in range(len(names)):
-    names[i] = names[i].lowercase()
-print(names)</code></pre></div></td>
-          <td class="fragment"><strong>AttributeError</strong>：str 没有 <code>lowercase</code> 这个方法，应该是 <code>lower()</code>。</td>
-        </tr>
-      </table>
-    </section>
-
-    <section id="exam-q11a">
-      <h2>Q11(a) · 写 description，填返回类型 <span class="tag pts">1.5 pts</span></h2>
-      <div class="cols">
-        <div class="src"><pre class="stepper"><code class="py">def mystery(s: str, n: int) -> ______:
-    i = 0
-    while i &lt; len(s):
-        if not s[i] == '*':
-            return False
-        i = i + n
-    return True</code></pre></div>
-        <div class="steps">
-          <p class="fragment" data-lines="2,6">i 从 0 开始，每次 +n：看下标 0, n, 2n, …</p>
-          <p class="fragment" data-lines="4-5">只要其中一个不是 <code>'*'</code> 就 False</p>
-          <p class="fragment" data-lines="7">全看完都是 <code>'*'</code> 才 True</p>
-        </div>
-      </div>
-      <div class="takeaway fragment">返回类型 <code>bool</code>。<br>Return True iff every n-th character of s, starting at index 0 (that is, s[0], s[n], s[2n], …), is <code>'*'</code>.</div>
-      <p class="note fragment">可以补一句前提：n &gt; 0。s 为空时返回 True。</p>
-    </section>
-
-    <section id="exam-q11b">
-      <h2>Q11(b) · 写 description，填返回类型 <span class="tag pts">1.5 pts</span></h2>
-      <div class="cols">
-        <div class="src"><pre class="stepper"><code class="py">def mystery(s: str, n: int) -> ______:
-    i = 0
-    c = 0
-    while i &lt; len(s):
-        if s[i].isdigit():
-            c = c + 1
-        i = i + 1
-    return c == n</code></pre></div>
-        <div class="steps">
-          <p class="fragment" data-lines="3,5-6">c 是累加器：数 s 里有几个数字字符</p>
-          <p class="fragment" data-lines="4,7">i 每次 +1：每个字符都看</p>
-          <p class="fragment" data-lines="8"><code>c == n</code> 是一个比较 → bool</p>
-        </div>
-      </div>
-      <div class="takeaway fragment">返回类型 <code>bool</code>。<br>Return True iff s contains exactly n digit characters.</div>
-      <div class="warn fragment">返回类型不是 <code>int</code>。返回的是 <code>c == n</code>，不是 c。</div>
-    </section>
-
     <section id="exam-q12">
       <h2>Q12 · Test cases <span class="tag pts">2 pts</span></h2>
       <div class="src small-code"><pre><code class="py">def performance_eval(score: float) -> str:
@@ -2356,7 +1775,6 @@ print(names)</code></pre></div></td>
       </table>
       <p class="note fragment">也可以换成 0.0（最小值）或 3.19（刚好低于 3.2）。不能用 4.5、-1 这种超出范围的值。</p>
     </section>
-
     <section id="exam-q13">
       <h2>Q13 · Refactoring <span class="tag pts">2 pts</span></h2>
       <div class="cols">
@@ -2381,37 +1799,6 @@ print(names)</code></pre></div></td>
       </div>
       <p class="note fragment">括号可以不写（and 本来就先算），写上更清楚。我用 x ∈ [-50, 200)、y ∈ [-5, 20) 全部代进去比过，结果和原函数完全一样。</p>
     </section>
-
-    <section id="exam-q14">
-      <h2>Q14 · Lists <span class="tag pts">3 pts</span></h2>
-      <p>names、marks1、marks2 长度相同，一一对应。返回新 list：名字后面紧跟它两次分数之和。</p>
-      <div class="src"><pre><code class="py">>>> merge_name_marks(['Rutwa', 'Dan', 'Romina'], [50, 47, 43], [35, 40, 53])
-['Rutwa', 85, 'Dan', 87, 'Romina', 96]
->>> merge_name_marks(['Peter', 'Randy'], [30, 22], [54, 84])
-['Peter', 84, 'Randy', 106]
->>> merge_name_marks([], [], [])
-[]</code></pre></div>
-      <div class="exercise">想一想：要循环什么？累加器是什么？每一轮往里放几个东西？</div>
-      <aside class="notes">给 4 分钟写。提示：三个 list 同一个下标对应同一个人，所以循环下标。</aside>
-    </section>
-
-    <section id="exam-q14-ans">
-      <h2>Q14 解答</h2>
-      <div class="src"><pre class="stepper"><code class="py">def merge_name_marks(names, marks1, marks2):
-    result = []
-    for i in range(len(names)):
-        result.append(names[i])
-        result.append(marks1[i] + marks2[i])
-    return result</code></pre></div>
-      <div class="steps">
-        <p class="fragment" data-lines="2">累加器：新 list，循环外面初始化</p>
-        <p class="fragment" data-lines="3">三个 list 同一下标对应同一个人 → 循环下标 i</p>
-        <p class="fragment" data-lines="4-5">每一轮放两个：先名字，再 <code>marks1[i] + marks2[i]</code></p>
-        <p class="fragment" data-lines="6">空 list 时循环不跑，返回 <code>[]</code>，第三个例子自动满足</p>
-      </div>
-      <div class="warn fragment">不要写 <code>result = result.append(...)</code>（会变成 None）。<code>return</code> 不要缩进到循环里面。</div>
-    </section>
-
     <section id="exam-q15">
       <h2>Q15 · Strings <span class="tag pts">3 pts</span></h2>
       <div class="src mid-code"><pre><code class="py">CURRENT_YEAR = 2023
@@ -2442,7 +1829,6 @@ def calculate_age(birth_date: str) -> int:
       </div>
       <aside class="notes">先给 3 分钟写。提示：年份就是前 4 个字符，用 slicing 取出来再转 int。</aside>
     </section>
-
     <section id="checklist">
       <h2>进考场前过一遍</h2>
       <div class="cols" style="font-size:0.88em">
@@ -2457,19 +1843,15 @@ def calculate_age(birth_date: str) -> int:
         <ul>
           <li>slicing 含头不含尾；step 的正负决定方向</li>
           <li><code>'abc' * 2</code> 是 <code>'abcabc'</code>；str + int 报错</li>
-          <li>str 的 <code>in</code> 找子串；list 的 <code>in</code> 找相等的元素</li>
-          <li><code>append</code> / <code>sort</code> 返回 None，别赋值回去</li>
-          <li>while：画表追踪；“全部满足”循环走完才 return True</li>
+          <li>str 的 <code>in</code> 找的是连续的一段子串</li>
           <li>docstring 写 “Return True iff …”；测试挑边界；重构保持行为不变</li>
         </ul>
       </div>
     </section>
-
     <section id="end" class="section-slide">
       <h1>祝大家考试顺利</h1>
       <p class="subtitle">卡住时点目录跳回对应的那一章，用例子再算一遍。</p>
     </section>
-
   </div>
 </div>
 <div class="deck-footer">CSC108 · Term Test 1 Review</div>
