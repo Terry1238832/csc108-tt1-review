@@ -1255,11 +1255,22 @@ True</code></pre></div>
           <p><code>ord('a')</code> 是 97，<code>chr(66)</code> 是 <code>'B'</code>。API sheet 上有这两个函数。</p>
         </div>
       </div>
-      <h3>多个字符怎么比</h3>
-      <ol>
-        <li>从下标 0 开始逐个比，第一个不同的字符决定大小</li>
-        <li>一直相同、其中一个先比完 → <strong>短的更小</strong></li>
-      </ol>
+      <h3>多个字符：从左边一个一个比</h3>
+      <p>像查字典：字母一样就看下一个，<strong>第一个不一样的字母</strong>决定谁更小。</p>
+      <div class="cols">
+        <div>
+          <p class="strip-label"><code>'car'</code> 和 <code>'cat'</code></p>
+          <div class="strip small" data-text="car" data-hit="2" data-neg="no" data-pos="no"></div>
+          <div class="strip small" data-text="cat" data-hit="2" data-neg="no" data-pos="no"></div>
+          <p><code>c</code> 一样，<code>a</code> 一样。第三个 <code>r</code> 比 <code>t</code> 靠前，所以 <code>'car' &lt; 'cat'</code>。</p>
+        </div>
+        <div>
+          <p class="strip-label"><code>'app'</code> 和 <code>'apple'</code></p>
+          <div class="strip small" data-text="app" data-neg="no" data-pos="no"></div>
+          <div class="strip small" data-text="apple" data-hit="3,4" data-neg="no" data-pos="no"></div>
+          <p>前面 <code>app</code> 都一样。<code>'app'</code> 先结束，短的更小，所以 <code>'app' &lt; 'apple'</code>。</p>
+        </div>
+      </div>
     </section>
 
     <section id="str-compare-examples">
@@ -2580,10 +2591,12 @@ def calculate_age(birth_date: str) -> int:
         }
         var b = document.createElement("b");
         b.textContent = isList ? (typeof item === "string" ? "'" + item + "'" : String(item)) : (item === " " ? "␣" : item);
-        var pos = document.createElement("i");
-        pos.textContent = i;
         cell.appendChild(b);
-        cell.appendChild(pos);
+        if (el.dataset.pos !== "no") {
+          var pos = document.createElement("i");
+          pos.textContent = i;
+          cell.appendChild(pos);
+        }
         if (el.dataset.neg !== "no") {
           var neg = document.createElement("i");
           neg.className = "neg";
