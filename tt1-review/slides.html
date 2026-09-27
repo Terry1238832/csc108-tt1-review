@@ -1896,6 +1896,27 @@ return False</code></pre></div>
         <tr><td><strong>TypeError</strong> <span class="tag new">卷子</span></td><td><code>None[3]</code></td><td>None 不能取下标（常见于 <code>lst = lst.append(...)</code>）</td></tr>
         <tr><td><strong>IndexError</strong></td><td><code>'abc'[3]</code></td><td>下标越界</td></tr>
       </table>
+      <div class="cols">
+        <div>
+          <div class="src small-code"><pre id="err-sub" class="stepper"><code class="py">'a' - 'a'
+ord('a')
+ord('a') - ord('a')</code></pre></div>
+          <div class="steps">
+            <p class="fragment" data-fragment-index="0" data-target="#err-sub" data-lines="1"><code>'a'</code> 是文字，不是 97。减号不会自动查编码 → <strong>TypeError</strong>。</p>
+            <p class="fragment" data-fragment-index="1" data-target="#err-sub" data-lines="2">要数字得自己写 <code>ord('a')</code> → <strong>97</strong>。</p>
+            <p class="fragment" data-fragment-index="2" data-target="#err-sub" data-lines="3"><code>ord('a') - ord('a')</code> 才是 97 − 97 → <strong>0</strong>。</p>
+          </div>
+        </div>
+        <div>
+          <div class="src small-code"><pre id="err-none" class="stepper"><code class="py">a = print(1)
+a[0]</code></pre></div>
+          <div class="steps">
+            <p class="fragment" data-fragment-index="3" data-target="#err-none" data-lines="1"><code>None</code> 表示“没有东西”。不是 0，也不是 <code>""</code>。</p>
+            <p class="fragment" data-fragment-index="4" data-target="#err-none" data-lines="1">屏幕写出 1，交回来的是 None，所以 <code>a</code> 是 None。</p>
+            <p class="fragment" data-fragment-index="5" data-target="#err-none" data-lines="2">None 没有格子。<code>a[0]</code> 就是 <code>None[0]</code> → <strong>TypeError</strong>。</p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="err-2">
