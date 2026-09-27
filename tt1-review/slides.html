@@ -1769,21 +1769,37 @@ for n in nums:
 
     <section id="fdr-desc">
       <h2>怎么写 description <span class="tag new">卷子补充</span></h2>
-      <div class="src"><pre><code class="py">def has_digit(s: str) -> bool:
+      <div class="cols">
+        <div class="src"><pre id="desc-fn" class="stepper"><code class="py">def has_digit(s: str) -> bool:
     """???"""
     for ch in s:
         if ch.isdigit():
             return True
     return False</code></pre></div>
-      <div class="cols">
-        <div class="warn">“遍历 s，如果 ch 是数字就返回 True，最后返回 False。”<br><span class="note">这是逐行翻译代码，拿不到分。</span></div>
-        <div class="takeaway">Return True iff s contains at least one digit.</div>
+        <div class="steps">
+          <p class="fragment" data-fragment-index="0" data-target="#desc-fn" data-lines="1,3"><strong>用参数名。</strong> 函数头里叫 <code>s</code>，description 就写 s。循环里的 <code>ch</code> 是临时名字，不要写进去。</p>
+          <p class="fragment" data-fragment-index="1" data-target="#desc-fn" data-lines="5-6"><strong>开头写 Return。</strong> 只说交出去什么。不要把代码逐行翻译成“先遍历，再 if，再 return”。</p>
+          <p class="fragment" data-fragment-index="2" data-target="#desc-fn" data-lines="5-6"><strong>交出去的是 True 或 False</strong>，写成 <code>Return True iff …</code>。iff 是 if and only if，就是“当且仅当”：后面那句话成立 → True，不成立 → False。</p>
+        </div>
       </div>
-      <ul>
-        <li>用 <strong>Return …</strong> 开头，直接用参数名（s、n）</li>
-        <li>返回 bool 时写 <strong>Return True iff …</strong>（iff = 当且仅当）</li>
-        <li>返回类型看 <code>return</code> 后面：<code>return c == n</code> 是 <code>bool</code></li>
-      </ul>
+      <div class="cols">
+        <div class="warn fragment" data-fragment-index="3">遍历 s，如果 ch 是数字就返回 True，最后返回 False。这是在翻译代码。</div>
+        <div class="takeaway fragment" data-fragment-index="3">Return True iff s contains at least one digit.</div>
+      </div>
+      <p class="fragment" data-fragment-index="4"><strong>返回类型</strong>看 <code>return</code> 后面那个值，不是前面数过的变量。</p>
+      <table class="fragment" data-fragment-index="5">
+        <tr><th>return 后面</th><th>按 → 看交出去什么</th><th>类型</th></tr>
+        <tr>
+          <td><code>return True</code></td>
+          <td>后面就是 True →</td>
+          <td><code>bool</code></td>
+        </tr>
+        <tr class="fragment" data-fragment-index="6">
+          <td><code>return c == n</code></td>
+          <td><code>==</code> 只问相不相等。2 == 2 → True，2 == 3 → False。不是把数字 c 交出去 →</td>
+          <td><code>bool</code></td>
+        </tr>
+      </table>
       <p class="note">2024 TT1 第 11 题：给代码，写 description，填返回类型。</p>
     </section>
 
