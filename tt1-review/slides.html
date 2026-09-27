@@ -229,8 +229,12 @@
   .reveal .strip-label { font-size: 24px; margin: 0.25em 0 0; }
   .reveal th code { background: rgba(255, 255, 255, 0.16); color: #fff; }
 
-  .reveal .slides section .fragment.mark { opacity: 1; visibility: inherit; }
-  .reveal .slides section .strip .cell.fragment.mark.visible b { background: var(--hl); border-color: var(--ex-line); }
+  .reveal .slides section .fragment.mark,
+  .reveal .slides section .strip .cell.fragment.same,
+  .reveal .slides section .strip .cell.fragment.diff { opacity: 1; visibility: inherit; }
+  .reveal .slides section .strip .cell.fragment.mark.visible b,
+  .reveal .slides section .strip .cell.fragment.diff.visible b { background: var(--hl); border-color: var(--ex-line); }
+  .reveal .slides section .strip .cell.fragment.same.visible b { background: var(--def); border-color: var(--blue); }
   .reveal .slides section li.fragment.mark.visible { background: var(--ok); border-radius: 4px; }
   .reveal .slides section li.fragment.mark.visible::after { content: "  ✓"; color: var(--ok-line); font-weight: 700; }
 
@@ -1260,15 +1264,17 @@ True</code></pre></div>
       <div class="cols">
         <div>
           <p class="strip-label"><code>'car'</code> 和 <code>'cat'</code></p>
-          <div class="strip small" data-text="car" data-hit="2" data-neg="no" data-pos="no"></div>
-          <div class="strip small" data-text="cat" data-hit="2" data-neg="no" data-pos="no"></div>
-          <p><code>c</code> 一样，<code>a</code> 一样。第三个 <code>r</code> 比 <code>t</code> 靠前，所以 <code>'car' &lt; 'cat'</code>。</p>
+          <div class="strip small" data-text="car" data-same="0:0,1:0" data-diff="2:1" data-neg="no" data-pos="no"></div>
+          <div class="strip small" data-text="cat" data-same="0:0,1:0" data-diff="2:1" data-neg="no" data-pos="no"></div>
+          <p class="fragment" data-fragment-index="0"><code>c</code> 一样，<code>a</code> 一样。</p>
+          <p class="fragment" data-fragment-index="1">第三个 <code>r</code> 比 <code>t</code> 靠前，所以 <code>'car' &lt; 'cat'</code>。</p>
         </div>
         <div>
           <p class="strip-label"><code>'app'</code> 和 <code>'apple'</code></p>
-          <div class="strip small" data-text="app" data-neg="no" data-pos="no"></div>
-          <div class="strip small" data-text="apple" data-hit="3,4" data-neg="no" data-pos="no"></div>
-          <p>前面 <code>app</code> 都一样。<code>'app'</code> 先结束，短的更小，所以 <code>'app' &lt; 'apple'</code>。</p>
+          <div class="strip small" data-text="app" data-same="0:2,1:2,2:2" data-neg="no" data-pos="no"></div>
+          <div class="strip small" data-text="apple" data-same="0:2,1:2,2:2" data-diff="3:3,4:3" data-neg="no" data-pos="no"></div>
+          <p class="fragment" data-fragment-index="2">前面 <code>app</code> 都一样。</p>
+          <p class="fragment" data-fragment-index="3"><code>'app'</code> 先结束，短的更小，所以 <code>'app' &lt; 'apple'</code>。</p>
         </div>
       </div>
     </section>
@@ -2582,12 +2588,28 @@ def calculate_age(birth_date: str) -> int:
       var n = items.length;
       var hit = collect(n, el.dataset.hit);
       var mark = collect(n, el.dataset.mark);
+      function steps(spec) {
+        var map = new Map();
+        (spec || "").split(",").filter(function (x) { return x.trim(); }).forEach(function (pair) {
+          var ab = pair.split(":");
+          map.set(parseInt(ab[0], 10), ab[1]);
+        });
+        return map;
+      }
+      var same = steps(el.dataset.same);
+      var diff = steps(el.dataset.diff);
       items.forEach(function (item, i) {
         var cell = document.createElement("span");
         cell.className = "cell" + (hit.has(i) ? " hit" : "");
         if (mark.has(i)) {
           cell.className += " fragment mark";
           cell.setAttribute("data-fragment-index", el.dataset.markAt || "0");
+        } else if (same.has(i)) {
+          cell.className += " fragment same";
+          cell.setAttribute("data-fragment-index", same.get(i));
+        } else if (diff.has(i)) {
+          cell.className += " fragment diff";
+          cell.setAttribute("data-fragment-index", diff.get(i));
         }
         var b = document.createElement("b");
         b.textContent = isList ? (typeof item === "string" ? "'" + item + "'" : String(item)) : (item === " " ? "␣" : item);
