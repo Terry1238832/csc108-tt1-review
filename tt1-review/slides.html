@@ -191,6 +191,16 @@
     font-size: 0.86em;
   }
   #exam-q9 .sim a { font-family: Consolas, "Cascadia Mono", monospace; font-size: 0.92em; }
+  #exam-q14 h2 { margin-bottom: 0.16em; }
+  #exam-q14 > p { margin: 0.08em 0 0.12em; }
+  #exam-q14 .src { margin: 0.1em 0; padding: 0.12em 0.45em 0.06em; }
+  #exam-q14 .steps p { margin: 0.08em 0; }
+  #exam-q14 .exercise { margin: 0.05em 0 0.15em; padding: 0.22em 0.6em; }
+  #exam-q14 .warn { margin: 0.15em 0 0; padding: 0.22em 0.6em; }
+  #exam-q14 .cols .src pre code { font-size: 16px; }
+  #exam-q15 h2 { margin-bottom: 0.12em; padding-bottom: 0.06em; }
+  #exam-q15 .src { margin: 0.08em 0; }
+  #exam-q15 .q15-ret pre code { font-size: 16px; }
   .reveal pre { box-shadow: none; width: 100%; margin: 0.25em 0; font-size: inherit; }
   .reveal pre code {
     display: block;
@@ -2662,36 +2672,36 @@ print(names)</code></pre></div></td>
     <section id="exam-q14">
       <h2>Q14 · Lists <span class="tag pts">3 pts</span></h2>
       <p>names、marks1、marks2 长度相同，一一对应。返回新 list：名字后面紧跟它两次分数之和。</p>
-      <div class="src"><pre><code class="py">>>> merge_name_marks(['Rutwa', 'Dan', 'Romina'], [50, 47, 43], [35, 40, 53])
+      <div class="src small-code"><pre><code class="py">>>> merge_name_marks(['Rutwa', 'Dan', 'Romina'], [50, 47, 43], [35, 40, 53])
 ['Rutwa', 85, 'Dan', 87, 'Romina', 96]
 >>> merge_name_marks(['Peter', 'Randy'], [30, 22], [54, 84])
 ['Peter', 84, 'Randy', 106]
 >>> merge_name_marks([], [], [])
 []</code></pre></div>
-      <div class="exercise">想一想：要循环什么？累加器是什么？每一轮往里放几个东西？</div>
-      <aside class="notes">给 4 分钟写。提示：三个 list 同一个下标对应同一个人，所以循环下标。</aside>
-    </section>
-
-    <section id="exam-q14-ans">
-      <h2>Q14 解答</h2>
-      <div class="src"><pre class="stepper"><code class="py">def merge_name_marks(names, marks1, marks2):
+      <div class="cols w46">
+        <div class="src small-code"><pre class="stepper"><code class="py">def merge_name_marks(names, marks1, marks2):
     result = []
     for i in range(len(names)):
         result.append(names[i])
         result.append(marks1[i] + marks2[i])
     return result</code></pre></div>
-      <div class="steps">
-        <p class="fragment" data-lines="2">累加器：新 list，循环外面初始化</p>
-        <p class="fragment" data-lines="3">三个 list 同一下标对应同一个人 → 循环下标 i</p>
-        <p class="fragment" data-lines="4-5">每一轮放两个：先名字，再 <code>marks1[i] + marks2[i]</code></p>
-        <p class="fragment" data-lines="6">空 list 时循环不跑，返回 <code>[]</code>，第三个例子自动满足</p>
+        <div>
+          <div class="exercise">想一想：要循环什么？累加器是什么？每一轮往里放几个东西？</div>
+          <div class="steps">
+            <p class="fragment" data-lines="2">累加器：新 list，循环外面初始化</p>
+            <p class="fragment" data-lines="3">三个 list 同一下标对应同一个人 → 循环下标 i</p>
+            <p class="fragment" data-lines="4-5">每一轮放两个：先名字，再 <code>marks1[i] + marks2[i]</code></p>
+            <p class="fragment" data-lines="6">空 list 时循环不跑，返回 <code>[]</code>，第三个例子自动满足</p>
+          </div>
+          <div class="warn fragment">不要写 <code>result = result.append(...)</code>（会变成 None）。<code>return</code> 不要缩进到循环里面。</div>
+        </div>
       </div>
-      <div class="warn fragment">不要写 <code>result = result.append(...)</code>（会变成 None）。<code>return</code> 不要缩进到循环里面。</div>
+      <aside class="notes">给几分钟看例子。三个 list 同一个下标对应同一个人，所以循环下标。每一轮先放名字，再放两个分数的和。不要把 append 的结果赋回去。</aside>
     </section>
 
     <section id="exam-q15">
       <h2>Q15 · Strings <span class="tag pts">3 pts</span></h2>
-      <div class="src mid-code"><pre><code class="py">CURRENT_YEAR = 2023
+      <div class="src small-code"><pre><code class="py">CURRENT_YEAR = 2023
 
 def calculate_age(birth_date: str) -> int:
     """birth_date 的格式是 YYYY-MM-DD，不晚于 CURRENT_YEAR 年底。
@@ -2709,7 +2719,7 @@ def calculate_age(birth_date: str) -> int:
           <div class="fragment" data-fragment-index="0">
             <div class="strip small" data-text="2010-05-15" data-hit=":4" data-neg="no"></div>
           </div>
-          <div class="src fragment" data-fragment-index="2"><pre><code class="py">    return CURRENT_YEAR - int(birth_date[:4])</code></pre></div>
+          <div class="src q15-ret fragment" data-fragment-index="2"><pre><code class="py">return CURRENT_YEAR - int(birth_date[:4])</code></pre></div>
         </div>
         <div class="steps">
           <p class="fragment" data-fragment-index="0"><code>birth_date[:4]</code> → <code>'2010'</code>，<code>int(...)</code> → 2010</p>
