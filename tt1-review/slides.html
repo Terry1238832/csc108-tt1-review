@@ -2180,7 +2180,10 @@ b()</code></pre></div>
         <li>expressions</li>
         <li>operation</li>
       </ol>
-      <p class="fragment" data-fragment-index="0">control structure 决定“哪些代码执行、执行几次”。只有 loop 和 if-statement。</p>
+      <p class="fragment" data-fragment-index="0">控制结构只管两件事：<strong>哪些代码要跑</strong>，以及<strong>要跑几次</strong>。if 看条件，决定跑不跑这块；loop 决定这块重复几次。所以只有这两项。</p>
+      <p class="fragment" data-fragment-index="1"><strong>为什么赋值不是？</strong> <code>x = 3</code> 只是把值存下来。这一行写了就会执行，不会跳过，也不会重复。</p>
+      <p class="fragment" data-fragment-index="2"><strong>为什么函数、方法不是？</strong> <code>f()</code>、<code>s.lower()</code> 是去调用一段写好的代码。调用本身不负责挑路。</p>
+      <p class="fragment" data-fragment-index="3"><strong>为什么表达式、运算不是？</strong> <code>1 + 2</code> 是在算出一个结果。算完就结束，不管别的代码跑不跑。</p>
     </section>
 
     <section id="q-errors">
