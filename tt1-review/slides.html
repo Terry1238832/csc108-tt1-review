@@ -174,6 +174,15 @@
   #exam-q8 .frames { margin: 0.1em 0 0.02em; }
   #exam-q8 .frame .fv { font-size: 18px; padding: 0.02em 0.5em; }
   #exam-q8 .frame .fh { font-size: 15px; padding: 0.04em 0.5em; }
+  #exam-q9 .sim {
+    margin: 0.2em 0 0;
+    padding: 0.22em 0.65em;
+    background: var(--def);
+    border-left: 4px solid var(--blue);
+    border-radius: 0 4px 4px 0;
+    font-size: 0.86em;
+  }
+  #exam-q9 .sim a { font-family: Consolas, "Cascadia Mono", monospace; font-size: 0.92em; }
   .reveal pre { box-shadow: none; width: 100%; margin: 0.25em 0; font-size: inherit; }
   .reveal pre code {
     display: block;
@@ -2528,7 +2537,8 @@ def hello(z, x):
         <tr><td><code>print(func_a(15))</code></td><td class="fragment" data-lines="3-4" data-target="#q9a"><strong>20</strong></td><td class="fragment">第一个条件就成立，后面不看</td></tr>
         <tr><td><code>print(func_b(12))</code></td><td class="fragment" data-lines="3-4,7-8" data-target="#q9b"><strong>12</strong></td><td class="fragment">两个独立的 if：先 +10，再走 else +2</td></tr>
       </table>
-      <aside class="notes">重点是最后一行：func_b 的两个 if 互不影响，12 两个都要走。很多人写 10。</aside>
+      <p class="sim">前往模拟网站（大家可以收藏） <a href="https://pythontutor.com/cp/csc108h.html#mode=edit" target="_blank" rel="noopener">https://pythontutor.com/cp/csc108h.html#mode=edit</a></p>
+      <aside class="notes">重点是最后一行：func_b 的两个 if 互不影响，12 两个都要走。很多人写 10。下面的链接是 Python Tutor，可以让大家自己单步看。</aside>
     </section>
 
     <section id="exam-q10">
