@@ -1921,16 +1921,65 @@ a[0]</code></pre></div>
 
     <section id="err-2">
       <h2>常见 Error ②</h2>
-      <table>
-        <tr><th>Error</th><th>例子</th><th>原因</th></tr>
-        <tr><td><strong>ValueError</strong></td><td><code>int('2.0')</code></td><td>类型对，但值不能转换</td></tr>
-        <tr><td><strong>ValueError</strong></td><td><code>'abc'.index('z')</code></td><td>找不到（find 会返回 -1）</td></tr>
-        <tr><td><strong>ZeroDivisionError</strong></td><td><code>3 / 0</code>，<code>3 % 0</code></td><td>除数是 0</td></tr>
-        <tr><td><strong>AttributeError</strong> <span class="tag new">卷子</span></td><td><code>'June'.lowercase()</code></td><td>str 没有这个方法；应写 <code>lower()</code></td></tr>
-        <tr><td><strong>UnboundLocalError</strong></td><td>函数里 <code>y += 2</code></td><td>y 被当成 local，但还没赋值</td></tr>
-        <tr><td><strong>IndentationError</strong></td><td>if 下面没缩进</td><td>缩进不对</td></tr>
-      </table>
-      <div class="takeaway">“解释为什么报错”这种题：写出错误类型，再用一句话说是哪个操作不合法、应该怎么改。</div>
+      <div class="cols">
+        <div>
+          <div class="src small-code"><pre id="err-int" class="stepper"><code class="py">int(2.0)
+int('2.0')
+int(float('2.0'))</code></pre></div>
+          <div class="steps">
+            <p class="fragment" data-fragment-index="0" data-target="#err-int" data-lines="1"><code>2.0</code> 已经是数字。<code>int</code> 往 0 砍 → <strong>2</strong>。</p>
+            <p class="fragment" data-fragment-index="1" data-target="#err-int" data-lines="2"><code>'2.0'</code> 是文字。int 读文字时不认小数点 → <strong>ValueError</strong>。</p>
+            <p class="fragment" data-fragment-index="2" data-target="#err-int" data-lines="3">先 <code>float('2.0')</code> 变成 2.0，再砍 → <strong>2</strong>。</p>
+          </div>
+        </div>
+        <div>
+          <div class="src small-code"><pre id="err-find" class="stepper"><code class="py">'abc'.find('z')
+'abc'.index('z')</code></pre></div>
+          <div class="steps">
+            <p class="fragment" data-fragment-index="3" data-target="#err-find" data-lines="1"><code>'abc'</code> 里没有 z。<code>find</code> 找不到就返回 <strong>-1</strong>。</p>
+            <p class="fragment" data-fragment-index="4" data-target="#err-find" data-lines="2">同样找不到，<code>index</code> 不返回 -1，直接 <strong>ValueError</strong>。</p>
+          </div>
+        </div>
+      </div>
+      <div class="cols">
+        <div class="src small-code"><pre id="err-zero" class="stepper"><code class="py">3 / 0
+3 % 0</code></pre></div>
+        <div class="steps">
+          <p class="fragment" data-fragment-index="5" data-target="#err-zero" data-lines="1-2">除数是 0。<code>/</code>、<code>%</code>、<code>//</code> 都算不了 → <strong>ZeroDivisionError</strong>。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="err-3">
+      <h2>常见 Error ③</h2>
+      <div class="cols">
+        <div>
+          <div class="src small-code"><pre id="err-attr" class="stepper"><code class="py">'June'.lowercase()
+'June'.lower()</code></pre></div>
+          <div class="steps">
+            <p class="fragment" data-fragment-index="0" data-target="#err-attr" data-lines="1">str 没有 <code>lowercase</code> 这个方法 → <strong>AttributeError</strong>。</p>
+            <p class="fragment" data-fragment-index="1" data-target="#err-attr" data-lines="2">要写 <code>lower()</code> → <code>'june'</code>。</p>
+          </div>
+        </div>
+        <div>
+          <div class="src small-code"><pre id="err-unbound" class="stepper"><code class="py">y = 4
+def b():
+    y += 2</code></pre></div>
+          <div class="steps">
+            <p class="fragment" data-fragment-index="2" data-target="#err-unbound" data-lines="3"><code>y += 2</code> 就是 <code>y = y + 2</code>，这是赋值。</p>
+            <p class="fragment" data-fragment-index="3" data-target="#err-unbound" data-lines="3">函数里赋值过，y 全程是 local。算右边时还没值 → <strong>UnboundLocalError</strong>。</p>
+            <p class="fragment" data-fragment-index="4" data-target="#err-unbound" data-lines="1">外面的 <code>y = 4</code> 用不上。要改它，函数第一行写 <code>global y</code>。</p>
+          </div>
+        </div>
+      </div>
+      <div class="cols">
+        <div class="src small-code"><pre id="err-indent" class="stepper"><code class="py">if x &gt; 0:
+print(x)</code></pre></div>
+        <div class="steps">
+          <p class="fragment" data-fragment-index="5" data-target="#err-indent" data-lines="2"><code>if</code> 下面必须缩进。<code>print</code> 和 if 对齐，Python 看不到 if 的身体 → <strong>IndentationError</strong>。</p>
+        </div>
+      </div>
+      <div class="takeaway">解释为什么报错：先写错误类型，再说哪个操作不合法、应该怎么改。</div>
     </section>
 
     <!-- ============ Part 10 定义与 API ============ -->
