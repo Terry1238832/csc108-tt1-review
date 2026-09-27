@@ -156,7 +156,9 @@
   code .sp { background: #e5e7eb; border-radius: 2px; }
   #str-methods-change td:first-child,
   #str-methods-blank td:first-child,
-  #str-methods-ask td:first-child { white-space: nowrap; width: 1%; }
+  #str-methods-ask td:first-child,
+  #builtins td:first-child,
+  #builtins-2 td:first-child { white-space: nowrap; width: 1%; }
   .reveal pre { box-shadow: none; width: 100%; margin: 0.25em 0; font-size: inherit; }
   .reveal pre code {
     display: block;
@@ -2029,16 +2031,60 @@ print(x)</code></pre></div>
     </section>
 
     <section id="builtins">
-      <h2>内置函数</h2>
+      <h2>内置函数 ①</h2>
       <table>
-        <tr><th>函数</th><th>记住</th></tr>
-        <tr><td><code>print(...)</code></td><td>显示内容，返回 <code>None</code></td></tr>
-        <tr><td><code>len(x)</code></td><td>字符串、list 的长度</td></tr>
-        <tr><td><code>str(x)</code> <code>float(x)</code> <code>bool(x)</code></td><td>转换类型</td></tr>
-        <tr><td><code>int(x)</code></td><td><code>int('12')</code> 是 12；<code>int('2.0')</code> 报 ValueError；<code>int(-2.7)</code> 是 -2（往 0 砍）</td></tr>
-        <tr><td><code>type(x)</code></td><td><code>&lt;class 'int'&gt;</code>、<code>&lt;class 'NoneType'&gt;</code> ……</td></tr>
-        <tr><td><code>range(...)</code></td><td>不包含 stop</td></tr>
-        <tr><td><code>max</code> / <code>min</code> / <code>ord</code> / <code>chr</code> / <code>input</code></td><td>API sheet 上都有</td></tr>
+        <tr><th>调用</th><th>按 → 看它做什么</th></tr>
+        <tr>
+          <td><code>print(1)</code></td>
+          <td class="fragment">屏幕写出 1，交回来的是 <code>None</code>。要留下结果，用 <code>return</code>。</td>
+        </tr>
+        <tr>
+          <td><code>len('hi')</code><br><code>len([1, 2, 3])</code></td>
+          <td class="fragment">问有几个 → <strong>2</strong>，和 <strong>3</strong>。字符串数字符，list 数元素。</td>
+        </tr>
+        <tr>
+          <td><code>str(10)</code></td>
+          <td class="fragment">变成文字 → <code>'10'</code>。和字符串相加之前要先变，否则 TypeError。</td>
+        </tr>
+        <tr>
+          <td><code>float('2.5')</code><br><code>float(2)</code></td>
+          <td class="fragment">变成小数 → <strong>2.5</strong>，和 <strong>2.0</strong>。</td>
+        </tr>
+        <tr>
+          <td><code>bool(0)</code><br><code>bool('hi')</code></td>
+          <td class="fragment">0、<code>""</code>、<code>[]</code>、<code>None</code> 是 False。别的大多是 True，所以 <code>'hi'</code> → True。</td>
+        </tr>
+        <tr>
+          <td><code>int('12')</code><br><code>int('2.0')</code><br><code>int(-2.7)</code></td>
+          <td class="fragment"><code>'12'</code> → 12。<code>'2.0'</code> 是文字，不认小数点 → ValueError。<code>-2.7</code> 往 0 砍 → <strong>-2</strong>，不是 -3。</td>
+        </tr>
+      </table>
+    </section>
+
+    <section id="builtins-2">
+      <h2>内置函数 ②</h2>
+      <table>
+        <tr><th>调用</th><th>按 → 看它做什么</th></tr>
+        <tr>
+          <td><code>type(3)</code><br><code>type(None)</code></td>
+          <td class="fragment">问类型 → <code>&lt;class 'int'&gt;</code>，<code>&lt;class 'NoneType'&gt;</code>。</td>
+        </tr>
+        <tr>
+          <td><code>range(3)</code><br><code>range(1, 4)</code></td>
+          <td class="fragment">不含 stop → 0, 1, 2，和 1, 2, 3。<strong>4 不在里面。</strong></td>
+        </tr>
+        <tr>
+          <td><code>max(3, 1, 4)</code><br><code>min('cat', 'car')</code></td>
+          <td class="fragment">最大的 → <strong>4</strong>。字符串按字典序，<code>'car'</code> 更小 → <code>'car'</code>。</td>
+        </tr>
+        <tr>
+          <td><code>ord('a')</code><br><code>chr(97)</code></td>
+          <td class="fragment">字符 → 编码 <strong>97</strong>。编码 → 字符 <code>'a'</code>。比较不用 ord，相减才要。</td>
+        </tr>
+        <tr>
+          <td><code>input()</code></td>
+          <td class="fragment">读用户打的一行，结果永远是 str。打 12 得到 <code>'12'</code>，要数字再套 <code>int</code>。</td>
+        </tr>
       </table>
     </section>
 
