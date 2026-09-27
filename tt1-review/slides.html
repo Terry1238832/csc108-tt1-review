@@ -277,6 +277,23 @@
     color: #444;
     pointer-events: none;
   }
+  .maker {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 14px;
+    z-index: 31;
+    text-align: center;
+    font-family: Nunito, "Noto Sans SC", sans-serif;
+    font-size: 14px;
+  }
+  body.on-title .maker { display: block; }
+  .maker a {
+    color: #6b7280;
+    text-decoration: none;
+  }
+  .maker a:hover { color: var(--blue); text-decoration: underline; }
   .reveal .controls { right: 10px; bottom: 10px; }
   .reveal .slide-number { font-family: Nunito, sans-serif; font-size: 16px; color: #444; background: none; right: 128px; bottom: 18px; }
   .reveal .progress { color: var(--blue); height: 3px; }
@@ -411,7 +428,6 @@
 
     <section id="title-slide" class="title-slide">
       <h1>Term Test 1 Review</h1>
-      <p class="byline">Terry</p>
       <p class="subtitle">CSC108H5: Introduction to Computer Programming</p>
       <p class="byline">第一次考试复习</p>
       <p class="kicker">知识点复习 · 卷子补充 · 2024 TT1 真题逐题讲</p>
@@ -2501,6 +2517,7 @@ def calculate_age(birth_date: str) -> int:
   </div>
 </div>
 <div class="deck-footer">CSC108 · Term Test 1 Review</div>
+<p class="maker"><a href="https://terry1238832.github.io/" target="_blank" rel="noopener">© Terry1238832 制作</a></p>
 <aside id="toc">
   <div class="toc-body"></div>
 </aside>
@@ -2757,6 +2774,7 @@ def calculate_age(birth_date: str) -> int:
       var slide = Reveal.getCurrentSlide();
       var part = partOf(slide);
       footer.textContent = "CSC108 · Term Test 1 Review" + (part ? " · " + part : "");
+      document.body.classList.toggle("on-title", !!(slide && slide.id === "title-slide"));
       var notes = slide && slide.querySelector("aside.notes");
       panel.innerHTML = notes ? notes.innerHTML : "<em>这一页没有备注。</em>";
       updateSteps(slide);
