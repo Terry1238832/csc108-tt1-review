@@ -2162,9 +2162,9 @@ def b():
 a()
 b()</code></pre></div>
         <div class="steps">
-          <p class="fragment" data-lines="4-6,12"><code>a()</code>：有 <code>global x</code>，外面的 x 变成 5，返回 5</p>
-          <p class="fragment" data-lines="9,13"><code>b()</code>：没有 global，<code>y += 2</code> 让 y 成了 local → <strong>UnboundLocalError</strong></p>
-          <p class="fragment">最后 <strong>x = 5，y = 4</strong></p>
+          <p class="fragment" data-lines="4-6,12"><strong>为什么 x 变成 5？</strong> <code>global x</code> 就是“用外面那个 x”。<code>x += 2</code> 等于 <code>x = 3 + 2</code>，5 写回外面。</p>
+          <p class="fragment" data-lines="9,13"><strong>为什么 y 还是 4，还报错？</strong> b 没写 <code>global y</code>。<code>y += 2</code> 是赋值，这个 y 全程是自己的。算 <code>y + 2</code> 时自己还没值，不会去读外面的 4 → <strong>UnboundLocalError</strong>。</p>
+          <p class="fragment" data-lines="2">报错发生在改 y 之前，外面的 4 还在。a() 已经把 x 改完。最后 <strong>x = 5，y = 4</strong>。</p>
         </div>
       </div>
     </section>
