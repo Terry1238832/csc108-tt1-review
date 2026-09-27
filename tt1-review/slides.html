@@ -1484,8 +1484,10 @@ True</code></pre></div>
       </div>
       <div class="definition">list 比较：从下标 0 开始逐个比，第一个不同的元素决定结果；前面都一样时，短的更小。</div>
       <div class="steps">
-        <p class="fragment"><code>[1, 0, 8] &gt; [1, 4, 8]</code>：下标 0 都是 1，下标 1 是 <code>0</code> vs <code>4</code></p>
+        <p class="fragment"><code>[1, 0, 8] &gt; [1, 4, 8]</code>：第 1 个都是 1，第 2 个是 <code>0</code> 和 <code>4</code></p>
         <p class="fragment"><code>0 &gt; 4</code> 是 False，后面的 8 不用看 → <strong>False</strong></p>
+        <p class="fragment"><code>[1, 2] &lt; [1, 2, 0]</code>：前面的 1、2 都一样，左边先结束</p>
+        <p class="fragment">短的更小，所以 <code>[1, 2]</code> 更小，结果是 <strong>True</strong></p>
       </div>
     </section>
 
