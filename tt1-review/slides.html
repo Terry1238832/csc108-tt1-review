@@ -1568,6 +1568,7 @@ y</code></pre></div>
       </table>
       <div class="definition">规则和 slicing 一样：<code>range(start, stop, step)</code>，包含 start，不包含 stop。</div>
       <p><strong>什么时候用</strong> <code>for i in range(len(lst))</code>：需要下标的时候。比如要改 list 里的元素，或者要同时看好几个 list 的同一位置。</p>
+      <div class="warn"><code>range(len(lst))</code> 的长度在循环开始前就固定了；循环中修改 <code>lst</code> 的长度，不会改变 range。<br>增加元素：新元素通常不会被遍历。删除元素：可能跳过元素，甚至出现 <code>IndexError</code>。</div>
     </section>
 
     <section id="loop-while">
