@@ -298,50 +298,45 @@
   .notes-panel::before { content: "讲解备注（按 N 关闭）"; display: block; font-weight: 700; color: #92400e; font-size: 14px; margin-bottom: 4px; }
   body.show-notes .notes-panel { display: block; }
   body.show-notes .deck-footer { display: none; }
-  body.toc-open.show-notes .notes-panel { right: 292px; }
 
-  body.toc-open .reveal { width: calc(100% - 292px); }
+  #toc-toggle {
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    z-index: 50;
+    font-family: "Noto Sans SC", Nunito, "Segoe UI", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    background: #fff;
+    border: 1px solid #9fb3c8;
+    border-radius: 4px;
+    padding: 0.35em 0.8em;
+    cursor: pointer;
+    box-shadow: 0 1px 4px rgba(26, 58, 92, 0.12);
+  }
+  #toc-toggle:hover,
+  #toc-toggle[aria-expanded="true"] { background: var(--navy); color: #fff; }
 
   #toc {
     position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
+    top: 52px;
+    right: 12px;
+    bottom: 16px;
     z-index: 45;
     width: 292px;
     display: flex;
     flex-direction: column;
     background: #f7f9fc;
-    border-left: 1px solid var(--line);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    box-shadow: 0 8px 24px rgba(26, 58, 92, 0.16);
     font-family: "Noto Sans SC", Nunito, "Segoe UI", sans-serif;
     color: var(--ink);
+    overflow: hidden;
   }
-  .toc-head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    padding: 12px 12px 10px;
-    border-bottom: 1px solid var(--line);
-    background: #fff;
-  }
-  .toc-head strong {
-    font-size: 16px;
-    color: var(--navy);
-    letter-spacing: 0.04em;
-  }
-  #toc-toggle {
-    font-family: inherit;
-    font-size: 13px;
-    color: var(--navy);
-    background: #fff;
-    border: 1px solid #9fb3c8;
-    border-radius: 4px;
-    padding: 0.2em 0.6em;
-    cursor: pointer;
-  }
-  #toc-toggle:hover { background: var(--navy); color: #fff; }
-  .toc-body { overflow: auto; padding: 6px 0 28px; }
+  body:not(.toc-open) #toc { display: none; }
+  .toc-body { overflow: auto; padding: 6px 0 16px; }
   .toc-group h3 {
     position: sticky;
     top: 0;
@@ -382,10 +377,6 @@
     font-weight: 700;
   }
   .toc-link.part { font-weight: 700; color: var(--navy); }
-  body:not(.toc-open) #toc { width: 46px; }
-  body:not(.toc-open) .toc-body,
-  body:not(.toc-open) .toc-head strong { display: none; }
-  body:not(.toc-open) .toc-head { justify-content: center; padding: 12px 6px; }
 
   #fs-toggle {
     position: fixed;
@@ -406,8 +397,9 @@
   #fs-toggle:hover { background: var(--navy); color: #fff; }
 </style>
 </head>
-<body class="toc-open">
+<body>
 <button type="button" id="fs-toggle" aria-pressed="false">全屏</button>
+<button type="button" id="toc-toggle" aria-expanded="false" aria-controls="toc">目录</button>
 <div class="reveal">
   <div class="slides">
 
@@ -429,7 +421,7 @@
         <tr><td><strong>←</strong></td><td>上一步</td></tr>
         <tr><td><strong>Esc</strong></td><td>总览所有页，点一页跳过去</td></tr>
         <tr><td><strong>N</strong></td><td>打开 / 关闭讲解备注（给讲课的人看）</td></tr>
-        <tr><td><strong>M</strong></td><td>打开 / 收起右侧目录</td></tr>
+        <tr><td><strong>M</strong></td><td>打开 / 收起目录</td></tr>
         <tr><td><strong>F</strong></td><td>全屏</td></tr>
       </table>
       <div class="cols">
@@ -2492,10 +2484,6 @@ def calculate_age(birth_date: str) -> int:
 </div>
 <div class="deck-footer">CSC108 · Term Test 1 Review</div>
 <aside id="toc">
-  <div class="toc-head">
-    <strong>目录</strong>
-    <button type="button" id="toc-toggle">收起</button>
-  </div>
   <div class="toc-body"></div>
 </aside>
 <div class="notes-panel"></div>
@@ -2694,6 +2682,7 @@ def calculate_age(birth_date: str) -> int:
         button.innerHTML = '<span class="n">' + (page.index + 1) + '</span>' + page.title;
         button.addEventListener("click", function () {
           Reveal.slide(page.index);
+          setToc(false);
         });
         block.appendChild(button);
       });
@@ -2712,14 +2701,19 @@ def calculate_age(birth_date: str) -> int:
 
     function setToc(open) {
       document.body.classList.toggle("toc-open", open);
-      document.getElementById("toc-toggle").textContent = open ? "收起" : "目录";
-      window.setTimeout(function () { Reveal.layout(); }, 0);
+      document.getElementById("toc-toggle").setAttribute("aria-expanded", open ? "true" : "false");
     }
 
-    document.getElementById("toc-toggle").addEventListener("click", function () {
+    document.getElementById("toc-toggle").addEventListener("click", function (event) {
+      event.stopPropagation();
       setToc(!document.body.classList.contains("toc-open"));
     });
-    Reveal.addKeyBinding({ keyCode: 77, key: "M", description: "打开 / 收起右侧目录" }, function () {
+    document.addEventListener("click", function (event) {
+      if (!document.body.classList.contains("toc-open")) return;
+      if (event.target.closest("#toc")) return;
+      setToc(false);
+    });
+    Reveal.addKeyBinding({ keyCode: 77, key: "M", description: "打开 / 收起目录" }, function () {
       setToc(!document.body.classList.contains("toc-open"));
     });
 
