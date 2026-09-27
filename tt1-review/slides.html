@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Terry">
+<meta name="copyright" content="Terry">
 <title>CSC108 Term Test 1 Review</title>
 <link rel="stylesheet" href="vendor/reveal/reveal.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -57,6 +59,7 @@
     margin: 0.25em 0 0.2em;
     text-transform: none;
   }
+  .reveal .slides section h2 { padding-left: 46px; }
 
   .reveal p { margin: 0.3em 0; }
   .reveal ul, .reveal ol { margin: 0.2em 0 0.2em 1.1em; }
@@ -104,8 +107,10 @@
   .reveal .takeaway::before { content: "记住 "; font-weight: 700; color: #166534; }
   .reveal .warn { background: #fee2e2; border-left: 4px solid #dc2626; }
   .reveal .warn::before { content: "易错 "; font-weight: 700; color: #991b1b; }
+  .reveal .warn.pit::before { content: "大坑 "; }
 
   .reveal .note { color: #333; font-size: 0.86em; }
+  .reveal .zh { display: block; margin-top: 0.12em; color: #374151; font-size: 0.92em; }
   .reveal .why { color: #666; font-size: 0.8em; margin-left: 0.6em; }
 
   .reveal .tag {
@@ -152,6 +157,53 @@
     border-radius: 3px;
     font-size: 0.92em;
   }
+  code .sp { background: #e5e7eb; border-radius: 2px; }
+  #str-methods-change td:first-child,
+  #str-methods-blank td:first-child,
+  #str-methods-ask td:first-child,
+  #builtins td:first-child,
+  #builtins-2 td:first-child { white-space: nowrap; width: 1%; }
+  #exam-q2 h2 { margin-bottom: 0.2em; }
+  #exam-q2 table { margin: 0.1em 0; }
+  #exam-q2 .src { margin: 0.1em 0; padding: 0.2em 0.5em 0.1em; }
+  #exam-q2 .steps p { margin: 0.05em 0; }
+  #exam-q8 h2 { margin-bottom: 0.18em; padding-bottom: 0.06em; }
+  #exam-q8 .src { margin: 0.05em 0; padding: 0.12em 0.45em 0.04em; }
+  #exam-q8 p { margin: 0.06em 0; }
+  #exam-q8 ol.opts { margin: 0.02em 0 0.02em 1.2em; font-size: 0.9em; }
+  #exam-q8 ol.opts li { margin: 0; padding: 0 0.2em; }
+  #exam-q8 .steps { font-size: 0.88em; }
+  #exam-q8 .steps p { margin: 0.02em 0; }
+  #exam-q8 .frames { margin: 0.1em 0 0.02em; }
+  #exam-q8 .frame .fv { font-size: 18px; padding: 0.02em 0.5em; }
+  #exam-q8 .frame .fh { font-size: 15px; padding: 0.04em 0.5em; }
+  #exam-q13 .steps > .fragment:not(.visible) { display: none; }
+  #exam-q13 .steps > .fragment.visible { display: block; }
+  #exam-q13 .steps p { margin: 0.12em 0; }
+  #exam-q13 .steps .src { margin: 0.2em 0; }
+  #exam-q13 .q13-more { margin-left: 1.6em; }
+  #exam-q13 #q13-ans .grow.fragment { display: none; }
+  #exam-q13 #q13-ans .grow.fragment.visible { display: inline; }
+  #exam-q13 #q13-ans .tok.on { border-color: transparent; padding: 0; }
+  #exam-q9 .sim {
+    margin: 0.2em 0 0;
+    padding: 0.22em 0.65em;
+    background: var(--def);
+    border-left: 4px solid var(--blue);
+    border-radius: 0 4px 4px 0;
+    font-size: 0.86em;
+  }
+  #exam-q9 .sim a { font-family: Consolas, "Cascadia Mono", monospace; font-size: 0.92em; }
+  #exam-q14 h2 { margin-bottom: 0.16em; }
+  #exam-q14 > p { margin: 0.08em 0 0.12em; }
+  #exam-q14 .src { margin: 0.1em 0; padding: 0.12em 0.45em 0.06em; }
+  #exam-q14 .steps p { margin: 0.08em 0; }
+  #exam-q14 .exercise { margin: 0.05em 0 0.15em; padding: 0.22em 0.6em; }
+  #exam-q14 .warn { margin: 0.15em 0 0; padding: 0.22em 0.6em; }
+  #exam-q14 .cols .src pre code { font-size: 16px; }
+  #exam-q15 h2 { margin-bottom: 0.12em; padding-bottom: 0.06em; }
+  #exam-q15 .src { margin: 0.08em 0; }
+  #exam-q15 .q15-ret pre code { font-size: 16px; }
   .reveal pre { box-shadow: none; width: 100%; margin: 0.25em 0; font-size: inherit; }
   .reveal pre code {
     display: block;
@@ -166,6 +218,16 @@
   .reveal pre code .line { display: block; min-height: 1.38em; padding: 0 0.3em; border-radius: 3px; transition: opacity 0.2s, background 0.2s; }
   .reveal pre.stepper.focus code .line { opacity: 0.35; }
   .reveal pre.stepper.focus code .line.hl { opacity: 1; background: rgba(253, 230, 138, 0.75); }
+  .reveal pre code .tok {
+    border: 2px solid transparent;
+    border-radius: 4px;
+    padding: 0 0.12em;
+  }
+  .reveal pre code .tok.on {
+    background: #fde68a;
+    border-color: #d97706;
+    color: #111;
+  }
 
   .tk-kw { color: #8b2bb9; font-weight: 600; }
   .tk-str { color: #0a7a3a; }
@@ -226,11 +288,45 @@
   .strip .cell.hit b { background: var(--hl); border-color: var(--ex-line); }
   .strip.small .cell b { font-size: 23px; }
   .strip.small .cell { min-width: 1.5em; }
+  .slice-board { --cell-w: 70px; position: relative; width: max-content; max-width: 100%; margin: 0.42em 0 0.55em 0.45em; padding-bottom: 39px; }
+  .slice-board .slice-index-row, .slice-board .slice-char-row { display: flex; }
+  .slice-board .slice-index, .slice-board .slice-char { box-sizing: border-box; width: var(--cell-w); flex: 0 0 var(--cell-w); text-align: center; }
+  .slice-board .slice-index { height: 25px; color: var(--blue); font: 18px Consolas, monospace; }
+  .slice-board .slice-char { border: 2px solid #9fb3c8; border-left-width: 1px; background: #fff; font: 600 36px Consolas, monospace; line-height: 61px; height: 66px; transition: background 0.2s, border-color 0.2s; }
+  .slice-board .slice-char:first-child { border-left-width: 2px; border-radius: 5px 0 0 5px; }
+  .slice-board .slice-char:last-child { border-radius: 0 5px 5px 0; }
+  .slice-board .slice-char.fragment.custom { opacity: 1; visibility: inherit; }
+  .slice-board .slice-char.fragment.visible { background: var(--hl); border-color: var(--ex-line); }
+  .slice-board .slice-boundary { position: absolute; top: 96px; transform: translateX(-50%); font: 16px Consolas, monospace; color: #66788c; line-height: 24px; width: 30px; text-align: center; }
+  .slice-board .slice-boundary::before { content: "|"; position: absolute; top: -24px; left: 50%; transform: translateX(-50%); color: #a9b8c9; }
+  .slice-board .slice-boundary.start { color: var(--blue); font-weight: 700; }
+  .slice-board .slice-boundary.stop { color: #b45309; font-weight: 700; }
+  .slice-board .slice-boundary.fragment.custom { opacity: 1; visibility: inherit; }
+  .slice-board .slice-boundary.fragment.visible { background: var(--def); border-radius: 20px; }
+  .slice-board .slice-boundary.stop.fragment.visible { background: var(--ex); }
+  .slice-board[data-mode="indices"] { padding-bottom: 7px; }
+  .slice-board[data-mode="indices"] .slice-boundary { display: none; }
+  .slice-flow { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 0.35em 0; }
+  .slice-flow .hop { border: 2px solid #b8c8d9; border-radius: 6px; padding: 0.12em 0.45em; background: #fff; font: 600 23px Consolas, monospace; }
+  .slice-flow .hop.fragment { opacity: 0; visibility: hidden; }
+  .slice-flow .hop.fragment.visible { opacity: 1; background: var(--hl); border-color: var(--ex-line); }
+  .slice-flow .arrow { color: var(--blue); font-size: 23px; }
+  .quote-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.55em; margin: 0.32em 0; }
+  .quote-grid .src, .quote-grid .out { margin: 0; }
+  .quote-grid pre code { font-size: 20px; }
+  .quote-grid .caption { font-size: 18px; margin: 0.1em 0 0.25em; }
+  .slice-board.slice-compact { --cell-w: 62px; margin-top: 0.25em; margin-bottom: 0.35em; }
+  .slice-board.slice-compact .slice-char { font-size: 30px; height: 58px; line-height: 54px; }
+  .slice-board.slice-compact .slice-boundary { top: 88px; }
   .reveal .strip-label { font-size: 24px; margin: 0.25em 0 0; }
   .reveal th code { background: rgba(255, 255, 255, 0.16); color: #fff; }
 
-  .reveal .slides section .fragment.mark { opacity: 1; visibility: inherit; }
-  .reveal .slides section .strip .cell.fragment.mark.visible b { background: var(--hl); border-color: var(--ex-line); }
+  .reveal .slides section .fragment.mark,
+  .reveal .slides section .strip .cell.fragment.same,
+  .reveal .slides section .strip .cell.fragment.diff { opacity: 1; visibility: inherit; }
+  .reveal .slides section .strip .cell.fragment.mark.visible b,
+  .reveal .slides section .strip .cell.fragment.diff.visible b { background: var(--hl); border-color: var(--ex-line); }
+  .reveal .slides section .strip .cell.fragment.same.visible b { background: var(--def); border-color: var(--blue); }
   .reveal .slides section li.fragment.mark.visible { background: var(--ok); border-radius: 4px; }
   .reveal .slides section li.fragment.mark.visible::after { content: "  ✓"; color: var(--ok-line); font-weight: 700; }
 
@@ -273,6 +369,38 @@
     color: #444;
     pointer-events: none;
   }
+  .by-terry {
+    position: fixed;
+    left: 28px;
+    bottom: 34px;
+    z-index: 31;
+    margin: 0;
+    font-family: Nunito, "Noto Sans SC", sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1;
+  }
+  .by-terry a { color: #444; text-decoration: none; }
+  .by-terry a:hover { color: var(--blue); text-decoration: underline; }
+  body.on-title .by-terry,
+  body.show-notes .by-terry { display: none; }
+  .maker {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 14px;
+    z-index: 31;
+    text-align: center;
+    font-family: Nunito, "Noto Sans SC", sans-serif;
+    font-size: 14px;
+  }
+  body.on-title .maker { display: block; }
+  .maker a {
+    color: #6b7280;
+    text-decoration: none;
+  }
+  .maker a:hover { color: var(--blue); text-decoration: underline; }
   .reveal .controls { right: 10px; bottom: 10px; }
   .reveal .slide-number { font-family: Nunito, sans-serif; font-size: 16px; color: #444; background: none; right: 128px; bottom: 18px; }
   .reveal .progress { color: var(--blue); height: 3px; }
@@ -297,51 +425,47 @@
   }
   .notes-panel::before { content: "讲解备注（按 N 关闭）"; display: block; font-weight: 700; color: #92400e; font-size: 14px; margin-bottom: 4px; }
   body.show-notes .notes-panel { display: block; }
-  body.show-notes .deck-footer { display: none; }
-  body.toc-open.show-notes .notes-panel { right: 292px; }
+  body.show-notes .deck-footer,
+  body.show-notes .by-terry { display: none; }
 
-  body.toc-open .reveal { width: calc(100% - 292px); }
+  #toc-toggle {
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    z-index: 50;
+    font-family: "Noto Sans SC", Nunito, "Segoe UI", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    background: #fff;
+    border: 1px solid #9fb3c8;
+    border-radius: 4px;
+    padding: 0.35em 0.8em;
+    cursor: pointer;
+    box-shadow: 0 1px 4px rgba(26, 58, 92, 0.12);
+  }
+  #toc-toggle:hover,
+  #toc-toggle[aria-expanded="true"] { background: var(--navy); color: #fff; }
 
   #toc {
     position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
+    top: 52px;
+    right: 12px;
+    bottom: 16px;
     z-index: 45;
     width: 292px;
     display: flex;
     flex-direction: column;
     background: #f7f9fc;
-    border-left: 1px solid var(--line);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    box-shadow: 0 8px 24px rgba(26, 58, 92, 0.16);
     font-family: "Noto Sans SC", Nunito, "Segoe UI", sans-serif;
     color: var(--ink);
+    overflow: hidden;
   }
-  .toc-head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    padding: 12px 12px 10px;
-    border-bottom: 1px solid var(--line);
-    background: #fff;
-  }
-  .toc-head strong {
-    font-size: 16px;
-    color: var(--navy);
-    letter-spacing: 0.04em;
-  }
-  #toc-toggle {
-    font-family: inherit;
-    font-size: 13px;
-    color: var(--navy);
-    background: #fff;
-    border: 1px solid #9fb3c8;
-    border-radius: 4px;
-    padding: 0.2em 0.6em;
-    cursor: pointer;
-  }
-  #toc-toggle:hover { background: var(--navy); color: #fff; }
-  .toc-body { overflow: auto; padding: 6px 0 28px; }
+  body:not(.toc-open) #toc { display: none; }
+  .toc-body { overflow: auto; padding: 6px 0 16px; }
   .toc-group h3 {
     position: sticky;
     top: 0;
@@ -382,13 +506,29 @@
     font-weight: 700;
   }
   .toc-link.part { font-weight: 700; color: var(--navy); }
-  body:not(.toc-open) #toc { width: 46px; }
-  body:not(.toc-open) .toc-body,
-  body:not(.toc-open) .toc-head strong { display: none; }
-  body:not(.toc-open) .toc-head { justify-content: center; padding: 12px 6px; }
+
+  #fs-toggle {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 50;
+    font-family: "Noto Sans SC", Nunito, "Segoe UI", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    background: #fff;
+    border: 1px solid #9fb3c8;
+    border-radius: 4px;
+    padding: 0.35em 0.8em;
+    cursor: pointer;
+    box-shadow: 0 1px 4px rgba(26, 58, 92, 0.12);
+  }
+  #fs-toggle:hover { background: var(--navy); color: #fff; }
 </style>
 </head>
-<body class="toc-open">
+<body>
+<button type="button" id="fs-toggle" aria-pressed="false">全屏</button>
+<button type="button" id="toc-toggle" aria-expanded="false" aria-controls="toc">目录</button>
 <div class="reveal">
   <div class="slides">
 
@@ -401,7 +541,8 @@
       <p class="kicker">知识点复习 · 卷子补充 · 2024 TT1 真题逐题讲</p>
       <aside class="notes">开场先说今天三块内容：先把基础过一遍，再补真题里考到的新东西，最后一起做 2024 年的 TT1。</aside>
     </section>
-    <section id="how-to">
+
+<section id="how-to">
       <h2>怎么用这套课件</h2>
       <table>
         <tr><th>按键</th><th>作用</th></tr>
@@ -409,7 +550,7 @@
         <tr><td><strong>←</strong></td><td>上一步</td></tr>
         <tr><td><strong>Esc</strong></td><td>总览所有页，点一页跳过去</td></tr>
         <tr><td><strong>N</strong></td><td>打开 / 关闭讲解备注（给讲课的人看）</td></tr>
-        <tr><td><strong>M</strong></td><td>打开 / 收起右侧目录</td></tr>
+        <tr><td><strong>M</strong></td><td>打开 / 收起目录</td></tr>
         <tr><td><strong>F</strong></td><td>全屏</td></tr>
       </table>
       <div class="cols">
@@ -419,7 +560,8 @@
       </div>
       <p class="note">标题后面有 <span class="tag new">卷子补充</span> 的页，是原复习 PPT 没讲、但 2024 TT1 考到的内容。</p>
     </section>
-    <section id="agenda">
+
+<section id="agenda">
       <h2>今天的路线</h2>
       <div class="cols">
         <ol>
@@ -433,18 +575,21 @@
           <li><a href="#/part-fdr">函数设计、测试、重构</a></li>
           <li><a href="#/part-err">常见 Error</a></li>
           <li><a href="#/part-gloss">定义与 API sheet</a></li>
-          <li><a href="#/part-ppt">复习 PPT 里的疑似考题</a></li>
+          <li><a href="#/part-ppt">可能例题</a></li>
           <li><a href="#/part-exam"><strong>2024 TT1 真题逐题讲</strong></a></li>
         </ol>
       </div>
-      <aside class="notes">List 和循环已经拆到附录。这份主课件从运算符讲到真题里剩下的题。</aside>
+      <p class="note">List 和循环在附录：<a href="https://terry1238832.github.io/csc108-tt1-appendix/">List 与循环</a></p>
+      <aside class="notes">List 和循环已经挪到附录，这套课件不再讲这两章，相关真题也在附录里。</aside>
     </section>
-    <section id="part-ops" class="section-slide" data-part="运算符">
+
+<section id="part-ops" class="section-slide" data-part="运算符">
       <p class="part-no">PART 1 / 10</p>
       <h1>运算符</h1>
       <p class="subtitle"><code>//</code> &nbsp; <code>**</code> &nbsp; <code>%</code></p>
     </section>
-    <section id="op-floor">
+
+<section id="op-floor">
       <h2><code>//</code> 整除：往下取整</h2>
       <div class="definition"><code>a // b</code> = 不超过 <code>a / b</code> 的最大整数（floor）</div>
       <table>
@@ -458,7 +603,8 @@
       <div class="warn">不是四舍五入。<code>3 // 2</code> 是 1，不是 2。</div>
       <aside class="notes">先问大家 3 // 2 是多少，很多人会说 2。最后一行先藏着，揭开后直接翻到下一页用数轴讲负数。</aside>
     </section>
-    <section id="op-floor-neg">
+
+<section id="op-floor-neg">
       <h2>负数：在数轴上往左走</h2>
       <svg class="numline" viewBox="0 0 820 150" aria-label="number line">
         <defs>
@@ -488,7 +634,8 @@
       </table>
       <p class="note">卷子后面附的 API sheet 写着：<code>int(x)</code> 对 float 是 “truncated towards zero”。正数两者一样，负数不一样。</p>
     </section>
-    <section id="op-power">
+
+<section id="op-power">
       <h2><code>**</code> 乘方</h2>
       <p><code>a ** b</code> 是 a 的 b 次方。Python 里 <code>^</code> 不是乘方。</p>
       <table>
@@ -500,7 +647,8 @@
         <tr><td><code>2 ** 0</code></td><td>1</td><td>任何数的 0 次方是 1</td></tr>
       </table>
     </section>
-    <section id="op-mod">
+
+<section id="op-mod">
       <h2><code>%</code> 取余数</h2>
       <div class="bigdiv">5 ÷ 3 = <span class="q">1</span> … <span class="r">2</span></div>
       <p><code>5 // 3</code> 得到商 <span class="bigdiv" style="font-size:1em"><span class="q">1</span></span>，<code>5 % 3</code> 得到余数 <span class="bigdiv" style="font-size:1em"><span class="r">2</span></span>。</p>
@@ -513,10 +661,10 @@
       </table>
       <div class="takeaway">除数是正数时，<code>a % b</code> 一定在 0 到 b - 1 之间。常见用法：<code>n % 2 == 0</code> 判断偶数，<code>n % 10</code> 取个位。</div>
     </section>
-    <section id="op-formula">
+
+<section id="op-formula">
       <h2>一个公式管住 <code>//</code> 和 <code>%</code></h2>
       <div class="definition" style="font-size:1.15em">
-        <code>a = b * (a // b) + (a % b)</code><br>
         <code>a % b = a - b * (a // b)</code>
       </div>
       <h3>算 <code>-5 % 2</code></h3>
@@ -529,7 +677,8 @@
       <div class="warn fragment">负数的 <code>%</code> 不要凭感觉写 -1。先算 <code>//</code>，再代公式。</div>
       <aside class="notes">一步一步点出来。强调：负数题永远先求 //，再用公式，不要心算余数符号。</aside>
     </section>
-    <section id="op-digits">
+
+<section id="op-digits">
       <h2>常考：取出某一位数字</h2>
       <div class="digits">
         <span><b>3</b><i>万</i></span><span><b>1</b><i>千</i></span><span><b class="hit">4</b><i>百</i></span><span><b>8</b><i>十</i></span><span><b>7</b><i>个</i></span>
@@ -544,7 +693,8 @@
       </table>
       <p class="note">2024 TT1 第 1 题就是这个：三位数取中间那一位。</p>
     </section>
-    <section id="op-prec">
+
+<section id="op-prec">
       <h2>先算谁</h2>
       <div class="cols">
         <table>
@@ -565,7 +715,8 @@
         </div>
       </div>
     </section>
-    <section id="op-practice">
+
+<section id="op-practice">
       <h2>练一练 · 运算符</h2>
       <div class="exercise" style="font-size:1.1em">
         <code>&gt;&gt;&gt; -5 % 3</code><br>
@@ -589,12 +740,14 @@
       </div>
       <aside class="notes">给 3 分钟。第二题提醒：有 / 所以答案是 -1.0，写 -1 会扣分。</aside>
     </section>
-    <section id="part-logic" class="section-slide" data-part="and / or">
+
+<section id="part-logic" class="section-slide" data-part="and / or">
       <p class="part-no">PART 2 / 10</p>
       <h1><code>and</code> 和 <code>or</code></h1>
       <p class="subtitle">混在一行里时，先看谁</p>
     </section>
-    <section id="logic-rule">
+
+<section id="logic-rule">
       <h2>规则只有两条</h2>
       <div class="cols">
         <table>
@@ -611,7 +764,8 @@
       </div>
       <div class="definition">没有括号时：<code>not</code> 先，<code>and</code> 其次，<code>or</code> 最后。<br>看到连续的 <code>and</code>，先给它们打上括号。</div>
     </section>
-    <section id="logic-walk">
+
+<section id="logic-walk">
       <h2>拆开看</h2>
       <div class="cols">
         <div class="steps">
@@ -628,7 +782,8 @@
         </div>
       </div>
     </section>
-    <section id="logic-short">
+
+<section id="logic-short">
       <h2>了解：<code>and</code> / <code>or</code> 返回的是操作数</h2>
       <div class="definition">
         <code>x and y</code>：x 为假就返回 x，否则返回 y<br>
@@ -646,7 +801,8 @@
       </div>
       <p class="note">0、<code>""</code>、<code>[]</code>、<code>None</code> 当条件用时算假，其余大多算真。</p>
     </section>
-    <section id="logic-practice">
+
+<section id="logic-practice">
       <h2>练一练 · and / or</h2>
       <div class="exercise">
         ① <code>True or False and False or False and True</code><br>
@@ -663,12 +819,14 @@
       </div>
       <p class="note fragment">小技巧：只要 or 连起来的某一段是 <code>True</code>，整个式子就是 True。</p>
     </section>
-    <section id="part-if" class="section-slide" data-part="条件语句">
+
+<section id="part-if" class="section-slide" data-part="条件语句">
       <p class="part-no">PART 3 / 10</p>
       <h1>条件语句</h1>
       <p class="subtitle"><code>if</code> &nbsp; <code>elif</code> &nbsp; <code>else</code></p>
     </section>
-    <section id="if-basic">
+
+<section id="if-basic">
       <h2><code>if</code> / <code>elif</code> / <code>else</code></h2>
       <div class="cols">
         <div class="src"><pre><code class="py">if &lt;condition&gt;:
@@ -690,7 +848,8 @@ else:
       </div>
       <div class="takeaway">从上往下检查，<strong>第一个</strong>为 True 的分支执行，其余全部跳过。</div>
     </section>
-    <section id="if-chain">
+
+<section id="if-chain">
       <h2>走一遍：<code>x = 75</code></h2>
       <div class="cols">
         <div class="src"><pre class="stepper"><code class="py">x = 75
@@ -711,7 +870,8 @@ else:
       </div>
       <aside class="notes">按 → 会高亮当前执行到的行。最后一步强调：虽然 75 >= 60 也成立，但前面已经命中 B，后面的分支根本不看。</aside>
     </section>
-    <section id="if-grades" class="mid-code">
+
+<section id="if-grades" class="mid-code">
       <h2>分数等级：两种顺序都对</h2>
       <p class="note">80+ A，70–79 B，60–69 C，50–59 D，不到 50 是 F。x 在 0 到 100。</p>
       <div class="cols">
@@ -742,9 +902,10 @@ else:
     print("A")</code></pre></div>
         </div>
       </div>
-      <p class="note">为什么 B 那行不用写 <code>x &lt; 80</code>？因为能走到这一行，说明上面的 <code>x &gt;= 80</code> 已经是 False。</p>
+      <p class="note">为什么 B 不用写 <code>x &gt;= 70 and x &lt; 80</code>？<br>因为能走到这一行，就说明前面的 <code>x &gt;= 80</code> 已经是 False，也就是 <code>x &lt; 80</code> 已经确定了。所以这里只需要再判断 <code>x &gt;= 70</code>。</p>
     </section>
-    <section id="if-order">
+
+<section id="if-order">
       <h2>顺序写反就错</h2>
       <div class="cols">
         <div class="src"><pre><code class="py">x = 90
@@ -757,7 +918,8 @@ elif x >= 80:
       <div class="warn">条件是“往下越来越宽”的时候，窄的要放前面。90 先撞上 <code>x &gt;= 50</code>，就停在 D 了。</div>
       <p class="note">如果 x 可能不在 0–100，就把区间写全，比如 <code>elif 70 &lt;= x &lt; 80:</code>。</p>
     </section>
-    <section id="if-separate">
+
+<section id="if-separate">
       <h2><code>if…elif</code> 和两个独立的 <code>if</code> 不一样 <span class="tag new">卷子补充</span></h2>
       <div class="cols">
         <div class="src"><pre><code class="py">def f(x):
@@ -784,7 +946,8 @@ elif x >= 80:
       <p class="note">2024 TT1 第 9 题的 <code>func_b</code> 就是两个独立的 if。</p>
       <aside class="notes">让大家先猜 x = 12 两个函数返回什么。g 里第二个 if 和第一个没有关系，会再检查一次。</aside>
     </section>
-    <section id="if-nested">
+
+<section id="if-nested">
       <h2>嵌套 if：else 里面再判断 <span class="tag new">卷子补充</span></h2>
       <div class="cols">
         <div class="src"><pre><code class="py">if age &lt; 12:
@@ -810,12 +973,14 @@ else:
       </table>
       <p class="note">2024 TT1 第 2 题：用表格反推嵌套 if 的两个空。</p>
     </section>
-    <section id="part-scope" class="section-slide" data-part="函数与 scope">
+
+<section id="part-scope" class="section-slide" data-part="函数与 scope">
       <p class="part-no">PART 4 / 10</p>
       <h1>函数与 Scope</h1>
       <p class="subtitle">函数里面的名字，和函数外面的名字</p>
     </section>
-    <section id="fn-anatomy">
+
+<section id="fn-anatomy">
       <h2>一个函数由哪几块组成</h2>
       <div class="src"><pre class="stepper"><code class="py">def triangle_area(base: float, height: float) -> float:
     return base * height / 2
@@ -830,7 +995,8 @@ area = triangle_area(3, 4)</code></pre></div>
         <tr class="fragment" data-lines="4"><td>实参 argument</td><td><code>3</code>, <code>4</code></td><td>按位置交给参数：<code>base = 3</code>，<code>height = 4</code></td></tr>
       </table>
     </section>
-    <section id="fn-return-print">
+
+<section id="fn-return-print">
       <h2><code>return</code> 和 <code>print</code> 不是一回事 <span class="tag new">卷子补充</span></h2>
       <div class="cols">
         <div class="src"><pre><code class="py">def f(x):
@@ -850,7 +1016,8 @@ None 6</code></pre></div>
       </div>
       <div class="takeaway">想让别人拿到结果，用 <code>return</code>。题目问“返回什么”，看 <code>return</code>；问“打印什么”，看 <code>print</code>。</div>
     </section>
-    <section id="scope-local">
+
+<section id="scope-local">
       <h2>函数里建的变量，外面看不到</h2>
       <div class="cols">
         <div>
@@ -876,7 +1043,8 @@ None 6</code></pre></div>
       <div class="definition"><strong>local</strong>：在函数里赋值的名字，只活在这次调用里。<strong>global</strong>：在所有函数外面赋值的名字。</div>
       <aside class="notes">用两个框讲：每次调用函数都会新开一个框，调用结束框就消失。外面的 global 框里从来没有 x，所以 NameError。</aside>
     </section>
-    <section id="scope-shadow">
+
+<section id="scope-shadow">
       <h2>里面再写一次同名变量，外面不会变</h2>
       <div class="cols">
         <div>
@@ -896,7 +1064,8 @@ None 6</code></pre></div>
         </div>
       </div>
     </section>
-    <section id="scope-global">
+
+<section id="scope-global">
       <h2>真要改外面的值：<code>global</code></h2>
       <div class="cols">
         <div>
@@ -917,7 +1086,8 @@ None 6</code></pre></div>
       </div>
       <div class="definition"><code>global x</code> 写在函数里、用 x 之前。意思是：这个函数里的 x 就是外面那个 x。</div>
     </section>
-    <section id="scope-lookup">
+
+<section id="scope-lookup">
       <h2>读变量：先找自己框里的</h2>
       <div class="cols">
         <div>
@@ -944,7 +1114,8 @@ None 6</code></pre></div>
       </div>
       <div class="takeaway">函数里只要对某个名字<strong>赋值</strong>，这个名字在整个函数里都是 local。没赋值，才去读 global。</div>
     </section>
-    <section id="scope-unbound">
+
+<section id="scope-unbound">
       <h2><code>UnboundLocalError</code></h2>
       <div class="cols">
         <div>
@@ -963,7 +1134,8 @@ None 6</code></pre></div>
       </div>
       <div class="definition fragment">修法：在函数第一行写 <code>global y</code>。或者别改 y，改成 <code>return y + 2</code>。</div>
     </section>
-    <section id="scope-params">
+
+<section id="scope-params">
       <h2>参数也是 local 变量 <span class="tag new">卷子补充</span></h2>
       <div class="cols">
         <div>
@@ -987,7 +1159,8 @@ def add_one(x):
         </div>
       </div>
     </section>
-    <section id="scope-args">
+
+<section id="scope-args">
       <h2>实参按<strong>位置</strong>交给参数，名字无关 <span class="tag new">卷子补充</span></h2>
       <div class="cols">
         <div class="src"><pre><code class="py">def f(y, x):
@@ -1006,7 +1179,8 @@ def add_one(x):
       <div class="warn">不要看到外面叫 x 就以为对上里面的 x。只看<strong>第几个位置</strong>。</div>
       <p class="note">2024 TT1 第 8 题 <code>well(y, x)</code>、<code>hello(z, x)</code> 就是专门考这个。</p>
     </section>
-    <section id="scope-practice" class="mid-code">
+
+<section id="scope-practice" class="mid-code">
       <h2>练一练 · scope</h2>
       <div class="cols">
         <div>
@@ -1038,12 +1212,59 @@ a()</code></pre></div>
         </div>
       </div>
     </section>
-    <section id="part-str" class="section-slide" data-part="字符串">
+
+<section id="part-str" class="section-slide" data-part="字符串">
       <p class="part-no">PART 5 / 10</p>
       <h1>字符串</h1>
       <p class="subtitle">下标 · slicing · 拼接 · 比较 · 方法</p>
     </section>
-    <section id="str-index">
+
+<section id="str-repl-print">
+      <h2>交互终端的显示 ≠ <code>print</code> 的输出</h2>
+      <div class="quote-grid">
+        <div>
+          <p class="caption">输入两种写法，字符串的内容相同</p>
+          <div class="src"><pre><code class="py">>>> 'cat'
+>>> "cat"</code></pre></div>
+          <div class="out fragment" data-fragment-index="0"><pre><code>'cat'
+'cat'</code></pre></div>
+        </div>
+        <div>
+          <p class="caption"><code>print</code> 只把内容印出来</p>
+          <div class="src"><pre><code class="py">>>> print('cat')
+>>> print("cat")</code></pre></div>
+          <div class="out fragment" data-fragment-index="1"><pre><code>cat
+cat</code></pre></div>
+        </div>
+      </div>
+      <div class="definition fragment" data-fragment-index="2">交互终端自动显示的是字符串的 <code>repr</code>（表示形式）；外层引号提示“这是字符串”，<strong>不是</strong>字符串内容。<code>print</code> 显示内容。</div>
+      <aside class="notes">这里的 terminal 指 Python 的交互提示符 >>>，不是系统 shell。强调输入时用单引号或双引号，得到的字符串值相同；直接求值时显示 repr，print 显示内容。</aside>
+    </section>
+
+<section id="str-quotes-inside">
+      <h2>引号嵌套：看清哪些是内容</h2>
+      <div class="quote-grid">
+        <div>
+          <div class="src"><pre><code class="py">>>> "It's OK"
+>>> 'It\'s OK'</code></pre></div>
+          <div class="out fragment" data-fragment-index="0"><pre><code>"It's OK"
+"It's OK"</code></pre></div>
+        </div>
+        <div>
+          <div class="src"><pre><code class="py">>>> print("It's OK")
+>>> print('It\'s OK')
+>>> print('"Hi"')</code></pre></div>
+          <div class="out fragment" data-fragment-index="1"><pre><code>It's OK
+It's OK
+"Hi"</code></pre></div>
+        </div>
+      </div>
+      <div class="definition fragment" data-fragment-index="2">双引号字符串里可直接写单引号；单引号字符串里要写单引号，用反斜杠 <code>\'</code> 转义，或改用双引号包住。</div>
+      <div class="warn fragment" data-fragment-index="3"><code>repr</code> 会选合适的外层引号：<code>"It's OK"</code> 在交互终端显示双引号。所以“终端永远显示单引号”不成立。</div>
+      <aside class="notes">如果字符串内容含单引号，Python 的 repr 常用双引号包住。反斜杠是代码里的转义，不是输出字符。示例的打印结果均以实际 Python 运行核对。</aside>
+    </section>
+
+<section id="str-index">
       <h2>下标 index</h2>
       <div class="strip" data-text="abc"></div>
       <p class="note">蓝色是从左数（从 0 开始），橙色是从右数（从 -1 开始）。</p>
@@ -1053,13 +1274,44 @@ a()</code></pre></div>
       </div>
       <div class="warn">下标越界会 <code>IndexError</code>：<code>"abc"[3]</code>。slicing 越界不会报错。</div>
     </section>
-    <section id="str-index-q">
+
+<section id="str-index-q">
       <h2>练一练 · <code>"Minecraft"</code> 里的 <code>'a'</code></h2>
       <div class="strip" data-text="Minecraft" data-mark="6,-3"></div>
       <div class="exercise">哪些下标能取到 <code>'a'</code>？ &nbsp; a. 6 &nbsp;&nbsp; b. 7 &nbsp;&nbsp; c. -3 &nbsp;&nbsp; d. -2</div>
       <div class="definition fragment" data-fragment-index="0">答案 a 和 c。<code>s[6]</code> 和 <code>s[-3]</code> 是同一个格子。7 和 -2 都是 <code>'f'</code>。</div>
     </section>
-    <section id="str-slice">
+
+<section id="str-slice-positions">
+      <h2>切片先看“位置”，再看字符下标</h2>
+      <p><code>s = 'ABCDE'</code>：蓝色数字是字符下标；下方 <code>0…5</code> 是字符之间的切割位置。</p>
+      <div class="slice-board" data-text="ABCDE" data-start="2:0" data-stop="4:1" data-hits="2:2,3:3"></div>
+      <div class="steps">
+        <p class="fragment" data-fragment-index="0"><strong>①</strong> <code>s[2:4]</code> 从位置 2 开始，也就是 <code>C</code> 前面。</p>
+        <p class="fragment" data-fragment-index="1"><strong>②</strong> 到位置 4 停，在 <code>E</code> 前面切开。</p>
+        <p class="fragment" data-fragment-index="2"><strong>③</strong> 先取下标 2 的 <code>C</code>。</p>
+        <p class="fragment" data-fragment-index="3"><strong>④</strong> 再取下标 3 的 <code>D</code>；下标 4 的 <code>E</code> 不取。结果 <code>'CD'</code>。</p>
+      </div>
+      <aside class="notes">顺序点四次：起点位置、终点位置、C、D。正向连续切片可以想成在字符之间下刀；下标 2 对应 C，而切割位置 2 在 C 前面。终点 4 是边界，不是最后一个被取的字符。</aside>
+    </section>
+
+<section id="str-slice-out-of-range">
+      <h2>终点很大：切到末尾，仍不取不存在的字符</h2>
+      <p><code>s = 'ABCDE'</code>，<code>len(s) = 5</code>；合法字符下标只有 <code>0…4</code>。</p>
+      <div class="slice-board" data-text="ABCDE" data-start="2:0" data-hits="2:1,3:2,4:3"></div>
+      <div class="slice-flow">
+        <span class="hop fragment" data-fragment-index="0">start = 2</span><span class="arrow">→</span>
+        <span class="hop fragment" data-fragment-index="1">2: C</span><span class="arrow">→</span>
+        <span class="hop fragment" data-fragment-index="2">3: D</span><span class="arrow">→</span>
+        <span class="hop fragment" data-fragment-index="3">4: E</span><span class="arrow">→</span>
+        <span class="hop fragment" data-fragment-index="4">5: 停</span>
+      </div>
+      <div class="takeaway fragment" data-fragment-index="4"><code>s[2:10]</code> → <code>'CDE'</code>。<code>10</code> 是终点上限，超出长度也不会报错；切片不会生成下标 5…9 的字符。</div>
+      <div class="warn fragment" data-fragment-index="5">对照：单个下标 <code>s[10]</code> 会报 <code>IndexError</code>。</div>
+      <aside class="notes">先让学生预测。点亮 C、D、E 后说明 5 已经到字符串末尾，10 不是要访问的字符下标。对比单下标越界会报错。</aside>
+    </section>
+
+<section id="str-slice">
       <h2>slicing：含头不含尾</h2>
       <div class="strip small" data-text="University of Toronto" data-hit="14:20" data-neg="no"></div>
       <div class="cols">
@@ -1075,7 +1327,8 @@ a()</code></pre></div>
       <div class="definition"><code>s[start:stop]</code> 从 start 开始，到 stop <strong>前一个</strong>为止。黄色就是 <code>x[14:20]</code>，20 号的 <code>'o'</code> 不算。</div>
       <p class="note">结果是一个新字符串，原来的 x 不变。</p>
     </section>
-    <section id="str-slice-omit">
+
+<section id="str-slice-omit">
       <h2>省略起点 / 终点</h2>
       <div class="strip" data-text="Toronto"></div>
       <table>
@@ -1088,7 +1341,8 @@ a()</code></pre></div>
         <tr><td><code>s[5:2]</code></td><td><code>''</code></td><td>起点在终点右边 → 空字符串</td></tr>
       </table>
     </section>
-    <section id="str-slice-cs">
+
+<section id="str-slice-cs">
       <h2>练一练 · 切出 <code>Computer</code> 和 <code>Science</code></h2>
       <div class="strip small" data-text="Computer Science"></div>
       <div class="exercise"><code>z = "Computer Science"</code>，写出几种能得到 <code>'Computer'</code> 或 <code>'Science'</code> 的切法。</div>
@@ -1098,7 +1352,8 @@ a()</code></pre></div>
         <p class="note">起点终点可以一正一负。先把负数换成格子位置（-8 就是 8 号格的空格），再看范围。</p>
       </div>
     </section>
-    <section id="str-step">
+
+<section id="str-step">
       <h2>第三个数 step：每次跳几格</h2>
       <p><code>x = "0123456789"</code></p>
       <div class="fragment">
@@ -1111,7 +1366,23 @@ a()</code></pre></div>
       </div>
       <div class="definition fragment"><code>s[start:stop:step]</code>：从 start 出发，每次走 step 格，碰到 stop 之前停下。</div>
     </section>
-    <section id="str-step-neg">
+
+<section id="str-step-from-start">
+      <h2>step 从 start 数起，绝不是重新从 0 数</h2>
+      <p><code>s = 'ABCDE'</code>，计算 <code>s[2:10:3]</code>。</p>
+      <div class="slice-board" data-text="ABCDE" data-start="2:0" data-hits="2:1"></div>
+      <div class="slice-flow">
+        <span class="hop fragment" data-fragment-index="0">从 2 出发</span><span class="arrow">→</span>
+        <span class="hop fragment" data-fragment-index="1">取 2: C</span><span class="arrow">→</span>
+        <span class="hop fragment" data-fragment-index="2">2 + 3 = 5</span><span class="arrow">→</span>
+        <span class="hop fragment" data-fragment-index="3">5 已到末尾，停</span>
+      </div>
+      <div class="takeaway fragment" data-fragment-index="3">结果 <code>'C'</code>。<code>stop=10</code> 再大，也不会凭空出现字符。候选下标是 <code>2, 5, 8…</code>，不是 <code>0, 3, 6…</code>。</div>
+      <div class="definition fragment" data-fragment-index="4">对照 <code>s[0:5:3]</code>：从 <code>0</code> 出发，取 <code>0, 3</code> → <code>'AD'</code>。步长说的是<strong>相邻两次取值的下标之差</strong>。</div>
+      <aside class="notes">每次点击只走一步。先点起点 2，再点亮 C，再计算下一个候选下标 5。5 是结尾位置，没有下标 5 的字符，所以答案只有 C。对比从 0 出发才会取 A、D。</aside>
+    </section>
+
+<section id="str-step-neg">
       <h2>step 是负数：从右往左走</h2>
       <p><code>x = "0123456789"</code></p>
       <div class="fragment">
@@ -1124,7 +1395,37 @@ a()</code></pre></div>
       </div>
       <div class="warn fragment">step 为负时，省略 start 是“最右边”，省略 stop 是“一直到最左边”。</div>
     </section>
-    <section id="str-empty">
+
+<section id="str-reverse-trace">
+      <h2>反着切：先确定起点，再一格一格往左</h2>
+      <p><code>s = 'ABCDE'</code>，计算 <code>s[4:0:-1]</code>。负步长时，<code>stop=0</code> 仍然<strong>不包含</strong>。</p>
+      <div class="slice-board" data-mode="indices" data-text="ABCDE" data-hits="4:0,3:1,2:2,1:3"></div>
+      <div class="slice-flow">
+        <span class="hop fragment" data-fragment-index="0">4: E</span><span class="arrow">→</span>
+        <span class="hop fragment" data-fragment-index="1">3: D</span><span class="arrow">→</span>
+        <span class="hop fragment" data-fragment-index="2">2: C</span><span class="arrow">→</span>
+        <span class="hop fragment" data-fragment-index="3">1: B</span><span class="arrow">→</span>
+        <span class="hop fragment" data-fragment-index="4">0: 停，A 不取</span>
+      </div>
+      <div class="takeaway fragment" data-fragment-index="4"><code>s[4:0:-1]</code> → <code>'EDCB'</code>。反向的规则也是“取 start，不取 stop”。</div>
+      <aside class="notes">不要用正向的“两个切割位置夹一段”来猜负步长。负步长直接列候选字符下标：4、3、2、1，到 0 时停止且不取 A。</aside>
+    </section>
+
+<section id="str-reverse-omitted-stop">
+      <h2>反向切片的一个陷阱：省略 stop ≠ 写 -1</h2>
+      <div class="slice-board slice-compact" data-mode="indices" data-text="ABCDE" data-hits="4:0,3:1,2:2,1:3,0:4"></div>
+      <div class="steps">
+        <p class="fragment" data-fragment-index="0"><code>s[::-1]</code>：省略 start，从最后一个 <code>E</code> 出发。</p>
+        <p class="fragment" data-fragment-index="1">接着取 <code>D</code>。</p>
+        <p class="fragment" data-fragment-index="2">接着取 <code>C</code>。</p>
+        <p class="fragment" data-fragment-index="3">接着取 <code>B</code>。</p>
+        <p class="fragment" data-fragment-index="4">最后取 <code>A</code> → <code>'EDCBA'</code>。</p>
+      </div>
+      <div class="warn fragment" data-fragment-index="5"><code>s[4:-1:-1]</code> 却是 <code>''</code>：显式 <code>-1</code> 指向最后一个字符 <code>E</code>，它是<strong>不包含的终点</strong>。省略 stop 才会一直走过 <code>A</code>。</div>
+      <aside class="notes">这个例子专门防止把省略终点理解成显式 -1。反向省略 stop 使用的是越过最左侧的边界；显式 -1 会先解释成最后一个字符下标 4，因此 4:4:-1 为空。</aside>
+    </section>
+
+<section id="str-empty">
       <h2>什么时候切出空字符串 <code>''</code></h2>
       <div class="definition">方向和起点终点对不上，就是空的：<br>
         step 为正，起点却在终点右边；step 为负，起点却在终点左边。</div>
@@ -1141,7 +1442,8 @@ a()</code></pre></div>
       <p><code>s[0:11:-1]</code>：从 0 号格往<strong>左</strong>走，想到 11 号格，永远走不到 → 空。</p>
       <div class="takeaway">倒过来用 <code>s[::-1]</code>。</div>
     </section>
-    <section id="str-plus-mul">
+
+<section id="str-plus-mul">
       <h2><code>+</code> 拼接，<code>*</code> 重复 <span class="tag new">卷子补充</span></h2>
       <div class="cols">
         <div class="src"><pre><code class="py">>>> "We're" + "Here"
@@ -1158,7 +1460,8 @@ TypeError</code></pre></div>
       <div class="warn"><code>str + int</code> 会 <code>TypeError</code>。要先 <code>str(10)</code> 把数字变成字符串。</div>
       <p class="note"><code>'abc' * 2</code> 是整串重复 <code>'abcabc'</code>，不是每个字母重复 <code>'aabbcc'</code>。2024 TT1 第 7 题用到。</p>
     </section>
-    <section id="str-in">
+
+<section id="str-in">
       <h2><code>in</code>：有没有这个子串 <span class="tag new">卷子补充</span></h2>
       <div class="cols">
         <div class="src"><pre><code class="py">>>> 'cat' in 'concatenate'
@@ -1171,8 +1474,9 @@ False
 True</code></pre></div>
       </div>
       <div class="definition">对字符串，<code>x in s</code> 问的是：x 是不是 s 里<strong>连续的一段</strong>。大小写要一致。</div>
-          </section>
-    <section id="str-compare-codes">
+    </section>
+
+<section id="str-compare-codes">
       <h2>字符串比较：比的是编码</h2>
       <div class="cols">
         <table>
@@ -1186,13 +1490,27 @@ True</code></pre></div>
           <p><code>ord('a')</code> 是 97，<code>chr(66)</code> 是 <code>'B'</code>。API sheet 上有这两个函数。</p>
         </div>
       </div>
-      <h3>多个字符怎么比</h3>
-      <ol>
-        <li>从下标 0 开始逐个比，第一个不同的字符决定大小</li>
-        <li>一直相同、其中一个先比完 → <strong>短的更小</strong></li>
-      </ol>
+      <h3>多个字符：从左边一个一个比</h3>
+      <p>像查字典：字母一样就看下一个，<strong>第一个不一样的字母</strong>决定谁更小。</p>
+      <div class="cols">
+        <div>
+          <p class="strip-label"><code>'car'</code> 和 <code>'cat'</code></p>
+          <div class="strip small" data-text="car" data-same="0:0,1:0" data-diff="2:1" data-neg="no" data-pos="no"></div>
+          <div class="strip small" data-text="cat" data-same="0:0,1:0" data-diff="2:1" data-neg="no" data-pos="no"></div>
+          <p class="fragment" data-fragment-index="0"><code>c</code> 一样，<code>a</code> 一样。</p>
+          <p class="fragment" data-fragment-index="1">第三个 <code>r</code> 比 <code>t</code> 靠前，所以 <code>'car' &lt; 'cat'</code>。</p>
+        </div>
+        <div>
+          <p class="strip-label"><code>'app'</code> 和 <code>'apple'</code></p>
+          <div class="strip small" data-text="app" data-same="0:2,1:2,2:2" data-neg="no" data-pos="no"></div>
+          <div class="strip small" data-text="apple" data-same="0:2,1:2,2:2" data-diff="3:3,4:3" data-neg="no" data-pos="no"></div>
+          <p class="fragment" data-fragment-index="2">前面 <code>app</code> 都一样。</p>
+          <p class="fragment" data-fragment-index="3"><code>'app'</code> 先结束，短的更小，所以 <code>'app' &lt; 'apple'</code>。</p>
+        </div>
+      </div>
     </section>
-    <section id="str-compare-examples">
+
+<section id="str-compare-examples">
       <h2>练一练 · 字符串比较</h2>
       <table>
         <tr><th>表达式</th><th>第一个不同的地方</th><th>结果</th></tr>
@@ -1201,9 +1519,10 @@ True</code></pre></div>
         <tr><td><code>'utm' &gt; 'utmsu'</code></td><td class="fragment">'utm' 先比完，短的更小</td><td class="fragment">False</td></tr>
         <tr><td><code>'Zoo' &lt; 'apple'</code></td><td class="fragment"><code>'Z'</code>(90) vs <code>'a'</code>(97)</td><td class="fragment">True</td></tr>
       </table>
-      <p class="note"><code>'a' &lt; 'b' &lt; 'c'</code> 是 <code>('a' &lt; 'b') and ('b' &lt; 'c')</code>，结果 True。</p>
+      <p class="note">连着写 <code>'a' &lt; 'b' &lt; 'c'</code> 时，Python 会拆成两小段，<strong>两段都要成立</strong>：<code>'a' &lt; 'b'</code> 是 True（a 在 b 前面），<code>'b' &lt; 'c'</code> 也是 True（b 在 c 前面），所以整个结果是 True。<br>不是先算出 True，再拿这个 True 去和 <code>'c'</code> 比。</p>
     </section>
-    <section id="str-methods-find">
+
+<section id="str-methods-find">
       <h2>字符串方法 ①：找、数</h2>
       <table>
         <tr><th>方法</th><th>例子</th><th>结果</th></tr>
@@ -1216,37 +1535,112 @@ True</code></pre></div>
       </table>
       <div class="takeaway"><code>find</code> 找不到返回 -1，<code>index</code> 找不到报错。</div>
     </section>
-    <section id="str-methods-change">
-      <h2>字符串方法 ②：变、判断</h2>
+
+<section id="str-methods-change">
+      <h2>字符串方法 ②：改大小写</h2>
+      <div class="takeaway">原来的字符串不会变。<code>s.lower()</code> 返回一个新的，要留下就写 <code>s = s.lower()</code>。</div>
       <table>
-        <tr><th>方法</th><th>例子</th><th>结果</th></tr>
-        <tr><td><code>lower()</code> / <code>upper()</code></td><td><code>'CsC'.lower()</code></td><td><code>'csc'</code></td></tr>
-        <tr><td><code>capitalize()</code></td><td><code>'hELLO'.capitalize()</code></td><td><code>'Hello'</code></td></tr>
-        <tr><td><code>strip()</code> / <code>lstrip()</code> / <code>rstrip()</code></td><td><code>'  hi  '.strip()</code></td><td><code>'hi'</code></td></tr>
-        <tr><td><code>replace(old, new)</code></td><td><code>'a-b-c'.replace('-', '')</code></td><td><code>'abc'</code></td></tr>
-        <tr><td><code>isdigit()</code> / <code>isalpha()</code> / <code>isalnum()</code></td><td><code>'108'.isdigit()</code></td><td>True；空字符串都是 False</td></tr>
-        <tr><td><code>islower()</code> / <code>isupper()</code></td><td><code>'csc108'.islower()</code></td><td>True（只看字母）</td></tr>
+        <tr><th>方法</th><th>按 → 看它做什么</th></tr>
+        <tr>
+          <td><code>lower()</code><br><code>'CsC108'.lower()</code></td>
+          <td class="fragment" data-fragment-index="0">每个字母变小写，数字不动 → <code>'csc108'</code></td>
+        </tr>
+        <tr>
+          <td><code>upper()</code><br><code>'CsC108'.upper()</code></td>
+          <td class="fragment" data-fragment-index="1">每个字母变大写，数字不动 → <code>'CSC108'</code></td>
+        </tr>
+        <tr>
+          <td><code>capitalize()</code><br><code>'hELLO'.capitalize()</code></td>
+          <td class="fragment" data-fragment-index="2">只把第一个字符变大写，后面<strong>全部变小写</strong> → <code>'Hello'</code></td>
+        </tr>
       </table>
-      <div class="warn">字符串不能改。<code>s.upper()</code> 返回新字符串，<code>s</code> 本身不变；要写 <code>s = s.upper()</code>。<br>
-        方法名写错会 <code>AttributeError</code>：没有 <code>lowercase()</code>，只有 <code>lower()</code>。</div>
+      <p class="note fragment" data-fragment-index="3">名字要写对：没有 <code>lowercase()</code>，只有 <code>lower()</code>。写错是 <code>AttributeError</code>。</p>
     </section>
-    <section id="part-fdr" class="section-slide" data-part="函数设计、测试、重构">
+
+<section id="str-methods-blank">
+      <h2>去掉空白、替换</h2>
+      <p class="note">灰色块是空格。这些方法同样不改原来的字符串。</p>
+      <table>
+        <tr><th>方法</th><th>按 → 看它做什么</th></tr>
+        <tr>
+          <td><code>strip()</code><br><code>'<span class="sp">&nbsp;&nbsp;</span>hi<span class="sp">&nbsp;&nbsp;</span>'.strip()</code></td>
+          <td class="fragment" data-fragment-index="0">去掉<strong>两边</strong>的空格，中间的字留下 → <code>'hi'</code></td>
+        </tr>
+        <tr>
+          <td><code>lstrip()</code><br><code>'<span class="sp">&nbsp;&nbsp;</span>hi<span class="sp">&nbsp;&nbsp;</span>'.lstrip()</code></td>
+          <td class="fragment" data-fragment-index="1">只去掉<strong>左边</strong>，右边的空格还在 → <code>'hi<span class="sp">&nbsp;&nbsp;</span>'</code></td>
+        </tr>
+        <tr>
+          <td><code>rstrip()</code><br><code>'<span class="sp">&nbsp;&nbsp;</span>hi<span class="sp">&nbsp;&nbsp;</span>'.rstrip()</code></td>
+          <td class="fragment" data-fragment-index="2">只去掉<strong>右边</strong>，左边的空格还在 → <code>'<span class="sp">&nbsp;&nbsp;</span>hi'</code></td>
+        </tr>
+        <tr>
+          <td><code>replace(old, new)</code><br><code>'a-b-c'.replace('-', '+')</code></td>
+          <td class="fragment" data-fragment-index="3">每一处 <code>'-'</code> 都换成 <code>'+'</code>，不是只换第一次 → <code>'a+b+c'</code>。new 写成 <code>''</code> 就是把它们删掉。</td>
+        </tr>
+      </table>
+    </section>
+
+<section id="str-methods-ask">
+      <h2>判断：是不是某一类字符</h2>
+      <p class="note">空字符串 <code>''</code> 用这些方法，结果都是 False。也是返回 True / False，不改原来的字符串。</p>
+      <table>
+        <tr><th>方法</th><th>按 → 看它做什么</th></tr>
+        <tr>
+          <td><code>isdigit()</code><br><code>'108'.isdigit()</code></td>
+          <td class="fragment" data-fragment-index="0">每个字符都是数字才是 True → True。<code>'10a'</code> 是 False</td>
+        </tr>
+        <tr>
+          <td><code>isalpha()</code><br><code>'csc'.isalpha()</code></td>
+          <td class="fragment" data-fragment-index="1">每个字符都是字母才是 True → True。<code>'csc108'</code> 是 False</td>
+        </tr>
+        <tr>
+          <td><code>isalnum()</code><br><code>'csc108'.isalnum()</code></td>
+          <td class="fragment" data-fragment-index="2">每个字符是字母或数字才是 True → True。<code>'c-s'</code> 是 False</td>
+        </tr>
+        <tr>
+          <td><code>islower()</code><br><code>'csc108'.islower()</code></td>
+          <td class="fragment" data-fragment-index="3">字母都是小写，而且至少有一个字母 → True。数字不管。<code>'CsC'</code> 和 <code>'108'</code> 都是 False</td>
+        </tr>
+        <tr>
+          <td><code>isupper()</code><br><code>'CSC108'.isupper()</code></td>
+          <td class="fragment" data-fragment-index="4">字母都是大写，而且至少有一个字母 → True。<code>'Csc'</code> 是 False</td>
+        </tr>
+      </table>
+    </section>
+
+<section id="part-fdr" class="section-slide" data-part="函数设计、测试、重构">
       <p class="part-no">PART 6 / 10</p>
       <h1>函数设计、测试、重构</h1>
       <p class="subtitle">Function Design Recipe · test cases · refactoring</p>
     </section>
-    <section id="fdr-steps">
+
+<section id="fdr-steps">
       <h2>写函数的顺序（Design Recipe）</h2>
-      <ol>
-        <li><strong>起名字</strong></li>
-        <li><strong>type contract</strong>：几个参数、各是什么类型、返回什么类型</li>
-        <li><strong>docstring</strong>：一句话说清它做什么，再放几个例子（doctest）</li>
-        <li><strong>写函数体</strong>：照着描述去实现</li>
-        <li><strong>测试</strong>：跑 doctest，看例子是不是都对</li>
-      </ol>
+      <div class="cols">
+        <div class="src"><pre id="recipe-fn" class="stepper"><code class="py">def is_even(n: int) -> bool:
+    """Return True iff n is even.
+
+    >>> is_even(4)
+    True
+    >>> is_even(3)
+    False
+    """
+    return n % 2 == 0</code></pre></div>
+        <div class="steps">
+          <p class="fragment" data-target="#recipe-fn" data-lines="1"><strong>名字</strong>：<code>is_even</code>。一看就知道是在判断偶数。</p>
+          <p class="fragment" data-target="#recipe-fn" data-lines="1"><strong>type contract</strong>：参数 <code>n: int</code>，返回 <code>bool</code>。</p>
+          <p class="fragment" data-target="#recipe-fn" data-lines="2"><strong>docstring</strong>：<code>"""</code> 里的一句话，说它做什么。</p>
+          <p class="fragment" data-target="#recipe-fn" data-lines="4-7"><strong>doctest</strong>：<code>&gt;&gt;&gt;</code> 后面是调用，下一行是期望结果。</p>
+          <p class="fragment" data-target="#recipe-fn" data-lines="9"><strong>函数体</strong>：照着上面那句话写出来的代码。</p>
+          <p class="fragment" data-target="#recipe-fn" data-lines="4-7"><strong>测试</strong>：跑这些例子。4 应该得到 True，3 应该得到 False。</p>
+        </div>
+      </div>
       <div class="takeaway">先想清楚“输入什么、输出什么、做什么”，再写代码。</div>
+      <div class="warn"><code>&gt;&gt;&gt;</code> 和后面的文字之间要有一个空格。<code>&gt;&gt;&gt;is_even(4)</code> 不会被当成测试；要写成 <code>&gt;&gt;&gt;<span class="sp">&nbsp;</span>is_even(4)</code>。</div>
     </section>
-    <section id="fdr-doctest">
+
+<section id="fdr-doctest">
       <h2>docstring 和 doctest</h2>
       <div class="src"><pre><code class="py">def triangle_area(base: float, height: float) -> float:
     """Return the area of a triangle with base and height.
@@ -1261,27 +1655,42 @@ True</code></pre></div>
         <li>docstring 放在函数体第一行，用 <code>"""</code> 包起来</li>
         <li><code>&gt;&gt;&gt;</code> 后面写调用，下一行写期望结果</li>
       </ul>
-      <div class="warn">原复习 PPT 这一页有两处笔误：doctest 写成了 <code>triangle(...)</code>，<code>triangle_area(4, 5)</code> 的期望值写成了 20.0。正确是 <code>4 * 5 / 2 = 10.0</code>。</div>
     </section>
-    <section id="fdr-desc">
+
+<section id="fdr-desc">
       <h2>怎么写 description <span class="tag new">卷子补充</span></h2>
-      <div class="src"><pre><code class="py">def has_digit(s: str) -> bool:
-    """???"""
+      <div class="cols">
+        <div class="src"><pre id="desc-fn"><code class="py">def has_digit(s: str) -> bool:
+    """Return True iff s contains
+    at least one digit."""
     for ch in s:
         if ch.isdigit():
             return True
     return False</code></pre></div>
-      <div class="cols">
-        <div class="warn">“遍历 s，如果 ch 是数字就返回 True，最后返回 False。”<br><span class="note">这是逐行翻译代码，拿不到分。</span></div>
-        <div class="takeaway">Return True iff s contains at least one digit.</div>
+        <div class="steps">
+          <p class="fragment" data-fragment-index="0" data-box="s"><strong>用参数名。</strong> 函数头里叫 <code>s</code>，答案里就写 s。循环里的 <code>ch</code> 不要写进去。</p>
+          <p class="fragment" data-fragment-index="1" data-box="return"><strong>开头写 Return。</strong> 只说交出去什么，不要把代码逐行翻译一遍。</p>
+          <p class="fragment" data-fragment-index="2" data-box="true"><strong>交出去的是 True 或 False</strong>，所以写 <code>True</code>。iff 是 if and only if，就是“当且仅当”：后面那句话成立 → True，不成立 → False。</p>
+        </div>
       </div>
-      <ul>
-        <li>用 <strong>Return …</strong> 开头，直接用参数名（s、n）</li>
-        <li>返回 bool 时写 <strong>Return True iff …</strong>（iff = 当且仅当）</li>
-        <li>返回类型看 <code>return</code> 后面：<code>return c == n</code> 是 <code>bool</code></li>
-      </ul>
-          </section>
-    <section id="fdr-tests">
+      <div class="warn">遍历 s，如果 ch 是数字就返回 True，最后返回 False。这是在翻译代码。</div>
+      <p class="fragment" data-fragment-index="3"><strong>返回类型</strong>看 <code>return</code> 后面那个值，不是前面数过的变量。</p>
+      <table class="fragment" data-fragment-index="4">
+        <tr><th>return 后面</th><th>按 → 看交出去什么</th><th>类型</th></tr>
+        <tr>
+          <td><code>return True</code></td>
+          <td>后面就是 True →</td>
+          <td><code>bool</code></td>
+        </tr>
+        <tr class="fragment" data-fragment-index="5">
+          <td><code>return c == n</code></td>
+          <td><code>==</code> 只问相不相等。2 == 2 → True，2 == 3 → False。不是把数字 c 交出去 →</td>
+          <td><code>bool</code></td>
+        </tr>
+      </table>
+    </section>
+
+<section id="fdr-tests">
       <h2>怎么挑测试用例 <span class="tag new">卷子补充</span></h2>
       <p class="note">例子：<code>letter(x)</code>，0 ≤ x ≤ 100，80 分以上 A，70–79 B …… 50 以下 F</p>
       <table>
@@ -1295,7 +1704,8 @@ True</code></pre></div>
       <div class="takeaway">每个分支至少测一次；每个分界值测“刚好等于”和“刚好小一点”；范围两端各测一次。</div>
       <p class="note">题目说了范围（如 0.0 ≤ score ≤ 4.0），测试值就不能超出范围。2024 TT1 第 12 题。</p>
     </section>
-    <section id="fdr-refactor-1">
+
+<section id="fdr-refactor-1">
       <h2>重构 ①：条件本身就是 True / False <span class="tag new">卷子补充</span></h2>
       <div class="cols">
         <div>
@@ -1322,7 +1732,8 @@ else:
       </div>
       <div class="definition">refactoring：<strong>行为不变</strong>，代码更简单。</div>
     </section>
-    <section id="fdr-refactor-2">
+
+<section id="fdr-refactor-2">
       <h2>重构 ②：合并分支，删掉到不了的代码</h2>
       <div class="cols">
         <div>
@@ -1344,12 +1755,14 @@ return False</code></pre></div>
       <div class="takeaway">改完用几组值检查：原来返回什么，现在还得返回什么。</div>
       <p class="note">2024 TT1 第 13 题就是这类。</p>
     </section>
-    <section id="part-err" class="section-slide" data-part="常见 Error">
+
+<section id="part-err" class="section-slide" data-part="常见 Error">
       <p class="part-no">PART 7 / 10</p>
       <h1>常见 Error</h1>
       <p class="subtitle">看最后一行：错误类型 + 原因</p>
     </section>
-    <section id="err-1">
+
+<section id="err-1">
       <h2>常见 Error ①</h2>
       <table>
         <tr><th>Error</th><th>例子</th><th>原因</th></tr>
@@ -1358,77 +1771,195 @@ return False</code></pre></div>
         <tr><td><strong>TypeError</strong></td><td><code>'a' - 'a'</code></td><td>字符串不能相减</td></tr>
         <tr><td><strong>IndexError</strong></td><td><code>'abc'[3]</code></td><td>下标越界</td></tr>
       </table>
+      <div class="cols">
+        <div>
+          <div class="src small-code"><pre id="err-sub" class="stepper"><code class="py">'a' &lt; 'b'
+'a' - 'a'
+ord('a') - ord('a')</code></pre></div>
+          <div class="steps">
+            <p class="fragment" data-fragment-index="0" data-target="#err-sub" data-lines="1">只有比较才不用 <code>ord</code>。<code>'a' &lt; 'b'</code> 直接比谁靠前。</p>
+            <p class="fragment" data-fragment-index="1" data-target="#err-sub" data-lines="2">相减不是比较。减号不会自动查编码 → <strong>TypeError</strong>。</p>
+            <p class="fragment" data-fragment-index="2" data-target="#err-sub" data-lines="3">要减编码得自己写 <code>ord</code>：97 − 97 → <strong>0</strong>。</p>
+          </div>
+        </div>
+        <div>
+          <div class="src small-code"><pre id="err-none" class="stepper"><code class="py">a = print(1)
+a[0]</code></pre></div>
+          <div class="steps">
+            <p class="fragment" data-fragment-index="3" data-target="#err-none" data-lines="1"><code>None</code> 表示“没有东西”。不是 0，也不是 <code>""</code>。</p>
+            <p class="fragment" data-fragment-index="4" data-target="#err-none" data-lines="1">屏幕写出 1，交回来的是 None，所以 <code>a</code> 是 None。</p>
+            <p class="fragment" data-fragment-index="5" data-target="#err-none" data-lines="2">None 没有格子。<code>a[0]</code> 就是 <code>None[0]</code> → <strong>TypeError</strong>。</p>
+          </div>
+        </div>
+      </div>
     </section>
-    <section id="err-2">
+
+<section id="err-2">
       <h2>常见 Error ②</h2>
-      <table>
-        <tr><th>Error</th><th>例子</th><th>原因</th></tr>
-        <tr><td><strong>ValueError</strong></td><td><code>int('2.0')</code></td><td>类型对，但值不能转换</td></tr>
-        <tr><td><strong>ValueError</strong></td><td><code>'abc'.index('z')</code></td><td>找不到（find 会返回 -1）</td></tr>
-        <tr><td><strong>ZeroDivisionError</strong></td><td><code>3 / 0</code>，<code>3 % 0</code></td><td>除数是 0</td></tr>
-        <tr><td><strong>AttributeError</strong> <span class="tag new">卷子</span></td><td><code>'June'.lowercase()</code></td><td>str 没有这个方法；应写 <code>lower()</code></td></tr>
-        <tr><td><strong>UnboundLocalError</strong></td><td>函数里 <code>y += 2</code></td><td>y 被当成 local，但还没赋值</td></tr>
-        <tr><td><strong>IndentationError</strong></td><td>if 下面没缩进</td><td>缩进不对</td></tr>
-      </table>
-      <div class="takeaway">“解释为什么报错”这种题：写出错误类型，再用一句话说是哪个操作不合法、应该怎么改。</div>
+      <div class="cols">
+        <div>
+          <div class="src small-code"><pre id="err-int" class="stepper"><code class="py">int(2.0)
+int('2.0')
+int(float('2.0'))</code></pre></div>
+          <div class="steps">
+            <p class="fragment" data-fragment-index="0" data-target="#err-int" data-lines="1"><code>2.0</code> 已经是数字。<code>int</code> 往 0 砍 → <strong>2</strong>。</p>
+            <p class="fragment" data-fragment-index="1" data-target="#err-int" data-lines="2"><code>'2.0'</code> 是文字。int 读文字时不认小数点 → <strong>ValueError</strong>。</p>
+            <p class="fragment" data-fragment-index="2" data-target="#err-int" data-lines="3">先 <code>float('2.0')</code> 变成 2.0，再砍 → <strong>2</strong>。</p>
+          </div>
+        </div>
+        <div>
+          <div class="src small-code"><pre id="err-find" class="stepper"><code class="py">'abc'.find('z')
+'abc'.index('z')</code></pre></div>
+          <div class="steps">
+            <p class="fragment" data-fragment-index="3" data-target="#err-find" data-lines="1"><code>'abc'</code> 里没有 z。<code>find</code> 找不到就返回 <strong>-1</strong>。</p>
+            <p class="fragment" data-fragment-index="4" data-target="#err-find" data-lines="2">同样找不到，<code>index</code> 不返回 -1，直接 <strong>ValueError</strong>。</p>
+          </div>
+        </div>
+      </div>
+      <div class="cols">
+        <div class="src small-code"><pre id="err-zero" class="stepper"><code class="py">3 / 0
+3 % 0</code></pre></div>
+        <div class="steps">
+          <p class="fragment" data-fragment-index="5" data-target="#err-zero" data-lines="1-2">除数是 0。<code>/</code>、<code>%</code>、<code>//</code> 都算不了 → <strong>ZeroDivisionError</strong>。</p>
+        </div>
+      </div>
     </section>
-    <section id="part-gloss" class="section-slide" data-part="定义与 API sheet">
+
+<section id="err-3">
+      <h2>常见 Error ③</h2>
+      <div class="cols">
+        <div>
+          <div class="src small-code"><pre id="err-attr" class="stepper"><code class="py">'June'.lowercase()
+'June'.lower()</code></pre></div>
+          <div class="steps">
+            <p class="fragment" data-fragment-index="0" data-target="#err-attr" data-lines="1">str 没有 <code>lowercase</code> 这个方法 → <strong>AttributeError</strong>。</p>
+            <p class="fragment" data-fragment-index="1" data-target="#err-attr" data-lines="2">要写 <code>lower()</code> → <code>'june'</code>。</p>
+          </div>
+        </div>
+        <div>
+          <div class="src small-code"><pre id="err-unbound" class="stepper"><code class="py">y = 4
+def b():
+    y += 2</code></pre></div>
+          <div class="steps">
+            <p class="fragment" data-fragment-index="2" data-target="#err-unbound" data-lines="3"><code>y += 2</code> 就是 <code>y = y + 2</code>，这是赋值。</p>
+            <p class="fragment" data-fragment-index="3" data-target="#err-unbound" data-lines="3">函数里赋值过，y 全程是 local。算右边时还没值 → <strong>UnboundLocalError</strong>。</p>
+            <p class="fragment" data-fragment-index="4" data-target="#err-unbound" data-lines="1">外面的 <code>y = 4</code> 用不上。要改它，函数第一行写 <code>global y</code>。</p>
+          </div>
+        </div>
+      </div>
+      <div class="cols">
+        <div class="src small-code"><pre id="err-indent" class="stepper"><code class="py">if x &gt; 0:
+print(x)</code></pre></div>
+        <div class="steps">
+          <p class="fragment" data-fragment-index="5" data-target="#err-indent" data-lines="2"><code>if</code> 下面必须缩进。<code>print</code> 和 if 对齐，Python 看不到 if 的身体 → <strong>IndentationError</strong>。</p>
+        </div>
+      </div>
+      <div class="takeaway">解释为什么报错：先写错误类型，再说哪个操作不合法、应该怎么改。</div>
+    </section>
+
+<section id="part-gloss" class="section-slide" data-part="定义与 API sheet">
       <p class="part-no">PART 8 / 10</p>
       <h1>定义与 API sheet</h1>
       <p class="subtitle">按课件里的英文定义记</p>
     </section>
-    <section id="gloss-1">
+
+<section id="gloss-1">
       <h2>定义 ①</h2>
       <table>
         <tr><th>词</th><th>定义</th></tr>
-        <tr><td>Floating point</td><td>A decimal or fractional number.</td></tr>
-        <tr><td>Floating-point error</td><td>Repeated decimals are stored as approximations.</td></tr>
-        <tr><td>Variable</td><td>A name given to a value.</td></tr>
-        <tr><td>Assignment</td><td><code>=</code> binds a name to a value. It is not mathematical equality.</td></tr>
-        <tr><td>Function</td><td>Code that can be called by name.</td></tr>
-        <tr><td>return</td><td>A reserved word. It sends a value back to the caller and exits the function.</td></tr>
+        <tr><td>Floating point<span class="zh">浮点数</span></td><td>A decimal or fractional number.<span class="zh">小数，或带分数部分的数。</span></td></tr>
+        <tr><td>Floating-point error<span class="zh">浮点误差</span></td><td>Repeated decimals are stored as approximations.<span class="zh">循环小数存下来的是近似值。</span></td></tr>
+        <tr><td>Variable<span class="zh">变量</span></td><td>A name given to a value.<span class="zh">给一个值起的名字。</span></td></tr>
+        <tr><td>Assignment<span class="zh">赋值</span></td><td><code>=</code> binds a name to a value. It is not mathematical equality.<span class="zh"><code>=</code> 把名字绑到一个值上。它不是数学里的等于。</span></td></tr>
+        <tr><td>Function<span class="zh">函数</span></td><td>Code that can be called by name.<span class="zh">一段可以用名字调用的代码。</span></td></tr>
+        <tr><td>return<span class="zh">返回</span></td><td>A reserved word. It sends a value back to the caller and exits the function.<span class="zh">保留字。把值交回调用的人，并且结束这个函数。</span></td></tr>
       </table>
     </section>
-    <section id="gloss-2">
+
+<section id="gloss-2">
       <h2>定义 ②</h2>
       <table>
         <tr><th>词</th><th>定义</th></tr>
-        <tr><td>Docstring</td><td>A short description of a function. Be concise and precise.</td></tr>
-        <tr><td>Scope</td><td>The places where a variable’s name is valid.</td></tr>
-        <tr><td>Global variable</td><td>A variable that can be accessed by all functions (unless a local name hides it).</td></tr>
-        <tr><td>String</td><td>Text inside quotes; an ordered collection of characters.</td></tr>
-        <tr><td>Newline / tab</td><td><code>\n</code> starts a new line; <code>\t</code> is a tab.</td></tr>
-        <tr><td>Method</td><td>A function designed for one type, called as <code>value.method(...)</code>.</td></tr>
+        <tr><td>Docstring<span class="zh">文档字符串</span></td><td>A short description of a function. Be concise and precise.<span class="zh">对函数的简短说明。要短，也要准确。</span></td></tr>
+        <tr><td>Scope<span class="zh">作用域</span></td><td>The places where a variable’s name is valid.<span class="zh">一个变量名在哪些地方有效。</span></td></tr>
+        <tr><td>Global variable<span class="zh">全局变量</span></td><td>A variable that can be accessed by all functions (unless a local name hides it).<span class="zh">所有函数都能用的变量，除非里面有同名的 local 把它挡住。</span></td></tr>
+        <tr><td>String<span class="zh">字符串</span></td><td>Text inside quotes; an ordered collection of characters.<span class="zh">引号里的文字；按顺序排好的一串字符。</span></td></tr>
+        <tr><td>Newline / tab<span class="zh">换行 / 制表符</span></td><td><code>\n</code> starts a new line; <code>\t</code> is a tab.<span class="zh"><code>\n</code> 另起一行；<code>\t</code> 是制表符。</span></td></tr>
+        <tr><td>Method<span class="zh">方法</span></td><td>A function designed for one type, called as <code>value.method(...)</code>.<span class="zh">给某一种类型用的函数，调用时写成 <code>value.method(...)</code>。</span></td></tr>
       </table>
     </section>
-    <section id="gloss-3">
+
+<section id="gloss-3">
       <h2>定义 ③</h2>
       <table>
         <tr><th>词</th><th>定义</th></tr>
-        <tr><td>if statement</td><td>A control structure that runs a block when its condition is True.</td></tr>
-        <tr><td>Factoring</td><td>Breaking a complex problem into parts that are easier to understand, program, and maintain.</td></tr>
-        <tr><td>Refactoring</td><td>Restructuring existing code without changing its external behaviour.</td></tr>
+        <tr><td>if statement<span class="zh">if 语句</span></td><td>A control structure that runs a block when its condition is True.<span class="zh">一种控制结构：条件是 True 时，才运行下面那一块。</span></td></tr>
+        <tr><td>Factoring<span class="zh">分解问题</span></td><td>Breaking a complex problem into parts that are easier to understand, program, and maintain.<span class="zh">把复杂问题拆成几块，让它更好懂、好写、也好维护。</span></td></tr>
+        <tr><td>Refactoring<span class="zh">重构</span></td><td>Restructuring existing code without changing its external behaviour.<span class="zh">调整已有代码的结构，但外面的行为不变。</span></td></tr>
       </table>
-      <div class="definition">Control structures：<strong>if statements</strong> 和 <strong>loops</strong>。assignment、function、method、expression 都不是。</div>
+      <div class="definition">Control structures：<strong>if statements</strong> 和 <strong>loops</strong>。assignment、function、method、expression 都不是。<span class="zh">控制结构只有 if 语句和循环。赋值、函数、方法、表达式都不是。</span></div>
     </section>
-    <section id="builtins">
-      <h2>内置函数</h2>
+
+<section id="builtins">
+      <h2>内置函数 ①</h2>
       <table>
-        <tr><th>函数</th><th>记住</th></tr>
-        <tr><td><code>print(...)</code></td><td>显示内容，返回 <code>None</code></td></tr>
-        <tr><td><code>len(x)</code></td><td>字符串的长度</td></tr>
-        <tr><td><code>str(x)</code> <code>float(x)</code> <code>bool(x)</code></td><td>转换类型</td></tr>
-        <tr><td><code>int(x)</code></td><td><code>int('12')</code> 是 12；<code>int('2.0')</code> 报 ValueError；<code>int(-2.7)</code> 是 -2（往 0 砍）</td></tr>
-        <tr><td><code>type(x)</code></td><td><code>&lt;class 'int'&gt;</code>、<code>&lt;class 'NoneType'&gt;</code> ……</td></tr>
-        <tr><td><code>max</code> / <code>min</code> / <code>ord</code> / <code>chr</code> / <code>input</code></td><td>API sheet 上都有</td></tr>
+        <tr><th>调用</th><th>按 → 看它做什么</th></tr>
+        <tr>
+          <td><code>print(1)</code></td>
+          <td class="fragment">屏幕写出 1，交回来的是 <code>None</code>。要留下结果，用 <code>return</code>。</td>
+        </tr>
+        <tr>
+          <td><code>len('hi')</code><br><code>len([1, 2, 3])</code></td>
+          <td class="fragment">问有几个 → <strong>2</strong>，和 <strong>3</strong>。字符串数字符，list 数元素。</td>
+        </tr>
+        <tr>
+          <td><code>str(10)</code></td>
+          <td class="fragment">变成文字 → <code>'10'</code>。和字符串相加之前要先变，否则 TypeError。</td>
+        </tr>
+        <tr>
+          <td><code>float('2.5')</code><br><code>float(2)</code></td>
+          <td class="fragment">变成小数 → <strong>2.5</strong>，和 <strong>2.0</strong>。</td>
+        </tr>
+        <tr>
+          <td><code>bool(0)</code><br><code>bool('hi')</code></td>
+          <td class="fragment">0、<code>""</code>、<code>[]</code>、<code>None</code> 是 False。别的大多是 True，所以 <code>'hi'</code> → True。</td>
+        </tr>
+        <tr>
+          <td><code>int('12')</code><br><code>int('2.0')</code><br><code>int(-2.7)</code></td>
+          <td class="fragment"><code>'12'</code> → 12。<code>'2.0'</code> 是文字，不认小数点 → ValueError。<code>-2.7</code> 往 0 砍 → <strong>-2</strong>，不是 -3。</td>
+        </tr>
       </table>
     </section>
-    <section id="api-sheet">
+
+<section id="builtins-2">
+      <h2>内置函数 ②</h2>
+      <table>
+        <tr><th>调用</th><th>按 → 看它做什么</th></tr>
+        <tr>
+          <td><code>type(3)</code><br><code>type(None)</code></td>
+          <td class="fragment">问类型 → <code>&lt;class 'int'&gt;</code>，<code>&lt;class 'NoneType'&gt;</code>。</td>
+        </tr>
+        <tr>
+          <td><code>max(3, 1, 4)</code><br><code>min('cat', 'car')</code></td>
+          <td class="fragment">最大的 → <strong>4</strong>。字符串按字典序，<code>'car'</code> 更小 → <code>'car'</code>。</td>
+        </tr>
+        <tr>
+          <td><code>ord('a')</code><br><code>chr(97)</code></td>
+          <td class="fragment">字符 → 编码 <strong>97</strong>。编码 → 字符 <code>'a'</code>。比较不用 ord，相减才要。</td>
+        </tr>
+        <tr>
+          <td><code>input()</code></td>
+          <td class="fragment">读用户打的一行，结果永远是 str。打 12 得到 <code>'12'</code>，要数字再套 <code>int</code>。</td>
+        </tr>
+      </table>
+    </section>
+
+<section id="api-sheet">
       <h2>考试附 API sheet：不用背签名，要会看 <span class="tag new">卷子补充</span></h2>
       <div class="cols">
         <div>
-          <h3>返回 <code>None</code></h3>
-          <p><code>print</code> 把内容显示出来，返回值是 <code>None</code></p>
+          <h3>返回 <code>None</code>（改原来的东西）</h3>
+          <p><code>print</code></p>
           <h3>返回新字符串（原字符串不变）</h3>
           <p><code>lower</code>、<code>upper</code>、<code>capitalize</code>、<code>strip</code>、<code>lstrip</code>、<code>rstrip</code>、<code>replace</code></p>
         </div>
@@ -1441,12 +1972,14 @@ return False</code></pre></div>
       </div>
       <div class="takeaway">API sheet 上 <code>-&gt;</code> 后面写的就是返回类型。看到 <code>-&gt; None</code>，就别把结果赋值给变量。</div>
     </section>
-    <section id="part-ppt" class="section-slide" data-part="复习 PPT 疑似考题">
+
+<section id="part-ppt" class="section-slide" data-part="可能例题">
       <p class="part-no">PART 9 / 10</p>
-      <h1>复习 PPT 里的疑似考题</h1>
+      <h1>可能例题</h1>
       <p class="subtitle">先做，再按 →</p>
     </section>
-    <section id="q-cast">
+
+<section id="q-cast">
       <h2>从哪一行开始报错</h2>
       <div class="src"><pre class="stepper"><code class="py">print(int("1"))
 print(float("-.8"))
@@ -1458,7 +1991,8 @@ print(int("2.0"))</code></pre></div>
         <p class="fragment" data-lines="4">答案 <strong>c</strong>。<code>int("2.0")</code> 是 ValueError：<code>int</code> 读字符串时不认小数点。要写 <code>int(float("2.0"))</code>。</p>
       </div>
     </section>
-    <section id="q-slice-mc">
+
+<section id="q-slice-mc">
       <h2><code>"Mississauga"</code> 切片</h2>
       <div class="strip" data-text="Mississauga" data-mark="::3" data-neg="no"></div>
       <div class="cols">
@@ -1474,7 +2008,8 @@ print(int("2.0"))</code></pre></div>
       </div>
       <p class="fragment" data-fragment-index="1">答案 <strong>A</strong>。下标 0、3、6、9 是 M、s、s、g。<code>a[0:11:-1]</code> 从 0 往左走，到不了 11 → <code>''</code>。</p>
     </section>
-    <section id="q-global">
+
+<section id="q-global">
       <h2>跑完之后 x 和 y 是什么</h2>
       <div class="cols">
         <div class="src"><pre class="stepper"><code class="py">x = 3
@@ -1491,13 +2026,14 @@ def b():
 a()
 b()</code></pre></div>
         <div class="steps">
-          <p class="fragment" data-lines="4-6,12"><code>a()</code>：有 <code>global x</code>，外面的 x 变成 5，返回 5</p>
-          <p class="fragment" data-lines="9,13"><code>b()</code>：没有 global，<code>y += 2</code> 让 y 成了 local → <strong>UnboundLocalError</strong></p>
-          <p class="fragment">最后 <strong>x = 5，y = 4</strong></p>
+          <p class="fragment" data-lines="4-6,12"><strong>为什么 x 变成 5？</strong> <code>global x</code> 就是“用外面那个 x”。<code>x += 2</code> 等于 <code>x = 3 + 2</code>，5 写回外面。</p>
+          <p class="fragment" data-lines="9,13"><strong>为什么 y 还是 4，还报错？</strong> b 没写 <code>global y</code>。<code>y += 2</code> 是赋值，这个 y 全程是自己的。算 <code>y + 2</code> 时自己还没值，不会去读外面的 4 → <strong>UnboundLocalError</strong>。</p>
+          <p class="fragment" data-lines="2">报错发生在改 y 之前，外面的 4 还在。a() 已经把 x 改完。最后 <strong>x = 5，y = 4</strong>。</p>
         </div>
       </div>
     </section>
-    <section id="q-control">
+
+<section id="q-control">
       <h2>哪些是 control structure</h2>
       <ol class="opts">
         <li class="fragment mark" data-fragment-index="0">loop</li>
@@ -1508,9 +2044,13 @@ b()</code></pre></div>
         <li>expressions</li>
         <li>operation</li>
       </ol>
-      <p class="fragment" data-fragment-index="0">control structure 决定“哪些代码执行、执行几次”。只有 loop 和 if-statement。</p>
+      <p class="fragment" data-fragment-index="0">控制结构只管两件事：<strong>哪些代码要跑</strong>，以及<strong>要跑几次</strong>。if 看条件，决定跑不跑这块；loop 决定这块重复几次。所以只有这两项。</p>
+      <p class="fragment" data-fragment-index="1"><strong>为什么赋值不是？</strong> <code>x = 3</code> 只是把值存下来。这一行写了就会执行，不会跳过，也不会重复。</p>
+      <p class="fragment" data-fragment-index="2"><strong>为什么函数、方法不是？</strong> <code>f()</code>、<code>s.lower()</code> 是去调用一段写好的代码。调用本身不负责挑路。</p>
+      <p class="fragment" data-fragment-index="3"><strong>为什么表达式、运算不是？</strong> <code>1 + 2</code> 是在算出一个结果。算完就结束，不管别的代码跑不跑。</p>
     </section>
-    <section id="q-errors">
+
+<section id="q-errors">
       <h2>会引发什么 Error</h2>
       <table>
         <tr><th>代码</th><th>Error</th></tr>
@@ -1520,7 +2060,8 @@ b()</code></pre></div>
         <tr><td><code>x = 3</code> 然后 <code>y</code></td><td class="fragment">NameError</td></tr>
       </table>
     </section>
-    <section id="q-expr">
+
+<section id="q-expr">
       <h2>三道计算，一个公式</h2>
       <table>
         <tr><th>题目</th><th>答案</th><th>过程</th></tr>
@@ -1530,13 +2071,15 @@ b()</code></pre></div>
         <tr><td>用 a、b 填 <code>a = _ % _ + _ // _ * _</code></td><td class="fragment" data-fragment-index="3" colspan="2"><code>a = a % b + a // b * b</code></td></tr>
       </table>
     </section>
-    <section id="q-replace">
+
+<section id="q-replace">
       <h2><code>replace</code> 换掉全部</h2>
       <div class="src"><pre><code class="py">>>> "abs sabs eeabs".replace("abs", "s")</code></pre></div>
       <div class="out fragment"><pre><code>'s ss ees'</code></pre></div>
       <p class="fragment">三处 <code>abs</code> 都换成 <code>s</code>：<code>abs</code> → <code>s</code>，<code>sabs</code> → <code>ss</code>，<code>eeabs</code> → <code>ees</code>。空格保留。</p>
     </section>
-    <section id="q-find">
+
+<section id="q-find">
       <h2>第二次出现的位置</h2>
       <div class="src"><pre class="stepper"><code class="py">def index_of_the_second_sub(s: str, sub: str) -> int:
     """Return the index of the second sub in s.
@@ -1554,13 +2097,15 @@ b()</code></pre></div>
         <p class="fragment" data-lines="10">外层 <code>find</code> 从 3 找到 <strong>3</strong>；找不到就是 -1</p>
       </div>
     </section>
-    <section id="part-exam" class="section-slide" data-part="2024 TT1 真题">
+
+<section id="part-exam" class="section-slide" data-part="2024 TT1 真题">
       <p class="part-no">PART 10 / 10</p>
       <h1>2024 Term Test 1 逐题讲</h1>
       <p class="subtitle">8 题 · 选择题注意 “Circle ALL” 是多选</p>
-      <aside class="notes">每题先给大家时间做，再按 → 揭答案。先做再按 → 揭答案。</aside>
+      <aside class="notes">每题先给大家时间做，再按 → 揭答案。用到 List 或循环的题在附录里。</aside>
     </section>
-    <section id="exam-map">
+
+<section id="exam-map">
       <h2>考点地图</h2>
       <div class="cols">
         <table>
@@ -1579,7 +2124,8 @@ b()</code></pre></div>
         </table>
       </div>
     </section>
-    <section id="exam-q1">
+
+<section id="exam-q1">
       <h2>Q1 · Python as a Calculator <span class="tag pts">1 pt</span></h2>
       <p>a 是一个正的三位数。哪个表达式得到 a 的<strong>中间一位</strong>？（a = 456 时要得到 5）</p>
       <div class="cols">
@@ -1600,7 +2146,8 @@ b()</code></pre></div>
       <p class="fragment" data-fragment-index="2">A 和 B 都对，所以答案是 <strong>D</strong>。</p>
       <aside class="notes">单选题，别圈 A 和 B 两个，要圈 D。</aside>
     </section>
-    <section id="exam-q2">
+
+<section id="exam-q2">
       <h2>Q2 · Conditionals <span class="tag pts">1 pt</span></h2>
       <div class="cols">
         <div>
@@ -1609,7 +2156,7 @@ b()</code></pre></div>
             <tr><td>silver</td><td>$90</td><td>$60</td><td>$60</td></tr>
             <tr><td>gold</td><td>$90</td><td>$70</td><td>$35</td></tr>
           </table>
-          <div class="src mid-code"><pre><code class="py">if months == 1:
+          <div class="src small-code"><pre><code class="py">if months == 1:
     cost = 90
 elif ____(1)____:
     cost = 60
@@ -1619,34 +2166,24 @@ else:
     else:
         cost = 35</code></pre></div>
         </div>
-        <div style="font-size:0.85em">
+        <div style="font-size:0.82em">
           <ol class="opts">
-            <li>(1) <code>plan == 'silver'</code><br>(2) <code>months >= 2 and months &lt;= 6</code></li>
-            <li>(1) <code>plan == 'silver'</code><br>(2) <code>months >= 6</code></li>
-            <li>(1) <code>months >= 2 and months &lt;= 6</code><br>(2) <code>plan == 'gold'</code></li>
+            <li>(1) <code>plan == 'silver'</code><br>(2) <code>months &gt;= 2 and months &lt;= 6</code></li>
+            <li>(1) <code>plan == 'silver'</code><br>(2) <code>months &gt;= 6</code></li>
+            <li>(1) <code>months &gt;= 2 and months &lt;= 6</code><br>(2) <code>plan == 'gold'</code></li>
             <li>All of the above.</li>
             <li>None of the above.</li>
           </ol>
         </div>
       </div>
-      <aside class="notes">让大家先看表：60 块出现在哪？只有 silver 且 2 个月以上。所以 (1) 一定是 silver。</aside>
-    </section>
-    <section id="exam-q2-ans">
-      <h2>Q2 讲解：答案 A</h2>
       <div class="steps">
-        <p class="fragment">① 60 元只出现在 silver 的 2 个月以上 → 第 (1) 空是 <code>plan == 'silver'</code>，C 排除</p>
-        <p class="fragment">② 走到 else 里，一定是 gold 且 months ≥ 2：2–6 个月 70，7+ 是 35</p>
-        <p class="fragment">③ A 的 (2) 是 <code>2 &lt;= months &lt;= 6</code> ✓</p>
-        <p class="fragment">④ B 的 (2) 是 <code>months &gt;= 6</code>：gold 3 个月会得到 35（应为 70），gold 7 个月会得到 70（应为 35）✗</p>
+        <p class="fragment">60 元只在 silver、而且至少 2 个月时出现。所以第 (1) 空是 <code>plan == 'silver'</code>。C 的第 (1) 空写的是月份，排除。</p>
+        <p class="fragment">走进 else 时，已经不是第 1 个月，也不是 silver，所以是 gold 且 months ≥ 2。2–6 个月是 70，7 个月起是 35。A 的第 (2) 空正好卡住 2 到 6 个月。</p>
+        <p class="fragment">B 写成 <code>months &gt;= 6</code>：gold 3 个月会得到 35（应该 70），gold 7 个月会得到 70（应该 35）。只有 A 对 → 答案 <strong>A</strong>。</p>
       </div>
-      <table class="fragment">
-        <tr><th>反例</th><th>应该</th><th>B 给出</th><th>C 给出</th></tr>
-        <tr><td>gold, 3 个月</td><td>70</td><td>35 ✗</td><td>60 ✗</td></tr>
-        <tr><td>gold, 7 个月</td><td>35</td><td>70 ✗</td><td>—</td></tr>
-      </table>
-      <p class="fragment">只有 A 对 → 答案 <strong>A</strong>。</p>
     </section>
-    <section id="exam-q7">
+
+<section id="exam-q7">
       <h2>Q7 · Strings <span class="tag pts">1 pt</span></h2>
       <div class="src"><pre><code class="py">s = "We're" + "Here"
 print(s[4::2])</code></pre></div>
@@ -1667,10 +2204,11 @@ print(s[4::2])</code></pre></div>
       </div>
       <p class="fragment" data-fragment-index="2">从下标 4 开始每次 +2：4、6、8 → <code>e</code>、<code>e</code>、<code>e</code>。答案 <strong>B</strong>。撇号在下标 2，取不到。</p>
     </section>
-    <section id="exam-q8">
+
+<section id="exam-q8">
       <h2>Q8 · Variables <span class="tag pts">1 pt</span></h2>
-      <div class="cols">
-        <div class="src mid-code"><pre><code class="py">x = 5
+      <div class="cols w46">
+        <div class="src small-code"><pre class="stepper"><code class="py">x = 5
 y = 2
 z = True
 
@@ -1686,48 +2224,30 @@ def hello(z, x):
     return well(x, z)</code></pre></div>
         <div>
           <p>调用 <code>hello(0, 1)</code> 之后，<strong>global</strong> 的 x、y、z 是多少？</p>
-          <ol class="opts" style="font-size:0.9em">
-            <li>x = 5, y = 2, z = True</li>
+          <ol class="opts">
+            <li class="fragment mark" data-fragment-index="6">x = 5, y = 2, z = True</li>
             <li>x = 1, y = 1, z = 3</li>
             <li>x = 1, y = 2, z = 3</li>
             <li>x = 3, y = 2, z = True</li>
             <li>An error occurs.</li>
           </ol>
-        </div>
-      </div>
-      <aside class="notes">先问：两个函数里有没有 global 关键字？没有。那不管里面怎么算，外面的 x、y、z 都不会变。下一页再完整追踪一遍，确认不会报错。</aside>
-    </section>
-    <section id="exam-q8-ans">
-      <h2>Q8 讲解：答案 A</h2>
-      <div class="cols">
-        <div class="src mid-code"><pre class="stepper"><code class="py">x = 5
-y = 2
-z = True
-
-def well(y, x):
-    z = 3
-    x = y
-    y = x
-    return x * y * z
-
-def hello(z, x):
-    x = z + x
-    z = y + x
-    return well(x, z)</code></pre></div>
-        <div class="steps" style="font-size:0.9em">
-          <p class="fragment" data-lines="11"><code>hello(0, 1)</code>：按位置 <code>z = 0</code>，<code>x = 1</code>（都是 local）</p>
-          <p class="fragment" data-lines="12"><code>x = 0 + 1 = 1</code></p>
-          <p class="fragment" data-lines="13">hello 里没有 y → 读 global 的 2：<code>z = 2 + 1 = 3</code></p>
-          <p class="fragment" data-lines="14,5"><code>well(1, 3)</code>：按位置 <code>y = 1</code>，<code>x = 3</code></p>
-          <p class="fragment" data-lines="6-8"><code>z = 3</code>，<code>x = 1</code>，<code>y = 1</code>，返回 <code>1 * 1 * 3 = 3</code></p>
-          <div class="frames fragment">
-            <div class="frame"><div class="fh">global（没变）</div><div class="fv"><span>x</span><span>5</span></div><div class="fv"><span>y</span><span>2</span></div><div class="fv"><span>z</span><span>True</span></div></div>
+          <div class="steps">
+            <p class="fragment" data-fragment-index="0" data-lines="11"><code>hello(0, 1)</code>：按位置 <code>z = 0</code>，<code>x = 1</code>（都是 local）</p>
+            <p class="fragment" data-fragment-index="1" data-lines="12"><code>x = 0 + 1 = 1</code></p>
+            <p class="fragment" data-fragment-index="2" data-lines="13">hello 里没有 y → 读 global 的 2：<code>z = 2 + 1 = 3</code></p>
+            <p class="fragment" data-fragment-index="3" data-lines="14,5"><code>well(1, 3)</code>：按位置 <code>y = 1</code>，<code>x = 3</code></p>
+            <p class="fragment" data-fragment-index="4" data-lines="6-9"><code>z = 3</code>，<code>x = 1</code>，<code>y = 1</code>，返回 <code>1 * 1 * 3 = 3</code></p>
+            <div class="frames fragment" data-fragment-index="5">
+              <div class="frame"><div class="fh">global（没变）</div><div class="fv"><span>x</span><span>5</span></div><div class="fv"><span>y</span><span>2</span></div><div class="fv"><span>z</span><span>True</span></div></div>
+            </div>
+            <p class="fragment" data-fragment-index="6">没有 <code>global</code>，所有赋值都在各自的框里 → <strong>A</strong>。不会报错，因为 hello 只是<strong>读</strong> y。</p>
           </div>
-          <p class="fragment">没有 <code>global</code>，所有赋值都在各自的框里 → <strong>A</strong>。不会报错，因为 hello 只是<strong>读</strong> y。</p>
         </div>
       </div>
+      <aside class="notes">两个函数里都没有 global。hello(0, 1) 里 z=0、x=1，x 变成 1，z 读外面的 y 得到 3。well(1, 3) 里算出 3。外面的 x、y、z 还是 5、2、True。答案 A，不会报错。</aside>
     </section>
-    <section id="exam-q9">
+
+<section id="exam-q9">
       <h2>Q9 · Code Tracing <span class="tag pts">4 pts</span></h2>
       <div class="cols mid-code">
         <div class="src"><pre class="stepper" id="q9a"><code class="py">def func_a(value):
@@ -1756,9 +2276,11 @@ def hello(z, x):
         <tr><td><code>print(func_a(15))</code></td><td class="fragment" data-lines="3-4" data-target="#q9a"><strong>20</strong></td><td class="fragment">第一个条件就成立，后面不看</td></tr>
         <tr><td><code>print(func_b(12))</code></td><td class="fragment" data-lines="3-4,7-8" data-target="#q9b"><strong>12</strong></td><td class="fragment">两个独立的 if：先 +10，再走 else +2</td></tr>
       </table>
-      <aside class="notes">重点是最后一行：func_b 的两个 if 互不影响，12 两个都要走。很多人写 10。</aside>
+      <p class="sim">前往模拟网站（大家可以收藏） <a href="https://pythontutor.com/cp/csc108h.html#mode=edit" target="_blank" rel="noopener">https://pythontutor.com/cp/csc108h.html#mode=edit</a></p>
+      <aside class="notes">重点是最后一行：func_b 的两个 if 互不影响，12 两个都要走。很多人写 10。下面的链接是 Python Tutor，可以让大家自己单步看。</aside>
     </section>
-    <section id="exam-q12">
+
+<section id="exam-q12">
       <h2>Q12 · Test cases <span class="tag pts">2 pts</span></h2>
       <div class="src small-code"><pre><code class="py">def performance_eval(score: float) -> str:
     """0.0 &lt;= score &lt;= 4.0
@@ -1775,7 +2297,8 @@ def hello(z, x):
       </table>
       <p class="note fragment">也可以换成 0.0（最小值）或 3.19（刚好低于 3.2）。不能用 4.5、-1 这种超出范围的值。</p>
     </section>
-    <section id="exam-q13">
+
+<section id="exam-q13">
       <h2>Q13 · Refactoring <span class="tag pts">2 pts</span></h2>
       <div class="cols">
         <div class="src"><pre class="stepper"><code class="py">def func(x, y):
@@ -1789,19 +2312,21 @@ def hello(z, x):
         return True
     return False</code></pre></div>
         <div class="steps" style="font-size:0.9em">
-          <p class="fragment" data-lines="2-5">① y 要么 == 0 要么 != 0 → 两个 if 合起来就是 “x &gt; 100 就 True”</p>
-          <p class="fragment" data-lines="6-7">② 能走到第 6 行，x &gt; 100 一定是 False，这个分支永远到不了，删掉</p>
-          <p class="fragment" data-lines="8-9">③ 剩下：<code>x &lt; 0 and y == 10</code> 时 True</p>
-          <p class="fragment" data-lines="10">④ 其余都是 False</p>
-          <div class="src fragment"><pre><code class="py">def func(x, y):
+          <p class="fragment" data-fragment-index="0" data-lines="2-5" data-box="full">① y 要么 == 0 要么 != 0 → 两个 if 合起来就是 “x &gt; 100 就 True”</p>
+          <p class="fragment" data-fragment-index="1" data-lines="6-7">② 能走到第 6 行，x &gt; 100 一定是 False，这个分支永远到不了，删掉</p>
+          <p class="fragment" data-fragment-index="2" data-lines="8-9">③ 剩下：</p>
+          <p class="fragment q13-more" data-fragment-index="3" data-lines="8-9"><code>x &lt; 0 and y == 10</code> 时 True</p>
+          <div class="src fragment" data-fragment-index="0"><pre><code class="py" id="q13-ans">def func(x, y):
     return x > 100 or (x &lt; 0 and y == 10)</code></pre></div>
+          <p class="fragment" data-fragment-index="5" data-lines="10">④ 其余都是 False</p>
         </div>
       </div>
-      <p class="note fragment">括号可以不写（and 本来就先算），写上更清楚。我用 x ∈ [-50, 200)、y ∈ [-5, 20) 全部代进去比过，结果和原函数完全一样。</p>
+      <p class="note fragment" data-fragment-index="6">括号可以不写（and 本来就先算），写上更清楚。我用 x ∈ [-50, 200)、y ∈ [-5, 20) 全部代进去比过，结果和原函数完全一样。</p>
     </section>
-    <section id="exam-q15">
+
+<section id="exam-q15">
       <h2>Q15 · Strings <span class="tag pts">3 pts</span></h2>
-      <div class="src mid-code"><pre><code class="py">CURRENT_YEAR = 2023
+      <div class="src small-code"><pre><code class="py">CURRENT_YEAR = 2023
 
 def calculate_age(birth_date: str) -> int:
     """birth_date 的格式是 YYYY-MM-DD，不晚于 CURRENT_YEAR 年底。
@@ -1819,7 +2344,7 @@ def calculate_age(birth_date: str) -> int:
           <div class="fragment" data-fragment-index="0">
             <div class="strip small" data-text="2010-05-15" data-hit=":4" data-neg="no"></div>
           </div>
-          <div class="src fragment" data-fragment-index="2"><pre><code class="py">    return CURRENT_YEAR - int(birth_date[:4])</code></pre></div>
+          <div class="src q15-ret fragment" data-fragment-index="2"><pre><code class="py">return CURRENT_YEAR - int(birth_date[:4])</code></pre></div>
         </div>
         <div class="steps">
           <p class="fragment" data-fragment-index="0"><code>birth_date[:4]</code> → <code>'2010'</code>，<code>int(...)</code> → 2010</p>
@@ -1829,7 +2354,8 @@ def calculate_age(birth_date: str) -> int:
       </div>
       <aside class="notes">先给 3 分钟写。提示：年份就是前 4 个字符，用 slicing 取出来再转 int。</aside>
     </section>
-    <section id="checklist">
+
+<section id="checklist">
       <h2>进考场前过一遍</h2>
       <div class="cols" style="font-size:0.88em">
         <ul>
@@ -1843,23 +2369,24 @@ def calculate_age(birth_date: str) -> int:
         <ul>
           <li>slicing 含头不含尾；step 的正负决定方向</li>
           <li><code>'abc' * 2</code> 是 <code>'abcabc'</code>；str + int 报错</li>
-          <li>str 的 <code>in</code> 找的是连续的一段子串</li>
           <li>docstring 写 “Return True iff …”；测试挑边界；重构保持行为不变</li>
         </ul>
       </div>
     </section>
-    <section id="end" class="section-slide">
+
+<section id="end" class="section-slide">
       <h1>祝大家考试顺利</h1>
       <p class="subtitle">卡住时点目录跳回对应的那一章，用例子再算一遍。</p>
     </section>
+
   </div>
 </div>
 <div class="deck-footer">CSC108 · Term Test 1 Review</div>
+<p class="by-terry"><a href="https://terry1238832.github.io/" target="_blank" rel="noopener">Terry</a></p>
+<!-- Terry · https://terry1238832.github.io/ -->
+<div hidden aria-hidden="true" data-watermark="Terry">Terry · https://terry1238832.github.io/</div>
+<p class="maker"><a href="https://terry1238832.github.io/" target="_blank" rel="noopener">© Terry1238832 制作</a></p>
 <aside id="toc">
-  <div class="toc-head">
-    <strong>目录</strong>
-    <button type="button" id="toc-toggle">收起</button>
-  </div>
   <div class="toc-body"></div>
 </aside>
 <div class="notes-panel"></div>
@@ -1911,6 +2438,23 @@ def calculate_age(birth_date: str) -> int:
       }).join("");
     });
 
+    document.querySelectorAll("#desc-fn .tk-str").forEach(function (el) {
+      if (el.textContent.indexOf("Return True iff") === -1) return;
+      el.innerHTML = '"""<span class="tok" data-box="return">Return</span> <span class="tok" data-box="true">True</span> iff <span class="tok" data-box="s">s</span> contains';
+    });
+
+    var q13ret = document.querySelector("#q13-ans .line");
+    document.querySelectorAll("#q13-ans .line").forEach(function (line) {
+      if (line.textContent.indexOf("return") === -1) return;
+      q13ret = line;
+    });
+    if (q13ret && q13ret.textContent.indexOf("return") !== -1) {
+      q13ret.innerHTML =
+        '    <span class="tok" data-box="full"><span class="tk-kw">return</span> x &gt; <span class="tk-num">100</span></span>' +
+        '<span class="tok grow fragment" data-fragment-index="2" data-box="full"> <span class="tk-kw">or</span></span>' +
+        '<span class="tok grow fragment" data-fragment-index="4" data-box="full" data-lines="2-5,8-9"> (<span>x &lt; <span class="tk-num">0</span> <span class="tk-kw">and</span> y == <span class="tk-num">10</span></span>)</span>';
+    }
+
     // Python slice semantics, so strips always match what the interpreter returns.
     function indices(n, spec) {
       var parts = spec.split(":");
@@ -1947,19 +2491,37 @@ def calculate_age(birth_date: str) -> int:
       var n = items.length;
       var hit = collect(n, el.dataset.hit);
       var mark = collect(n, el.dataset.mark);
+      function steps(spec) {
+        var map = new Map();
+        (spec || "").split(",").filter(function (x) { return x.trim(); }).forEach(function (pair) {
+          var ab = pair.split(":");
+          map.set(parseInt(ab[0], 10), ab[1]);
+        });
+        return map;
+      }
+      var same = steps(el.dataset.same);
+      var diff = steps(el.dataset.diff);
       items.forEach(function (item, i) {
         var cell = document.createElement("span");
         cell.className = "cell" + (hit.has(i) ? " hit" : "");
         if (mark.has(i)) {
           cell.className += " fragment mark";
           cell.setAttribute("data-fragment-index", el.dataset.markAt || "0");
+        } else if (same.has(i)) {
+          cell.className += " fragment same";
+          cell.setAttribute("data-fragment-index", same.get(i));
+        } else if (diff.has(i)) {
+          cell.className += " fragment diff";
+          cell.setAttribute("data-fragment-index", diff.get(i));
         }
         var b = document.createElement("b");
         b.textContent = isList ? (typeof item === "string" ? "'" + item + "'" : String(item)) : (item === " " ? "␣" : item);
-        var pos = document.createElement("i");
-        pos.textContent = i;
         cell.appendChild(b);
-        cell.appendChild(pos);
+        if (el.dataset.pos !== "no") {
+          var pos = document.createElement("i");
+          pos.textContent = i;
+          cell.appendChild(pos);
+        }
         if (el.dataset.neg !== "no") {
           var neg = document.createElement("i");
           neg.className = "neg";
@@ -1968,6 +2530,52 @@ def calculate_age(birth_date: str) -> int:
         }
         el.appendChild(cell);
       });
+    });
+
+    document.querySelectorAll(".slice-board").forEach(function (el) {
+      var chars = Array.from(el.dataset.text || "");
+      var width = el.classList.contains("slice-compact") ? 62 : 70;
+      var hitAt = new Map();
+      (el.dataset.hits || "").split(",").filter(Boolean).forEach(function (entry) {
+        var pair = entry.split(":");
+        hitAt.set(Number(pair[0]), pair[1]);
+      });
+      var indexRow = document.createElement("div");
+      indexRow.className = "slice-index-row";
+      var charRow = document.createElement("div");
+      charRow.className = "slice-char-row";
+      chars.forEach(function (ch, i) {
+        var index = document.createElement("span");
+        index.className = "slice-index";
+        index.textContent = i;
+        indexRow.appendChild(index);
+        var tile = document.createElement("span");
+        tile.className = "slice-char";
+        tile.textContent = ch;
+        if (hitAt.has(i)) {
+          tile.classList.add("fragment", "custom");
+          tile.setAttribute("data-fragment-index", hitAt.get(i));
+        }
+        charRow.appendChild(tile);
+      });
+      el.appendChild(indexRow);
+      el.appendChild(charRow);
+      var start = (el.dataset.start || "").split(":");
+      var stop = (el.dataset.stop || "").split(":");
+      for (var gap = 0; gap <= chars.length; gap++) {
+        var marker = document.createElement("span");
+        marker.className = "slice-boundary";
+        marker.style.left = (gap * width) + "px";
+        marker.textContent = gap;
+        if (start[0] !== "" && Number(start[0]) === gap) {
+          marker.classList.add("start", "fragment", "custom");
+          marker.setAttribute("data-fragment-index", start[1] || "0");
+        } else if (stop[0] !== "" && Number(stop[0]) === gap) {
+          marker.classList.add("stop", "fragment", "custom");
+          marker.setAttribute("data-fragment-index", stop[1] || "0");
+        }
+        el.appendChild(marker);
+      }
     });
   })();
 
@@ -2006,6 +2614,17 @@ def calculate_age(birth_date: str) -> int:
       return set;
     }
 
+    function updateBoxes(slide) {
+      slide.querySelectorAll(".tok.on").forEach(function (el) { el.classList.remove("on"); });
+      var shown = slide.querySelectorAll(".fragment.visible[data-box]");
+      if (!shown.length) return;
+      var key = shown[shown.length - 1].dataset.box;
+      if (!key) return;
+      slide.querySelectorAll('.tok[data-box="' + key + '"]').forEach(function (el) {
+        el.classList.add("on");
+      });
+    }
+
     function updateSteps(slide) {
       if (!slide) return;
       slide.querySelectorAll("pre.stepper").forEach(function (pre) {
@@ -2013,15 +2632,18 @@ def calculate_age(birth_date: str) -> int:
         pre.querySelectorAll(".line.hl").forEach(function (l) { l.classList.remove("hl"); });
       });
       var shown = slide.querySelectorAll(".fragment.visible[data-lines]");
-      if (!shown.length) return;
-      var last = shown[shown.length - 1];
-      var pre = last.dataset.target ? slide.querySelector(last.dataset.target) : slide.querySelector("pre.stepper");
-      if (!pre) return;
-      var want = parseLines(last.dataset.lines);
-      pre.classList.add("focus");
-      pre.querySelectorAll(".line").forEach(function (line, i) {
-        if (want.has(i + 1)) line.classList.add("hl");
-      });
+      if (shown.length) {
+        var last = shown[shown.length - 1];
+        var pre = last.dataset.target ? slide.querySelector(last.dataset.target) : slide.querySelector("pre.stepper");
+        if (pre) {
+          var want = parseLines(last.dataset.lines);
+          pre.classList.add("focus");
+          pre.querySelectorAll(".line").forEach(function (line, i) {
+            if (want.has(i + 1)) line.classList.add("hl");
+          });
+        }
+      }
+      updateBoxes(slide);
     }
 
     function slideTitle(section) {
@@ -2058,6 +2680,7 @@ def calculate_age(birth_date: str) -> int:
         button.innerHTML = '<span class="n">' + (page.index + 1) + '</span>' + page.title;
         button.addEventListener("click", function () {
           Reveal.slide(page.index);
+          setToc(false);
         });
         block.appendChild(button);
       });
@@ -2076,14 +2699,19 @@ def calculate_age(birth_date: str) -> int:
 
     function setToc(open) {
       document.body.classList.toggle("toc-open", open);
-      document.getElementById("toc-toggle").textContent = open ? "收起" : "目录";
-      window.setTimeout(function () { Reveal.layout(); }, 0);
+      document.getElementById("toc-toggle").setAttribute("aria-expanded", open ? "true" : "false");
     }
 
-    document.getElementById("toc-toggle").addEventListener("click", function () {
+    document.getElementById("toc-toggle").addEventListener("click", function (event) {
+      event.stopPropagation();
       setToc(!document.body.classList.contains("toc-open"));
     });
-    Reveal.addKeyBinding({ keyCode: 77, key: "M", description: "打开 / 收起右侧目录" }, function () {
+    document.addEventListener("click", function (event) {
+      if (!document.body.classList.contains("toc-open")) return;
+      if (event.target.closest("#toc")) return;
+      setToc(false);
+    });
+    Reveal.addKeyBinding({ keyCode: 77, key: "M", description: "打开 / 收起目录" }, function () {
       setToc(!document.body.classList.contains("toc-open"));
     });
 
@@ -2091,6 +2719,7 @@ def calculate_age(birth_date: str) -> int:
       var slide = Reveal.getCurrentSlide();
       var part = partOf(slide);
       footer.textContent = "CSC108 · Term Test 1 Review" + (part ? " · " + part : "");
+      document.body.classList.toggle("on-title", !!(slide && slide.id === "title-slide"));
       var notes = slide && slide.querySelector("aside.notes");
       panel.innerHTML = notes ? notes.innerHTML : "<em>这一页没有备注。</em>";
       updateSteps(slide);
@@ -2106,6 +2735,29 @@ def calculate_age(birth_date: str) -> int:
     Reveal.addKeyBinding({ keyCode: 78, key: "N", description: "显示 / 隐藏讲解备注" }, function () {
       document.body.classList.toggle("show-notes");
     });
+
+    var fsBtn = document.getElementById("fs-toggle");
+    function fullscreenElement() {
+      return document.fullscreenElement || document.webkitFullscreenElement || null;
+    }
+    function syncFullscreenButton() {
+      var on = !!fullscreenElement();
+      fsBtn.textContent = on ? "退出全屏" : "全屏";
+      fsBtn.setAttribute("aria-pressed", on ? "true" : "false");
+      window.setTimeout(function () { Reveal.layout(); }, 60);
+    }
+    fsBtn.addEventListener("click", function () {
+      if (fullscreenElement()) {
+        var exit = document.exitFullscreen || document.webkitExitFullscreen;
+        if (exit) exit.call(document);
+        return;
+      }
+      var root = document.documentElement;
+      var enter = root.requestFullscreen || root.webkitRequestFullscreen;
+      if (enter) enter.call(root);
+    });
+    document.addEventListener("fullscreenchange", syncFullscreenButton);
+    document.addEventListener("webkitfullscreenchange", syncFullscreenButton);
   })();
 
   document.querySelectorAll(".slide-timer-row").forEach(function (row) {
