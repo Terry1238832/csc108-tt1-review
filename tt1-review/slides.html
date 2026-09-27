@@ -104,6 +104,7 @@
   .reveal .takeaway::before { content: "记住 "; font-weight: 700; color: #166534; }
   .reveal .warn { background: #fee2e2; border-left: 4px solid #dc2626; }
   .reveal .warn::before { content: "易错 "; font-weight: 700; color: #991b1b; }
+  .reveal .warn.pit::before { content: "大坑 "; }
 
   .reveal .note { color: #333; font-size: 0.86em; }
   .reveal .zh { display: block; margin-top: 0.12em; color: #374151; font-size: 0.92em; }
@@ -2417,10 +2418,11 @@ print(type(lst[3]))</code></pre></div>
         </ol>
       </div>
       <div class="steps">
-        <p class="fragment" data-fragment-index="0" data-lines="2"><code>append</code> 返回 <code>None</code>，所以 <code>lst</code> 变成 <code>None</code></p>
-        <p class="fragment" data-fragment-index="1" data-lines="3"><code>None[3]</code> → TypeError</p>
-        <p class="fragment" data-fragment-index="2">答案 <strong>F</strong>。最容易错选 B（以为 <code>lst[3]</code> 是 1）或 E（以为打印 None 的类型）。</p>
+        <p class="fragment" data-fragment-index="0" data-lines="2"><strong>大坑就在这一行。</strong> <code>append</code> 把 1 加进去了，但交出来的是 None，于是 <code>lst = None</code>。</p>
+        <p class="fragment" data-fragment-index="1" data-lines="3"><code>lst[3]</code> 变成 <code>None[3]</code> → TypeError。</p>
+        <p class="fragment" data-fragment-index="2" data-lines="2">答案 <strong>F</strong>。别选 B（以为下标 3 是 1），也别选 E（以为会打印出 None 的类型）。</p>
       </div>
+      <div class="warn pit">不要写 <code>lst = lst.append(1)</code>。要加元素，单独写一行 <code>lst.append(1)</code>。</div>
     </section>
 
     <section id="exam-q7">
