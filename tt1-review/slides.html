@@ -152,6 +152,10 @@
     border-radius: 3px;
     font-size: 0.92em;
   }
+  code .sp { background: #e5e7eb; border-radius: 2px; }
+  #str-methods-change td:first-child,
+  #str-methods-blank td:first-child,
+  #str-methods-ask td:first-child { white-space: nowrap; width: 1%; }
   .reveal pre { box-shadow: none; width: 100%; margin: 0.25em 0; font-size: inherit; }
   .reveal pre code {
     display: block;
@@ -1323,18 +1327,76 @@ True</code></pre></div>
     </section>
 
     <section id="str-methods-change">
-      <h2>字符串方法 ②：变、判断</h2>
+      <h2>字符串方法 ②：改大小写</h2>
+      <div class="takeaway">原来的字符串不会变。<code>s.lower()</code> 返回一个新的，要留下就写 <code>s = s.lower()</code>。</div>
       <table>
-        <tr><th>方法</th><th>例子</th><th>结果</th></tr>
-        <tr><td><code>lower()</code> / <code>upper()</code></td><td><code>'CsC'.lower()</code></td><td><code>'csc'</code></td></tr>
-        <tr><td><code>capitalize()</code></td><td><code>'hELLO'.capitalize()</code></td><td><code>'Hello'</code></td></tr>
-        <tr><td><code>strip()</code> / <code>lstrip()</code> / <code>rstrip()</code></td><td><code>'  hi  '.strip()</code></td><td><code>'hi'</code></td></tr>
-        <tr><td><code>replace(old, new)</code></td><td><code>'a-b-c'.replace('-', '')</code></td><td><code>'abc'</code></td></tr>
-        <tr><td><code>isdigit()</code> / <code>isalpha()</code> / <code>isalnum()</code></td><td><code>'108'.isdigit()</code></td><td>True；空字符串都是 False</td></tr>
-        <tr><td><code>islower()</code> / <code>isupper()</code></td><td><code>'csc108'.islower()</code></td><td>True（只看字母）</td></tr>
+        <tr><th>方法</th><th>按 → 看它做什么</th></tr>
+        <tr>
+          <td><code>lower()</code><br><code>'CsC108'.lower()</code></td>
+          <td class="fragment" data-fragment-index="0">每个字母变小写，数字不动 → <code>'csc108'</code></td>
+        </tr>
+        <tr>
+          <td><code>upper()</code><br><code>'CsC108'.upper()</code></td>
+          <td class="fragment" data-fragment-index="1">每个字母变大写，数字不动 → <code>'CSC108'</code></td>
+        </tr>
+        <tr>
+          <td><code>capitalize()</code><br><code>'hELLO'.capitalize()</code></td>
+          <td class="fragment" data-fragment-index="2">只把第一个字符变大写，后面<strong>全部变小写</strong> → <code>'Hello'</code></td>
+        </tr>
       </table>
-      <div class="warn">字符串不能改。<code>s.upper()</code> 返回新字符串，<code>s</code> 本身不变；要写 <code>s = s.upper()</code>。<br>
-        方法名写错会 <code>AttributeError</code>：没有 <code>lowercase()</code>，只有 <code>lower()</code>。</div>
+      <p class="note fragment" data-fragment-index="3">名字要写对：没有 <code>lowercase()</code>，只有 <code>lower()</code>。写错是 <code>AttributeError</code>。</p>
+    </section>
+
+    <section id="str-methods-blank">
+      <h2>去掉空白、替换</h2>
+      <p class="note">灰色块是空格。这些方法同样不改原来的字符串。</p>
+      <table>
+        <tr><th>方法</th><th>按 → 看它做什么</th></tr>
+        <tr>
+          <td><code>strip()</code><br><code>'<span class="sp">&nbsp;&nbsp;</span>hi<span class="sp">&nbsp;&nbsp;</span>'.strip()</code></td>
+          <td class="fragment" data-fragment-index="0">去掉<strong>两边</strong>的空格，中间的字留下 → <code>'hi'</code></td>
+        </tr>
+        <tr>
+          <td><code>lstrip()</code><br><code>'<span class="sp">&nbsp;&nbsp;</span>hi<span class="sp">&nbsp;&nbsp;</span>'.lstrip()</code></td>
+          <td class="fragment" data-fragment-index="1">只去掉<strong>左边</strong>，右边的空格还在 → <code>'hi<span class="sp">&nbsp;&nbsp;</span>'</code></td>
+        </tr>
+        <tr>
+          <td><code>rstrip()</code><br><code>'<span class="sp">&nbsp;&nbsp;</span>hi<span class="sp">&nbsp;&nbsp;</span>'.rstrip()</code></td>
+          <td class="fragment" data-fragment-index="2">只去掉<strong>右边</strong>，左边的空格还在 → <code>'<span class="sp">&nbsp;&nbsp;</span>hi'</code></td>
+        </tr>
+        <tr>
+          <td><code>replace(old, new)</code><br><code>'a-b-c'.replace('-', '+')</code></td>
+          <td class="fragment" data-fragment-index="3">每一处 <code>'-'</code> 都换成 <code>'+'</code>，不是只换第一次 → <code>'a+b+c'</code>。new 写成 <code>''</code> 就是把它们删掉。</td>
+        </tr>
+      </table>
+    </section>
+
+    <section id="str-methods-ask">
+      <h2>判断：是不是某一类字符</h2>
+      <p class="note">空字符串 <code>''</code> 用这些方法，结果都是 False。也是返回 True / False，不改原来的字符串。</p>
+      <table>
+        <tr><th>方法</th><th>按 → 看它做什么</th></tr>
+        <tr>
+          <td><code>isdigit()</code><br><code>'108'.isdigit()</code></td>
+          <td class="fragment" data-fragment-index="0">每个字符都是数字才是 True → True。<code>'10a'</code> 是 False</td>
+        </tr>
+        <tr>
+          <td><code>isalpha()</code><br><code>'csc'.isalpha()</code></td>
+          <td class="fragment" data-fragment-index="1">每个字符都是字母才是 True → True。<code>'csc108'</code> 是 False</td>
+        </tr>
+        <tr>
+          <td><code>isalnum()</code><br><code>'csc108'.isalnum()</code></td>
+          <td class="fragment" data-fragment-index="2">每个字符是字母或数字才是 True → True。<code>'c-s'</code> 是 False</td>
+        </tr>
+        <tr>
+          <td><code>islower()</code><br><code>'csc108'.islower()</code></td>
+          <td class="fragment" data-fragment-index="3">字母都是小写，而且至少有一个字母 → True。数字不管。<code>'CsC'</code> 和 <code>'108'</code> 都是 False</td>
+        </tr>
+        <tr>
+          <td><code>isupper()</code><br><code>'CSC108'.isupper()</code></td>
+          <td class="fragment" data-fragment-index="4">字母都是大写，而且至少有一个字母 → True。<code>'Csc'</code> 是 False</td>
+        </tr>
+      </table>
     </section>
 
     <!-- ============ Part 6 List ============ -->
