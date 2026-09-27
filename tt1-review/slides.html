@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Terry">
+<meta name="copyright" content="Terry">
 <title>CSC108 Term Test 1 Review</title>
 <link rel="stylesheet" href="vendor/reveal/reveal.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -336,6 +338,21 @@
     color: #444;
     pointer-events: none;
   }
+  .by-terry {
+    position: fixed;
+    left: 28px;
+    bottom: 34px;
+    z-index: 31;
+    margin: 0;
+    font-family: Nunito, "Noto Sans SC", sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1;
+  }
+  .by-terry a { color: #444; text-decoration: none; }
+  .by-terry a:hover { color: var(--blue); text-decoration: underline; }
+  body.on-title .by-terry,
+  body.show-notes .by-terry { display: none; }
   .maker {
     display: none;
     position: fixed;
@@ -377,7 +394,8 @@
   }
   .notes-panel::before { content: "讲解备注（按 N 关闭）"; display: block; font-weight: 700; color: #92400e; font-size: 14px; margin-bottom: 4px; }
   body.show-notes .notes-panel { display: block; }
-  body.show-notes .deck-footer { display: none; }
+  body.show-notes .deck-footer,
+  body.show-notes .by-terry { display: none; }
 
   #toc-toggle {
     position: fixed;
@@ -2760,6 +2778,9 @@ def calculate_age(birth_date: str) -> int:
   </div>
 </div>
 <div class="deck-footer">CSC108 · Term Test 1 Review</div>
+<p class="by-terry"><a href="https://terry1238832.github.io/" target="_blank" rel="noopener">Terry</a></p>
+<!-- Terry · https://terry1238832.github.io/ -->
+<div hidden aria-hidden="true" data-watermark="Terry">Terry · https://terry1238832.github.io/</div>
 <p class="maker"><a href="https://terry1238832.github.io/" target="_blank" rel="noopener">© Terry1238832 制作</a></p>
 <aside id="toc">
   <div class="toc-body"></div>
