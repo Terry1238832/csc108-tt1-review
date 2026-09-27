@@ -1305,7 +1305,7 @@ True</code></pre></div>
         <tr><td><code>'utm' &gt; 'utmsu'</code></td><td class="fragment">'utm' 先比完，短的更小</td><td class="fragment">False</td></tr>
         <tr><td><code>'Zoo' &lt; 'apple'</code></td><td class="fragment"><code>'Z'</code>(90) vs <code>'a'</code>(97)</td><td class="fragment">True</td></tr>
       </table>
-      <p class="note"><code>'a' &lt; 'b' &lt; 'c'</code> 是 <code>('a' &lt; 'b') and ('b' &lt; 'c')</code>，结果 True。</p>
+      <p class="note">连着写 <code>'a' &lt; 'b' &lt; 'c'</code> 时，Python 会拆成两小段，<strong>两段都要成立</strong>：<code>'a' &lt; 'b'</code> 是 True（a 在 b 前面），<code>'b' &lt; 'c'</code> 也是 True（b 在 c 前面），所以整个结果是 True。<br>不是先算出 True，再拿这个 True 去和 <code>'c'</code> 比。</p>
     </section>
 
     <section id="str-methods-find">
