@@ -159,6 +159,10 @@
   #str-methods-ask td:first-child,
   #builtins td:first-child,
   #builtins-2 td:first-child { white-space: nowrap; width: 1%; }
+  #exam-q2 h2 { margin-bottom: 0.2em; }
+  #exam-q2 table { margin: 0.1em 0; }
+  #exam-q2 .src { margin: 0.1em 0; padding: 0.2em 0.5em 0.1em; }
+  #exam-q2 .steps p { margin: 0.05em 0; }
   .reveal pre { box-shadow: none; width: 100%; margin: 0.25em 0; font-size: inherit; }
   .reveal pre code {
     display: block;
@@ -2301,7 +2305,7 @@ b()</code></pre></div>
             <tr><td>silver</td><td>$90</td><td>$60</td><td>$60</td></tr>
             <tr><td>gold</td><td>$90</td><td>$70</td><td>$35</td></tr>
           </table>
-          <div class="src mid-code"><pre><code class="py">if months == 1:
+          <div class="src small-code"><pre><code class="py">if months == 1:
     cost = 90
 elif ____(1)____:
     cost = 60
@@ -2311,33 +2315,21 @@ else:
     else:
         cost = 35</code></pre></div>
         </div>
-        <div style="font-size:0.85em">
+        <div style="font-size:0.82em">
           <ol class="opts">
-            <li>(1) <code>plan == 'silver'</code><br>(2) <code>months >= 2 and months &lt;= 6</code></li>
-            <li>(1) <code>plan == 'silver'</code><br>(2) <code>months >= 6</code></li>
-            <li>(1) <code>months >= 2 and months &lt;= 6</code><br>(2) <code>plan == 'gold'</code></li>
+            <li>(1) <code>plan == 'silver'</code><br>(2) <code>months &gt;= 2 and months &lt;= 6</code></li>
+            <li>(1) <code>plan == 'silver'</code><br>(2) <code>months &gt;= 6</code></li>
+            <li>(1) <code>months &gt;= 2 and months &lt;= 6</code><br>(2) <code>plan == 'gold'</code></li>
             <li>All of the above.</li>
             <li>None of the above.</li>
           </ol>
         </div>
       </div>
-      <aside class="notes">让大家先看表：60 块出现在哪？只有 silver 且 2 个月以上。所以 (1) 一定是 silver。</aside>
-    </section>
-
-    <section id="exam-q2-ans">
-      <h2>Q2 讲解：答案 A</h2>
       <div class="steps">
-        <p class="fragment">① 60 元只出现在 silver 的 2 个月以上 → 第 (1) 空是 <code>plan == 'silver'</code>，C 排除</p>
-        <p class="fragment">② 走到 else 里，一定是 gold 且 months ≥ 2：2–6 个月 70，7+ 是 35</p>
-        <p class="fragment">③ A 的 (2) 是 <code>2 &lt;= months &lt;= 6</code> ✓</p>
-        <p class="fragment">④ B 的 (2) 是 <code>months &gt;= 6</code>：gold 3 个月会得到 35（应为 70），gold 7 个月会得到 70（应为 35）✗</p>
+        <p class="fragment">60 元只在 silver、而且至少 2 个月时出现。所以第 (1) 空是 <code>plan == 'silver'</code>。C 的第 (1) 空写的是月份，排除。</p>
+        <p class="fragment">走进 else 时，已经不是第 1 个月，也不是 silver，所以是 gold 且 months ≥ 2。2–6 个月是 70，7 个月起是 35。A 的第 (2) 空正好卡住 2 到 6 个月。</p>
+        <p class="fragment">B 写成 <code>months &gt;= 6</code>：gold 3 个月会得到 35（应该 70），gold 7 个月会得到 70（应该 35）。只有 A 对 → 答案 <strong>A</strong>。</p>
       </div>
-      <table class="fragment">
-        <tr><th>反例</th><th>应该</th><th>B 给出</th><th>C 给出</th></tr>
-        <tr><td>gold, 3 个月</td><td>70</td><td>35 ✗</td><td>60 ✗</td></tr>
-        <tr><td>gold, 7 个月</td><td>35</td><td>70 ✗</td><td>—</td></tr>
-      </table>
-      <p class="fragment">只有 A 对 → 答案 <strong>A</strong>。</p>
     </section>
 
     <section id="exam-q3">
