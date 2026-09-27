@@ -1649,7 +1649,7 @@ for n in nums:
       <div class="cols">
         <div>
           <h3>对：发现反例就停</h3>
-          <div class="src"><pre><code class="py">def all_positive(nums):
+          <div class="src"><pre id="good-all" class="stepper"><code class="py">def all_positive(nums):
     for n in nums:
         if n &lt;= 0:
             return False
@@ -1657,7 +1657,7 @@ for n in nums:
         </div>
         <div>
           <h3>错：只看了第一个</h3>
-          <div class="src"><pre><code class="py">def all_positive(nums):
+          <div class="src"><pre id="bad-all" class="stepper"><code class="py">def all_positive(nums):
     for n in nums:
         if n &lt;= 0:
             return False
@@ -1665,7 +1665,14 @@ for n in nums:
             return True</code></pre></div>
         </div>
       </div>
-      <p class="fragment"><code>all_positive([3, -1])</code>：右边第一轮看到 3，直接 <code>return True</code>，-1 根本没机会检查。</p>
+      <div class="steps">
+        <p class="fragment" data-target="#bad-all" data-lines="2">用 <code>[3, -1]</code> 跑右边。第一轮 <code>n = 3</code>。</p>
+        <p class="fragment" data-target="#bad-all" data-lines="3"><code>3 &lt;= 0</code> 是 False，所以不会 <code>return False</code>。</p>
+        <p class="fragment" data-target="#bad-all" data-lines="5-6">写了 <code>else</code>，马上 <code>return True</code>。函数立刻结束。</p>
+        <p class="fragment" data-target="#bad-all" data-lines="6"><code>-1</code> 还没轮到，答案已经错成 True。</p>
+        <p class="fragment" data-target="#good-all" data-lines="2-4">左边没有 else：3 是正数就继续。下一轮 <code>n = -1</code>，才 <code>return False</code>。</p>
+        <p class="fragment" data-target="#good-all" data-lines="5">只有每个都看过、没遇到反例，才执行循环外面的 <code>return True</code>。</p>
+      </div>
       <div class="takeaway">“全部都满足”：循环里遇到反例 <code>return False</code>，循环<strong>全部走完</strong>才 <code>return True</code>。</div>
     </section>
 
