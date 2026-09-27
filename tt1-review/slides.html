@@ -164,6 +164,16 @@
   #exam-q2 table { margin: 0.1em 0; }
   #exam-q2 .src { margin: 0.1em 0; padding: 0.2em 0.5em 0.1em; }
   #exam-q2 .steps p { margin: 0.05em 0; }
+  #exam-q8 h2 { margin-bottom: 0.18em; padding-bottom: 0.06em; }
+  #exam-q8 .src { margin: 0.05em 0; padding: 0.12em 0.45em 0.04em; }
+  #exam-q8 p { margin: 0.06em 0; }
+  #exam-q8 ol.opts { margin: 0.02em 0 0.02em 1.2em; font-size: 0.9em; }
+  #exam-q8 ol.opts li { margin: 0; padding: 0 0.2em; }
+  #exam-q8 .steps { font-size: 0.88em; }
+  #exam-q8 .steps p { margin: 0.02em 0; }
+  #exam-q8 .frames { margin: 0.1em 0 0.02em; }
+  #exam-q8 .frame .fv { font-size: 18px; padding: 0.02em 0.5em; }
+  #exam-q8 .frame .fh { font-size: 15px; padding: 0.04em 0.5em; }
   .reveal pre { box-shadow: none; width: 100%; margin: 0.25em 0; font-size: inherit; }
   .reveal pre code {
     display: block;
@@ -2449,8 +2459,8 @@ print(s[4::2])</code></pre></div>
 
     <section id="exam-q8">
       <h2>Q8 · Variables <span class="tag pts">1 pt</span></h2>
-      <div class="cols">
-        <div class="src mid-code"><pre><code class="py">x = 5
+      <div class="cols w46">
+        <div class="src small-code"><pre class="stepper"><code class="py">x = 5
 y = 2
 z = True
 
@@ -2466,47 +2476,27 @@ def hello(z, x):
     return well(x, z)</code></pre></div>
         <div>
           <p>调用 <code>hello(0, 1)</code> 之后，<strong>global</strong> 的 x、y、z 是多少？</p>
-          <ol class="opts" style="font-size:0.9em">
-            <li>x = 5, y = 2, z = True</li>
+          <ol class="opts">
+            <li class="fragment mark" data-fragment-index="6">x = 5, y = 2, z = True</li>
             <li>x = 1, y = 1, z = 3</li>
             <li>x = 1, y = 2, z = 3</li>
             <li>x = 3, y = 2, z = True</li>
             <li>An error occurs.</li>
           </ol>
-        </div>
-      </div>
-      <aside class="notes">先问：两个函数里有没有 global 关键字？没有。那不管里面怎么算，外面的 x、y、z 都不会变。下一页再完整追踪一遍，确认不会报错。</aside>
-    </section>
-
-    <section id="exam-q8-ans">
-      <h2>Q8 讲解：答案 A</h2>
-      <div class="cols">
-        <div class="src mid-code"><pre class="stepper"><code class="py">x = 5
-y = 2
-z = True
-
-def well(y, x):
-    z = 3
-    x = y
-    y = x
-    return x * y * z
-
-def hello(z, x):
-    x = z + x
-    z = y + x
-    return well(x, z)</code></pre></div>
-        <div class="steps" style="font-size:0.9em">
-          <p class="fragment" data-lines="11"><code>hello(0, 1)</code>：按位置 <code>z = 0</code>，<code>x = 1</code>（都是 local）</p>
-          <p class="fragment" data-lines="12"><code>x = 0 + 1 = 1</code></p>
-          <p class="fragment" data-lines="13">hello 里没有 y → 读 global 的 2：<code>z = 2 + 1 = 3</code></p>
-          <p class="fragment" data-lines="14,5"><code>well(1, 3)</code>：按位置 <code>y = 1</code>，<code>x = 3</code></p>
-          <p class="fragment" data-lines="6-8"><code>z = 3</code>，<code>x = 1</code>，<code>y = 1</code>，返回 <code>1 * 1 * 3 = 3</code></p>
-          <div class="frames fragment">
-            <div class="frame"><div class="fh">global（没变）</div><div class="fv"><span>x</span><span>5</span></div><div class="fv"><span>y</span><span>2</span></div><div class="fv"><span>z</span><span>True</span></div></div>
+          <div class="steps">
+            <p class="fragment" data-fragment-index="0" data-lines="11"><code>hello(0, 1)</code>：按位置 <code>z = 0</code>，<code>x = 1</code>（都是 local）</p>
+            <p class="fragment" data-fragment-index="1" data-lines="12"><code>x = 0 + 1 = 1</code></p>
+            <p class="fragment" data-fragment-index="2" data-lines="13">hello 里没有 y → 读 global 的 2：<code>z = 2 + 1 = 3</code></p>
+            <p class="fragment" data-fragment-index="3" data-lines="14,5"><code>well(1, 3)</code>：按位置 <code>y = 1</code>，<code>x = 3</code></p>
+            <p class="fragment" data-fragment-index="4" data-lines="6-9"><code>z = 3</code>，<code>x = 1</code>，<code>y = 1</code>，返回 <code>1 * 1 * 3 = 3</code></p>
+            <div class="frames fragment" data-fragment-index="5">
+              <div class="frame"><div class="fh">global（没变）</div><div class="fv"><span>x</span><span>5</span></div><div class="fv"><span>y</span><span>2</span></div><div class="fv"><span>z</span><span>True</span></div></div>
+            </div>
+            <p class="fragment" data-fragment-index="6">没有 <code>global</code>，所有赋值都在各自的框里 → <strong>A</strong>。不会报错，因为 hello 只是<strong>读</strong> y。</p>
           </div>
-          <p class="fragment">没有 <code>global</code>，所有赋值都在各自的框里 → <strong>A</strong>。不会报错，因为 hello 只是<strong>读</strong> y。</p>
         </div>
       </div>
+      <aside class="notes">两个函数里都没有 global。hello(0, 1) 里 z=0、x=1，x 变成 1，z 读外面的 y 得到 3。well(1, 3) 里算出 3。外面的 x、y、z 还是 5、2、True。答案 A，不会报错。</aside>
     </section>
 
     <section id="exam-q9">
