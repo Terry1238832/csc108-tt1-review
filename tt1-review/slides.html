@@ -1727,13 +1727,25 @@ for n in nums:
 
     <section id="fdr-steps">
       <h2>写函数的顺序（Design Recipe）</h2>
-      <ol>
-        <li><strong>起名字</strong></li>
-        <li><strong>type contract</strong>：几个参数、各是什么类型、返回什么类型</li>
-        <li><strong>docstring</strong>：一句话说清它做什么，再放几个例子（doctest）</li>
-        <li><strong>写函数体</strong>：照着描述去实现</li>
-        <li><strong>测试</strong>：跑 doctest，看例子是不是都对</li>
-      </ol>
+      <div class="cols">
+        <div class="src"><pre id="recipe-fn" class="stepper"><code class="py">def is_even(n: int) -> bool:
+    """Return True iff n is even.
+
+    >>> is_even(4)
+    True
+    >>> is_even(3)
+    False
+    """
+    return n % 2 == 0</code></pre></div>
+        <div class="steps">
+          <p class="fragment" data-target="#recipe-fn" data-lines="1"><strong>名字</strong>：<code>is_even</code>。一看就知道是在判断偶数。</p>
+          <p class="fragment" data-target="#recipe-fn" data-lines="1"><strong>type contract</strong>：参数 <code>n: int</code>，返回 <code>bool</code>。</p>
+          <p class="fragment" data-target="#recipe-fn" data-lines="2"><strong>docstring</strong>：<code>"""</code> 里的一句话，说它做什么。</p>
+          <p class="fragment" data-target="#recipe-fn" data-lines="4-7"><strong>doctest</strong>：<code>&gt;&gt;&gt;</code> 后面是调用，下一行是期望结果。</p>
+          <p class="fragment" data-target="#recipe-fn" data-lines="9"><strong>函数体</strong>：照着上面那句话写出来的代码。</p>
+          <p class="fragment" data-target="#recipe-fn" data-lines="4-7"><strong>测试</strong>：跑这些例子。4 应该得到 True，3 应该得到 False。</p>
+        </div>
+      </div>
       <div class="takeaway">先想清楚“输入什么、输出什么、做什么”，再写代码。</div>
     </section>
 
