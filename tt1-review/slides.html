@@ -3,13 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="only light">
 <meta name="author" content="Terry">
 <meta name="copyright" content="Terry">
 <title>CSC108 Term Test 1 Review</title>
 <link rel="stylesheet" href="vendor/reveal/reveal.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --navy: #1a3a5c;
@@ -200,10 +198,10 @@
   #exam-q14 .steps p { margin: 0.08em 0; }
   #exam-q14 .exercise { margin: 0.05em 0 0.15em; padding: 0.22em 0.6em; }
   #exam-q14 .warn { margin: 0.15em 0 0; padding: 0.22em 0.6em; }
-  #exam-q14 .cols .src pre code { font-size: 16px; }
+  #exam-q14 .cols .src pre code { font-size: 20px; }
   #exam-q15 h2 { margin-bottom: 0.12em; padding-bottom: 0.06em; }
   #exam-q15 .src { margin: 0.08em 0; }
-  #exam-q15 .q15-ret pre code { font-size: 16px; }
+  #exam-q15 .q15-ret pre code { font-size: 20px; }
   .reveal pre { box-shadow: none; width: 100%; margin: 0.25em 0; font-size: inherit; }
   .reveal pre code {
     display: block;
@@ -216,7 +214,7 @@
     overflow: visible;
   }
   .reveal pre code .line { display: block; min-height: 1.38em; padding: 0 0.3em; border-radius: 3px; transition: opacity 0.2s, background 0.2s; }
-  .reveal pre.stepper.focus code .line { opacity: 0.35; }
+  .reveal pre.stepper.focus code .line { opacity: 0.72; }
   .reveal pre.stepper.focus code .line.hl { opacity: 1; background: rgba(253, 230, 138, 0.75); }
   .reveal pre code .tok {
     border: 2px solid transparent;
@@ -232,11 +230,11 @@
   .tk-kw { color: #8b2bb9; font-weight: 600; }
   .tk-str { color: #0a7a3a; }
   .tk-num { color: #b45309; }
-  .tk-com { color: #6b7280; font-style: italic; }
+  .tk-com { color: #4b5563; font-style: italic; }
   .tk-bi { color: #1a6bb0; }
   .tk-lit { color: #b45309; font-weight: 600; }
   .tk-fn { color: #1a3a5c; font-weight: 700; }
-  .tk-pr { color: #94a3b8; }
+  .tk-pr { color: #52647b; }
 
   .src, .out {
     border-radius: 0 6px 6px 0;
@@ -255,7 +253,7 @@
   .src::before { content: "PYTHON"; color: var(--blue); }
   .out::before { content: "OUTPUT"; color: #94a3b8; }
   .reveal .out pre code { color: #e2e8f0; }
-  .small-code pre code { font-size: 18px; }
+  .small-code pre code { font-size: 20px; }
   .mid-code pre code { font-size: 20px; }
 
   .cols { display: flex; gap: 0.8em; align-items: flex-start; }
@@ -283,7 +281,7 @@
     white-space: pre;
     transition: background 0.2s, border-color 0.2s;
   }
-  .strip .cell i { font-style: normal; font-size: 17px; color: var(--blue); line-height: 1.3; font-family: Consolas, monospace; }
+  .strip .cell i { font-style: normal; font-size: 21px; font-weight: 600; color: var(--blue); line-height: 1.3; font-family: Consolas, monospace; }
   .strip .cell i.neg { color: #b45309; }
   .strip .cell.hit b { background: var(--hl); border-color: var(--ex-line); }
   .strip.small .cell b { font-size: 23px; }
@@ -291,13 +289,13 @@
   .slice-board { --cell-w: 70px; position: relative; width: max-content; max-width: 100%; margin: 0.42em 0 0.55em 0.45em; padding-bottom: 39px; }
   .slice-board .slice-index-row, .slice-board .slice-char-row { display: flex; }
   .slice-board .slice-index, .slice-board .slice-char { box-sizing: border-box; width: var(--cell-w); flex: 0 0 var(--cell-w); text-align: center; }
-  .slice-board .slice-index { height: 25px; color: var(--blue); font: 18px Consolas, monospace; }
+  .slice-board .slice-index { height: 25px; color: var(--blue); font: 600 23px Consolas, monospace; }
   .slice-board .slice-char { border: 2px solid #9fb3c8; border-left-width: 1px; background: #fff; font: 600 36px Consolas, monospace; line-height: 61px; height: 66px; transition: background 0.2s, border-color 0.2s; }
   .slice-board .slice-char:first-child { border-left-width: 2px; border-radius: 5px 0 0 5px; }
   .slice-board .slice-char:last-child { border-radius: 0 5px 5px 0; }
   .slice-board .slice-char.fragment.custom { opacity: 1; visibility: inherit; }
   .slice-board .slice-char.fragment.visible { background: var(--hl); border-color: var(--ex-line); }
-  .slice-board .slice-boundary { position: absolute; top: 96px; transform: translateX(-50%); font: 16px Consolas, monospace; color: #66788c; line-height: 24px; width: 30px; text-align: center; }
+  .slice-board .slice-boundary { position: absolute; top: 96px; transform: translateX(-50%); font: 600 22px Consolas, monospace; color: #40566c; line-height: 24px; width: 30px; text-align: center; }
   .slice-board .slice-boundary::before { content: "|"; position: absolute; top: -24px; left: 50%; transform: translateX(-50%); color: #a9b8c9; }
   .slice-board .slice-boundary.start { color: var(--blue); font-weight: 700; }
   .slice-board .slice-boundary.stop { color: #b45309; font-weight: 700; }
@@ -308,13 +306,11 @@
   .slice-board[data-mode="indices"] .slice-boundary { display: none; }
   .slice-flow { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 0.35em 0; }
   .slice-flow .hop { border: 2px solid #b8c8d9; border-radius: 6px; padding: 0.12em 0.45em; background: #fff; font: 600 23px Consolas, monospace; }
-  .slice-flow .hop.fragment { opacity: 0; visibility: hidden; }
   .slice-flow .hop.fragment.visible { opacity: 1; background: var(--hl); border-color: var(--ex-line); }
-  .slice-flow .arrow { color: var(--blue); font-size: 23px; }
   .quote-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.55em; margin: 0.32em 0; }
   .quote-grid .src, .quote-grid .out { margin: 0; }
-  .quote-grid pre code { font-size: 20px; }
-  .quote-grid .caption { font-size: 18px; margin: 0.1em 0 0.25em; }
+  .quote-grid pre code { font-size: 25px; }
+  .quote-grid .caption { font-size: 23px; margin: 0.1em 0 0.25em; }
   .slice-board.slice-compact { --cell-w: 62px; margin-top: 0.25em; margin-bottom: 0.35em; }
   .slice-board.slice-compact .slice-char { font-size: 30px; height: 58px; line-height: 54px; }
   .slice-board.slice-compact .slice-boundary { top: 88px; }
@@ -524,6 +520,56 @@
     box-shadow: 0 1px 4px rgba(26, 58, 92, 0.12);
   }
   #fs-toggle:hover { background: var(--navy); color: #fff; }
+
+  /* Explicit light canvas and heavier, local fonts keep projected text readable. */
+  :root { color-scheme: only light; }
+  html, body, .reveal-viewport { background: #fff; color: #111827; }
+  .reveal { font-family: "Microsoft YaHei", "Noto Sans SC", "Segoe UI", sans-serif; }
+  .reveal .slides section { font-weight: 500; }
+  .reveal h1, .reveal h2 { font-family: "Microsoft YaHei", "Noto Sans SC", "Segoe UI", sans-serif; }
+  .reveal code { font-family: Consolas, "Cascadia Mono", monospace; font-weight: 600; }
+  .reveal .note, .reveal .why { color: #374151; }
+  .reveal .out pre code { color: #fff; }
+  .slice-flow { gap: 12px; }
+  .slice-flow .hop { font-family: Consolas, "Microsoft YaHei", sans-serif; font-size: 25px; color: #172d44; }
+  .slice-flow .hop.fragment.visible { visibility: visible; }
+  #str-step-from-start h2 { font-size: 38px; margin-bottom: 12px; }
+  #str-step-from-start > p { font-size: 28px; margin: 0 0 10px; }
+  .crop-lab { font-size: 24px; }
+  .crop-label { margin: 7px 0 5px; color: #243e58; font-size: 23px; font-weight: 700; }
+  .crop-row { display: flex; width: max-content; max-width: 100%; }
+  .crop-cell { width: 82px; flex: 0 0 82px; text-align: center; }
+  .crop-index { display: block; height: 29px; color: #205b91; font: 600 24px Consolas, monospace; }
+  .crop-letter { display: block; border: 2px solid #71869b; background: #fff; color: #172d44; font: 700 37px/55px Consolas, monospace; transition: background 180ms, border-color 180ms; }
+  .crop-source .is-range .crop-letter { background: #dceeff; border-color: #1764a2; }
+  .crop-source .is-outside .crop-letter { background: #f1f4f7; color: #52647b; border-color: #a0acb8; }
+  .crop-source .is-excluded .crop-letter { border: 3px dashed #a84412; line-height: 53px; background: #fff4e6; color: #873b11; }
+  .crop-cut-label { visibility: hidden; }
+  .crop-cut-label.is-shown { visibility: visible; }
+  .crop-copy { opacity: 0; visibility: hidden; transform: translate(var(--crop-origin-x, 246px), var(--crop-origin-y, -132px)); transition: transform 500ms ease, opacity 300ms ease; }
+  .crop-copy.is-shown { opacity: 1; visibility: visible; transform: translate(0, 0); }
+  .crop-copy .is-walked .crop-letter { background: #e7f1fb; border-color: #326a9a; }
+  .crop-copy .is-picked .crop-letter { background: #ffe091; border-color: #9b5900; color: #352200; }
+  .crop-copy .is-current .crop-letter { outline: 3px solid #134f82; outline-offset: 2px; }
+  .crop-count { display: block; height: 31px; margin-top: 5px; color: #172d44; font-size: 22px; font-weight: 700; }
+  .crop-explain { min-height: 69px; margin: 9px 0 10px; border-left: 5px solid #1764a2; background: #eaf3fc; padding: 10px 16px; box-sizing: border-box; font-size: 25px; line-height: 1.5; color: #172d44; }
+  .crop-result { display: flex; gap: 20px; align-items: center; background: #e5f5e9; border-left: 5px solid #23763a; padding: 8px 16px; font-size: 25px; }
+  .crop-result-value { font: 700 34px Consolas, "Microsoft YaHei", sans-serif; color: #154b25; }
+  .crop-controls { display: flex; align-items: center; gap: 12px; margin-top: 10px; font-size: 20px; color: #354b61; }
+  .crop-controls button { border: 1px solid #526b84; border-radius: 4px; background: white; color: #173d63; padding: 5px 14px; font: 600 20px "Microsoft YaHei", sans-serif; cursor: pointer; }
+  .crop-controls button:focus-visible { outline: 3px solid #1764a2; outline-offset: 2px; }
+  .crop-cues { position: absolute; width: 1px; height: 1px; overflow: hidden; pointer-events: none; }
+  @media (prefers-reduced-motion: reduce) { .crop-copy { transition: none; } }
+  /* Native zoom rasterizes text at its final size, avoiding a scaled text bitmap. */
+  html:not(.print-pdf) .reveal.native-zoom:not(.overview) .slides {
+    zoom: var(--native-slide-scale) !important;
+    transform: none !important;
+    left: var(--native-slide-left) !important;
+    top: var(--native-slide-top) !important;
+  }
+  @media print {
+    html:not(.print-pdf) .reveal.native-zoom .slides { zoom: 1 !important; left: auto !important; top: auto !important; }
+  }
 </style>
 </head>
 <body>
@@ -1300,11 +1346,11 @@ It's OK
       <p><code>s = 'ABCDE'</code>，<code>len(s) = 5</code>；合法字符下标只有 <code>0…4</code>。</p>
       <div class="slice-board" data-text="ABCDE" data-start="2:0" data-hits="2:1,3:2,4:3"></div>
       <div class="slice-flow">
-        <span class="hop fragment" data-fragment-index="0">start = 2</span><span class="arrow">→</span>
-        <span class="hop fragment" data-fragment-index="1">2: C</span><span class="arrow">→</span>
-        <span class="hop fragment" data-fragment-index="2">3: D</span><span class="arrow">→</span>
-        <span class="hop fragment" data-fragment-index="3">4: E</span><span class="arrow">→</span>
-        <span class="hop fragment" data-fragment-index="4">5: 停</span>
+        <span class="hop fragment" data-fragment-index="0">起点：2</span>
+        <span class="hop fragment" data-fragment-index="1">取 C（下标 2）</span>
+        <span class="hop fragment" data-fragment-index="2">取 D（下标 3）</span>
+        <span class="hop fragment" data-fragment-index="3">取 E（下标 4）</span>
+        <span class="hop fragment" data-fragment-index="4">到达长度 5：停止</span>
       </div>
       <div class="takeaway fragment" data-fragment-index="4"><code>s[2:10]</code> → <code>'CDE'</code>。<code>10</code> 是终点上限，超出长度也不会报错；切片不会生成下标 5…9 的字符。</div>
       <div class="warn fragment" data-fragment-index="5">对照：单个下标 <code>s[10]</code> 会报 <code>IndexError</code>。</div>
@@ -1364,22 +1410,23 @@ It's OK
         <p class="strip-label"><code>x[1::2]</code> → <code>'13579'</code>：从 1 开始，每次 +2</p>
         <div class="strip" data-text="0123456789" data-hit="1::2" data-neg="no"></div>
       </div>
-      <div class="definition fragment"><code>s[start:stop:step]</code>：从 start 出发，每次走 step 格，碰到 stop 之前停下。</div>
+      <div class="definition fragment"><code>s[start:stop:step]</code>：先确定范围和方向；从 start 开始，每次加 step，到达或越过 stop 时停止。stop 不取。</div>
     </section>
 
 <section id="str-step-from-start">
-      <h2>step 从 start 数起，绝不是重新从 0 数</h2>
-      <p><code>s = 'ABCDE'</code>，计算 <code>s[2:10:3]</code>。</p>
-      <div class="slice-board" data-text="ABCDE" data-start="2:0" data-hits="2:1"></div>
-      <div class="slice-flow">
-        <span class="hop fragment" data-fragment-index="0">从 2 出发</span><span class="arrow">→</span>
-        <span class="hop fragment" data-fragment-index="1">取 2: C</span><span class="arrow">→</span>
-        <span class="hop fragment" data-fragment-index="2">2 + 3 = 5</span><span class="arrow">→</span>
-        <span class="hop fragment" data-fragment-index="3">5 已到末尾，停</span>
+      <h2>先截取范围，再从起点每次前进 3 格</h2>
+      <p><code>s = 'ABCDEFGHIJK'</code>，计算 <code>s[3:10:3]</code></p>
+      <div class="crop-lab" id="slice-crop-lab">
+        <div class="crop-label">① 原字符串 · 上方数字是原下标</div>
+        <div class="crop-row crop-source" aria-label="原字符串 ABCDEFGHIJK"></div>
+        <div class="crop-label crop-cut-label">② 取出 <code>s[3:10]</code>：DEFGHIJ（K 在下标 10，不包含）</div>
+        <div class="crop-row crop-copy" aria-label="截取的范围 DEFGHIJ，保留原下标"></div>
+        <div class="crop-explain" aria-live="polite"></div>
+        <div class="crop-result"><span>当前取到的字符</span><span class="crop-result-value">等待取值</span></div>
+        <div class="crop-controls"><button type="button" data-crop-replay>重新演示</button><span>按 → 或空格继续；按 ← 回看</span><span class="crop-progress"></span></div>
+        <div class="crop-cues" aria-hidden="true"></div>
       </div>
-      <div class="takeaway fragment" data-fragment-index="3">结果 <code>'C'</code>。<code>stop=10</code> 再大，也不会凭空出现字符。候选下标是 <code>2, 5, 8…</code>，不是 <code>0, 3, 6…</code>。</div>
-      <div class="definition fragment" data-fragment-index="4">对照 <code>s[0:5:3]</code>：从 <code>0</code> 出发，取 <code>0, 3</code> → <code>'AD'</code>。步长说的是<strong>相邻两次取值的下标之差</strong>。</div>
-      <aside class="notes">每次点击只走一步。先点起点 2，再点亮 C，再计算下一个候选下标 5。5 是结尾位置，没有下标 5 的字符，所以答案只有 C。对比从 0 出发才会取 A、D。</aside>
+      <aside class="notes">正步长的教学分解：先看 s[3:10] 的范围，再按相对起点的距离取值；这不是 Python 必须先创建中间字符串的实现说明。取出的范围必须是 DEFGHIJ，不含 K。先取 D，再从 D 走 E（1）、F（2）、G（3，取），接着 H（1）、I（2）、J（3，取）。原下标依次为 3、6、9，结果 DGJ。每次前进三格就是跨过中间两个字符，不是跳过三个再取。反向切片先确定方向，不能直接套用 s[start:stop] 的正向截取。</aside>
     </section>
 
 <section id="str-step-neg">
@@ -1401,11 +1448,11 @@ It's OK
       <p><code>s = 'ABCDE'</code>，计算 <code>s[4:0:-1]</code>。负步长时，<code>stop=0</code> 仍然<strong>不包含</strong>。</p>
       <div class="slice-board" data-mode="indices" data-text="ABCDE" data-hits="4:0,3:1,2:2,1:3"></div>
       <div class="slice-flow">
-        <span class="hop fragment" data-fragment-index="0">4: E</span><span class="arrow">→</span>
-        <span class="hop fragment" data-fragment-index="1">3: D</span><span class="arrow">→</span>
-        <span class="hop fragment" data-fragment-index="2">2: C</span><span class="arrow">→</span>
-        <span class="hop fragment" data-fragment-index="3">1: B</span><span class="arrow">→</span>
-        <span class="hop fragment" data-fragment-index="4">0: 停，A 不取</span>
+        <span class="hop fragment" data-fragment-index="0">取 E（下标 4）</span>
+        <span class="hop fragment" data-fragment-index="1">取 D（下标 3）</span>
+        <span class="hop fragment" data-fragment-index="2">取 C（下标 2）</span>
+        <span class="hop fragment" data-fragment-index="3">取 B（下标 1）</span>
+        <span class="hop fragment" data-fragment-index="4">到达 stop=0：A 不取</span>
       </div>
       <div class="takeaway fragment" data-fragment-index="4"><code>s[4:0:-1]</code> → <code>'EDCB'</code>。反向的规则也是“取 start，不取 stop”。</div>
       <aside class="notes">不要用正向的“两个切割位置夹一段”来猜负步长。负步长直接列候选字符下标：4、3、2、1，到 0 时停止且不取 A。</aside>
@@ -1427,8 +1474,8 @@ It's OK
 
 <section id="str-empty">
       <h2>什么时候切出空字符串 <code>''</code></h2>
-      <div class="definition">方向和起点终点对不上，就是空的：<br>
-        step 为正，起点却在终点右边；step 为负，起点却在终点左边。</div>
+      <div class="definition">先检查方向，再决定是否取第一个字符：<br>
+        step 为正，起点必须在终点左边；step 为负，起点必须在终点右边。起点等于终点也为空。</div>
       <div class="cols">
         <div class="src"><pre><code class="py">>>> s = "Mississauga"
 >>> s[0:11:-1]
@@ -1439,8 +1486,8 @@ It's OK
 'aguassissiM'
 ''</code></pre></div>
       </div>
-      <p><code>s[0:11:-1]</code>：从 0 号格往<strong>左</strong>走，想到 11 号格，永远走不到 → 空。</p>
-      <div class="takeaway">倒过来用 <code>s[::-1]</code>。</div>
+      <p><code>s[0:11:-1]</code>：起点 0 不在向左切片的有效范围内 → <code>''</code>，连第一个字符也不取。</p>
+      <div class="takeaway">整串倒过来用 <code>s[::-1]</code>。<code>step</code> 不能为 0：<code>s[::0]</code> 会报 <code>ValueError</code>。</div>
     </section>
 
 <section id="str-plus-mul">
@@ -2177,9 +2224,9 @@ else:
         </div>
       </div>
       <div class="steps">
-        <p class="fragment">60 元只在 silver、而且至少 2 个月时出现。所以第 (1) 空是 <code>plan == 'silver'</code>。C 的第 (1) 空写的是月份，排除。</p>
-        <p class="fragment">走进 else 时，已经不是第 1 个月，也不是 silver，所以是 gold 且 months ≥ 2。2–6 个月是 70，7 个月起是 35。A 的第 (2) 空正好卡住 2 到 6 个月。</p>
-        <p class="fragment">B 写成 <code>months &gt;= 6</code>：gold 3 个月会得到 35（应该 70），gold 7 个月会得到 70（应该 35）。只有 A 对 → 答案 <strong>A</strong>。</p>
+        <p class="fragment">(1) 要覆盖 silver 至少 2 个月的 60 元：填 <code>plan == 'silver'</code>。</p>
+        <p class="fragment">进入 else 已排除第 1 个月和 silver；gold 的 2–6 个月收 70 元，所以 (2) 要检查月份在 2 到 6 之间。</p>
+        <p class="fragment">B 会把 gold 3 个月算成 35 元、7 个月算成 70 元，都不对。答案 <strong>A</strong>。</p>
       </div>
     </section>
 
@@ -2579,6 +2626,77 @@ def calculate_age(birth_date: str) -> int:
     });
   })();
 
+
+  // A teaching view for a positive step: crop the range, then count from its start.
+  (function () {
+    var lab = document.getElementById("slice-crop-lab");
+    if (!lab) return;
+    var source = lab.querySelector(".crop-source");
+    var copy = lab.querySelector(".crop-copy");
+    function cell(ch, index) {
+      var el = document.createElement("div");
+      el.className = "crop-cell";
+      el.innerHTML = '<span class="crop-index">' + index + '</span><span class="crop-letter">' + ch + '</span><span class="crop-count"></span>';
+      return el;
+    }
+    Array.from("ABCDEFGHIJK").forEach(function (ch, i) { source.appendChild(cell(ch, i)); });
+    Array.from("DEFGHIJ").forEach(function (ch, i) { copy.appendChild(cell(ch, i + 3)); });
+    // Source has no counting row; counting belongs to the extracted row.
+    source.querySelectorAll(".crop-count").forEach(function (el) { el.remove(); });
+    for (var i = 0; i < 10; i++) {
+      var cue = document.createElement("span");
+      cue.className = "fragment";
+      cue.dataset.fragmentIndex = String(i);
+      lab.querySelector(".crop-cues").appendChild(cue);
+    }
+    var messages = [
+      "先圈出下标 3 到 9：D 到 J。stop=10 指向 K，K 不取。",
+      "把范围 DEFGHIJ 放到下面。现在从这一行的第一个字符 D 开始。",
+      "先取 D（原下标 3）。D 是出发点，不用等走满 3 格才取。",
+      "从 D 前进第 1 格：到 E，暂时不取。",
+      "从 D 前进第 2 格：到 F，暂时不取。",
+      "从 D 前进第 3 格：到 G，取 G（3 + 3 = 6）。",
+      "从 G 重新计数：前进第 1 格，到 H，暂时不取。",
+      "从 G 前进第 2 格：到 I，暂时不取。",
+      "从 G 前进第 3 格：到 J，取 J（6 + 3 = 9）。",
+      "下一次是 9 + 3 = 12，已越过 stop=10，停止。结果是 'DGJ'。"
+    ];
+    function refreshCrop() {
+      var stage = lab.querySelectorAll(".crop-cues .fragment.visible").length - 1;
+      lab.dataset.stage = stage;
+      copy.style.setProperty("--crop-origin-x", (source.children[3].offsetLeft - copy.children[0].offsetLeft) + "px");
+      copy.style.setProperty("--crop-origin-y", (source.offsetTop - copy.offsetTop) + "px");
+      Array.from(source.children).forEach(function (el, i) {
+        el.classList.toggle("is-range", stage >= 0 && i >= 3 && i < 10);
+        el.classList.toggle("is-outside", stage >= 0 && i < 3);
+        el.classList.toggle("is-excluded", stage >= 0 && i === 10);
+      });
+      copy.classList.toggle("is-shown", stage >= 1);
+      lab.querySelector(".crop-cut-label").classList.toggle("is-shown", stage >= 1);
+      copy.setAttribute("aria-hidden", stage < 1 ? "true" : "false");
+      Array.from(copy.children).forEach(function (el, i) {
+        var reached = stage >= i + 2;
+        el.classList.toggle("is-picked", reached && i % 3 === 0);
+        el.classList.toggle("is-walked", reached && i % 3 !== 0);
+        el.classList.toggle("is-current", stage === i + 2);
+        el.querySelector(".crop-count").textContent = reached ? (i === 0 ? "先取" : (i % 3 === 0 ? "3 · 取" : String(i % 3))) : "";
+      });
+      lab.querySelector(".crop-explain").textContent = stage < 0 ? "先看 start=3、stop=10，再看 step=3。按 → 开始圈范围。" : messages[stage];
+      var result = (stage >= 2 ? "D" : "") + (stage >= 5 ? "G" : "") + (stage >= 8 ? "J" : "");
+      lab.querySelector(".crop-result-value").textContent = result ? "'" + result + "'" : "等待取值";
+      lab.querySelector(".crop-progress").textContent = stage < 0 ? "准备开始" : "第 " + (stage + 1) + " / 10 步";
+    }
+    lab.querySelector("[data-crop-replay]").addEventListener("click", function () {
+      Reveal.slide(Reveal.getIndices().h, 0, -1);
+      refreshCrop();
+    });
+    Reveal.on("ready", refreshCrop);
+    Reveal.on("slidechanged", refreshCrop);
+    Reveal.on("fragmentshown", refreshCrop);
+    Reveal.on("fragmenthidden", refreshCrop);
+    refreshCrop();
+  })();
+
   Reveal.initialize({
     hash: true,
     slideNumber: "c/t",
@@ -2804,6 +2922,22 @@ def calculate_age(birth_date: str) -> int:
       startBtn.textContent = "Start";
     });
   });
+(function () {
+    function crispLayout() {
+      if (!window.CSS || !CSS.supports("zoom", "1") || document.documentElement.classList.contains("print-pdf")) return;
+      var viewport = document.querySelector(".reveal"), slides = viewport.querySelector(".slides");
+      var scale = Reveal.getScale(), size = Reveal.getConfig();
+      if (!scale || typeof size.width !== "number" || typeof size.height !== "number") return;
+      slides.style.setProperty("--native-slide-scale", String(scale));
+      slides.style.setProperty("--native-slide-left", ((viewport.clientWidth / scale - size.width) / 2) + "px");
+      slides.style.setProperty("--native-slide-top", ((viewport.clientHeight / scale - size.height) / 2) + "px");
+      viewport.classList.add("native-zoom");
+    }
+    Reveal.on("ready", crispLayout);
+    Reveal.on("resize", crispLayout);
+    Reveal.on("overviewhidden", crispLayout);
+    if (Reveal.isReady()) crispLayout();
+  })();
 </script>
 </body>
 </html>
