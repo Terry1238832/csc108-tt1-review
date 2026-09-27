@@ -59,6 +59,7 @@
     margin: 0.25em 0 0.2em;
     text-transform: none;
   }
+  .reveal .slides section h2 { padding-left: 46px; }
 
   .reveal p { margin: 0.3em 0; }
   .reveal ul, .reveal ol { margin: 0.2em 0 0.2em 1.1em; }
@@ -287,6 +288,36 @@
   .strip .cell.hit b { background: var(--hl); border-color: var(--ex-line); }
   .strip.small .cell b { font-size: 23px; }
   .strip.small .cell { min-width: 1.5em; }
+  .slice-board { --cell-w: 70px; position: relative; width: max-content; max-width: 100%; margin: 0.42em 0 0.55em 0.45em; padding-bottom: 39px; }
+  .slice-board .slice-index-row, .slice-board .slice-char-row { display: flex; }
+  .slice-board .slice-index, .slice-board .slice-char { box-sizing: border-box; width: var(--cell-w); flex: 0 0 var(--cell-w); text-align: center; }
+  .slice-board .slice-index { height: 25px; color: var(--blue); font: 18px Consolas, monospace; }
+  .slice-board .slice-char { border: 2px solid #9fb3c8; border-left-width: 1px; background: #fff; font: 600 36px Consolas, monospace; line-height: 61px; height: 66px; transition: background 0.2s, border-color 0.2s; }
+  .slice-board .slice-char:first-child { border-left-width: 2px; border-radius: 5px 0 0 5px; }
+  .slice-board .slice-char:last-child { border-radius: 0 5px 5px 0; }
+  .slice-board .slice-char.fragment.custom { opacity: 1; visibility: inherit; }
+  .slice-board .slice-char.fragment.visible { background: var(--hl); border-color: var(--ex-line); }
+  .slice-board .slice-boundary { position: absolute; top: 96px; transform: translateX(-50%); font: 16px Consolas, monospace; color: #66788c; line-height: 24px; width: 30px; text-align: center; }
+  .slice-board .slice-boundary::before { content: "|"; position: absolute; top: -24px; left: 50%; transform: translateX(-50%); color: #a9b8c9; }
+  .slice-board .slice-boundary.start { color: var(--blue); font-weight: 700; }
+  .slice-board .slice-boundary.stop { color: #b45309; font-weight: 700; }
+  .slice-board .slice-boundary.fragment.custom { opacity: 1; visibility: inherit; }
+  .slice-board .slice-boundary.fragment.visible { background: var(--def); border-radius: 20px; }
+  .slice-board .slice-boundary.stop.fragment.visible { background: var(--ex); }
+  .slice-board[data-mode="indices"] { padding-bottom: 7px; }
+  .slice-board[data-mode="indices"] .slice-boundary { display: none; }
+  .slice-flow { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 0.35em 0; }
+  .slice-flow .hop { border: 2px solid #b8c8d9; border-radius: 6px; padding: 0.12em 0.45em; background: #fff; font: 600 23px Consolas, monospace; }
+  .slice-flow .hop.fragment { opacity: 0; visibility: hidden; }
+  .slice-flow .hop.fragment.visible { opacity: 1; background: var(--hl); border-color: var(--ex-line); }
+  .slice-flow .arrow { color: var(--blue); font-size: 23px; }
+  .quote-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.55em; margin: 0.32em 0; }
+  .quote-grid .src, .quote-grid .out { margin: 0; }
+  .quote-grid pre code { font-size: 20px; }
+  .quote-grid .caption { font-size: 18px; margin: 0.1em 0 0.25em; }
+  .slice-board.slice-compact { --cell-w: 62px; margin-top: 0.25em; margin-bottom: 0.35em; }
+  .slice-board.slice-compact .slice-char { font-size: 30px; height: 58px; line-height: 54px; }
+  .slice-board.slice-compact .slice-boundary { top: 88px; }
   .reveal .strip-label { font-size: 24px; margin: 0.25em 0 0; }
   .reveal th code { background: rgba(255, 255, 255, 0.16); color: #fff; }
 
@@ -1199,6 +1230,51 @@ a()</code></pre></div>
       <p class="subtitle">下标 · slicing · 拼接 · 比较 · 方法</p>
     </section>
 
+    <section id="str-repl-print">
+      <h2>交互终端的显示 ≠ <code>print</code> 的输出</h2>
+      <div class="quote-grid">
+        <div>
+          <p class="caption">输入两种写法，字符串的内容相同</p>
+          <div class="src"><pre><code class="py">>>> 'cat'
+>>> "cat"</code></pre></div>
+          <div class="out fragment" data-fragment-index="0"><pre><code>'cat'
+'cat'</code></pre></div>
+        </div>
+        <div>
+          <p class="caption"><code>print</code> 只把内容印出来</p>
+          <div class="src"><pre><code class="py">>>> print('cat')
+>>> print("cat")</code></pre></div>
+          <div class="out fragment" data-fragment-index="1"><pre><code>cat
+cat</code></pre></div>
+        </div>
+      </div>
+      <div class="definition fragment" data-fragment-index="2">交互终端自动显示的是字符串的 <code>repr</code>（表示形式）；外层引号提示“这是字符串”，<strong>不是</strong>字符串内容。<code>print</code> 显示内容。</div>
+      <aside class="notes">这里的 terminal 指 Python 的交互提示符 >>>，不是系统 shell。强调输入时用单引号或双引号，得到的字符串值相同；直接求值时显示 repr，print 显示内容。</aside>
+    </section>
+
+    <section id="str-quotes-inside">
+      <h2>引号嵌套：看清哪些是内容</h2>
+      <div class="quote-grid">
+        <div>
+          <div class="src"><pre><code class="py">>>> "It's OK"
+>>> 'It\'s OK'</code></pre></div>
+          <div class="out fragment" data-fragment-index="0"><pre><code>"It's OK"
+"It's OK"</code></pre></div>
+        </div>
+        <div>
+          <div class="src"><pre><code class="py">>>> print("It's OK")
+>>> print('It\'s OK')
+>>> print('"Hi"')</code></pre></div>
+          <div class="out fragment" data-fragment-index="1"><pre><code>It's OK
+It's OK
+"Hi"</code></pre></div>
+        </div>
+      </div>
+      <div class="definition fragment" data-fragment-index="2">双引号字符串里可直接写单引号；单引号字符串里要写单引号，用反斜杠 <code>\'</code> 转义，或改用双引号包住。</div>
+      <div class="warn fragment" data-fragment-index="3"><code>repr</code> 会选合适的外层引号：<code>"It's OK"</code> 在交互终端显示双引号。所以“终端永远显示单引号”不成立。</div>
+      <aside class="notes">如果字符串内容含单引号，Python 的 repr 常用双引号包住。反斜杠是代码里的转义，不是输出字符。示例的打印结果均以实际 Python 运行核对。</aside>
+    </section>
+
     <section id="str-index">
       <h2>下标 index</h2>
       <div class="strip" data-text="abc"></div>
@@ -1215,6 +1291,35 @@ a()</code></pre></div>
       <div class="strip" data-text="Minecraft" data-mark="6,-3"></div>
       <div class="exercise">哪些下标能取到 <code>'a'</code>？ &nbsp; a. 6 &nbsp;&nbsp; b. 7 &nbsp;&nbsp; c. -3 &nbsp;&nbsp; d. -2</div>
       <div class="definition fragment" data-fragment-index="0">答案 a 和 c。<code>s[6]</code> 和 <code>s[-3]</code> 是同一个格子。7 和 -2 都是 <code>'f'</code>。</div>
+    </section>
+
+    <section id="str-slice-positions">
+      <h2>切片先看“位置”，再看字符下标</h2>
+      <p><code>s = 'ABCDE'</code>：蓝色数字是字符下标；下方 <code>0…5</code> 是字符之间的切割位置。</p>
+      <div class="slice-board" data-text="ABCDE" data-start="2:0" data-stop="4:1" data-hits="2:2,3:3"></div>
+      <div class="steps">
+        <p class="fragment" data-fragment-index="0"><strong>①</strong> <code>s[2:4]</code> 从位置 2 开始，也就是 <code>C</code> 前面。</p>
+        <p class="fragment" data-fragment-index="1"><strong>②</strong> 到位置 4 停，在 <code>E</code> 前面切开。</p>
+        <p class="fragment" data-fragment-index="2"><strong>③</strong> 先取下标 2 的 <code>C</code>。</p>
+        <p class="fragment" data-fragment-index="3"><strong>④</strong> 再取下标 3 的 <code>D</code>；下标 4 的 <code>E</code> 不取。结果 <code>'CD'</code>。</p>
+      </div>
+      <aside class="notes">顺序点四次：起点位置、终点位置、C、D。正向连续切片可以想成在字符之间下刀；下标 2 对应 C，而切割位置 2 在 C 前面。终点 4 是边界，不是最后一个被取的字符。</aside>
+    </section>
+
+    <section id="str-slice-out-of-range">
+      <h2>终点很大：切到末尾，仍不取不存在的字符</h2>
+      <p><code>s = 'ABCDE'</code>，<code>len(s) = 5</code>；合法字符下标只有 <code>0…4</code>。</p>
+      <div class="slice-board" data-text="ABCDE" data-start="2:0" data-hits="2:1,3:2,4:3"></div>
+      <div class="slice-flow">
+        <span class="hop fragment" data-fragment-index="0">start = 2</span><span class="arrow">→</span>
+        <span class="hop fragment" data-fragment-index="1">2: C</span><span class="arrow">→</span>
+        <span class="hop fragment" data-fragment-index="2">3: D</span><span class="arrow">→</span>
+        <span class="hop fragment" data-fragment-index="3">4: E</span><span class="arrow">→</span>
+        <span class="hop fragment" data-fragment-index="4">5: 停</span>
+      </div>
+      <div class="takeaway fragment" data-fragment-index="4"><code>s[2:10]</code> → <code>'CDE'</code>。<code>10</code> 是终点上限，超出长度也不会报错；切片不会生成下标 5…9 的字符。</div>
+      <div class="warn fragment" data-fragment-index="5">对照：单个下标 <code>s[10]</code> 会报 <code>IndexError</code>。</div>
+      <aside class="notes">先让学生预测。点亮 C、D、E 后说明 5 已经到字符串末尾，10 不是要访问的字符下标。对比单下标越界会报错。</aside>
     </section>
 
     <section id="str-slice">
@@ -1273,6 +1378,21 @@ a()</code></pre></div>
       <div class="definition fragment"><code>s[start:stop:step]</code>：从 start 出发，每次走 step 格，碰到 stop 之前停下。</div>
     </section>
 
+    <section id="str-step-from-start">
+      <h2>step 从 start 数起，绝不是重新从 0 数</h2>
+      <p><code>s = 'ABCDE'</code>，计算 <code>s[2:10:3]</code>。</p>
+      <div class="slice-board" data-text="ABCDE" data-start="2:0" data-hits="2:1"></div>
+      <div class="slice-flow">
+        <span class="hop fragment" data-fragment-index="0">从 2 出发</span><span class="arrow">→</span>
+        <span class="hop fragment" data-fragment-index="1">取 2: C</span><span class="arrow">→</span>
+        <span class="hop fragment" data-fragment-index="2">2 + 3 = 5</span><span class="arrow">→</span>
+        <span class="hop fragment" data-fragment-index="3">5 已到末尾，停</span>
+      </div>
+      <div class="takeaway fragment" data-fragment-index="3">结果 <code>'C'</code>。<code>stop=10</code> 再大，也不会凭空出现字符。候选下标是 <code>2, 5, 8…</code>，不是 <code>0, 3, 6…</code>。</div>
+      <div class="definition fragment" data-fragment-index="4">对照 <code>s[0:5:3]</code>：从 <code>0</code> 出发，取 <code>0, 3</code> → <code>'AD'</code>。步长说的是<strong>相邻两次取值的下标之差</strong>。</div>
+      <aside class="notes">每次点击只走一步。先点起点 2，再点亮 C，再计算下一个候选下标 5。5 是结尾位置，没有下标 5 的字符，所以答案只有 C。对比从 0 出发才会取 A、D。</aside>
+    </section>
+
     <section id="str-step-neg">
       <h2>step 是负数：从右往左走</h2>
       <p><code>x = "0123456789"</code></p>
@@ -1285,6 +1405,35 @@ a()</code></pre></div>
         <div class="strip" data-text="0123456789" data-hit="-2::-2"></div>
       </div>
       <div class="warn fragment">step 为负时，省略 start 是“最右边”，省略 stop 是“一直到最左边”。</div>
+    </section>
+
+    <section id="str-reverse-trace">
+      <h2>反着切：先确定起点，再一格一格往左</h2>
+      <p><code>s = 'ABCDE'</code>，计算 <code>s[4:0:-1]</code>。负步长时，<code>stop=0</code> 仍然<strong>不包含</strong>。</p>
+      <div class="slice-board" data-mode="indices" data-text="ABCDE" data-hits="4:0,3:1,2:2,1:3"></div>
+      <div class="slice-flow">
+        <span class="hop fragment" data-fragment-index="0">4: E</span><span class="arrow">→</span>
+        <span class="hop fragment" data-fragment-index="1">3: D</span><span class="arrow">→</span>
+        <span class="hop fragment" data-fragment-index="2">2: C</span><span class="arrow">→</span>
+        <span class="hop fragment" data-fragment-index="3">1: B</span><span class="arrow">→</span>
+        <span class="hop fragment" data-fragment-index="4">0: 停，A 不取</span>
+      </div>
+      <div class="takeaway fragment" data-fragment-index="4"><code>s[4:0:-1]</code> → <code>'EDCB'</code>。反向的规则也是“取 start，不取 stop”。</div>
+      <aside class="notes">不要用正向的“两个切割位置夹一段”来猜负步长。负步长直接列候选字符下标：4、3、2、1，到 0 时停止且不取 A。</aside>
+    </section>
+
+    <section id="str-reverse-omitted-stop">
+      <h2>反向切片的一个陷阱：省略 stop ≠ 写 -1</h2>
+      <div class="slice-board slice-compact" data-mode="indices" data-text="ABCDE" data-hits="4:0,3:1,2:2,1:3,0:4"></div>
+      <div class="steps">
+        <p class="fragment" data-fragment-index="0"><code>s[::-1]</code>：省略 start，从最后一个 <code>E</code> 出发。</p>
+        <p class="fragment" data-fragment-index="1">接着取 <code>D</code>。</p>
+        <p class="fragment" data-fragment-index="2">接着取 <code>C</code>。</p>
+        <p class="fragment" data-fragment-index="3">接着取 <code>B</code>。</p>
+        <p class="fragment" data-fragment-index="4">最后取 <code>A</code> → <code>'EDCBA'</code>。</p>
+      </div>
+      <div class="warn fragment" data-fragment-index="5"><code>s[4:-1:-1]</code> 却是 <code>''</code>：显式 <code>-1</code> 指向最后一个字符 <code>E</code>，它是<strong>不包含的终点</strong>。省略 stop 才会一直走过 <code>A</code>。</div>
+      <aside class="notes">这个例子专门防止把省略终点理解成显式 -1。反向省略 stop 使用的是越过最左侧的边界；显式 -1 会先解释成最后一个字符下标 4，因此 4:4:-1 为空。</aside>
     </section>
 
     <section id="str-empty">
@@ -2926,6 +3075,52 @@ def calculate_age(birth_date: str) -> int:
         }
         el.appendChild(cell);
       });
+    });
+
+    document.querySelectorAll(".slice-board").forEach(function (el) {
+      var chars = Array.from(el.dataset.text || "");
+      var width = el.classList.contains("slice-compact") ? 62 : 70;
+      var hitAt = new Map();
+      (el.dataset.hits || "").split(",").filter(Boolean).forEach(function (entry) {
+        var pair = entry.split(":");
+        hitAt.set(Number(pair[0]), pair[1]);
+      });
+      var indexRow = document.createElement("div");
+      indexRow.className = "slice-index-row";
+      var charRow = document.createElement("div");
+      charRow.className = "slice-char-row";
+      chars.forEach(function (ch, i) {
+        var index = document.createElement("span");
+        index.className = "slice-index";
+        index.textContent = i;
+        indexRow.appendChild(index);
+        var tile = document.createElement("span");
+        tile.className = "slice-char";
+        tile.textContent = ch;
+        if (hitAt.has(i)) {
+          tile.classList.add("fragment", "custom");
+          tile.setAttribute("data-fragment-index", hitAt.get(i));
+        }
+        charRow.appendChild(tile);
+      });
+      el.appendChild(indexRow);
+      el.appendChild(charRow);
+      var start = (el.dataset.start || "").split(":");
+      var stop = (el.dataset.stop || "").split(":");
+      for (var gap = 0; gap <= chars.length; gap++) {
+        var marker = document.createElement("span");
+        marker.className = "slice-boundary";
+        marker.style.left = (gap * width) + "px";
+        marker.textContent = gap;
+        if (start[0] !== "" && Number(start[0]) === gap) {
+          marker.classList.add("start", "fragment", "custom");
+          marker.setAttribute("data-fragment-index", start[1] || "0");
+        } else if (stop[0] !== "" && Number(stop[0]) === gap) {
+          marker.classList.add("stop", "fragment", "custom");
+          marker.setAttribute("data-fragment-index", stop[1] || "0");
+        }
+        el.appendChild(marker);
+      }
     });
   })();
 
