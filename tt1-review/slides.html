@@ -106,6 +106,7 @@
   .reveal .warn::before { content: "易错 "; font-weight: 700; color: #991b1b; }
 
   .reveal .note { color: #333; font-size: 0.86em; }
+  .reveal .zh { display: block; margin-top: 0.12em; color: #374151; font-size: 0.92em; }
   .reveal .why { color: #666; font-size: 0.8em; margin-left: 0.6em; }
 
   .reveal .tag {
@@ -1994,12 +1995,12 @@ print(x)</code></pre></div>
       <h2>定义 ①</h2>
       <table>
         <tr><th>词</th><th>定义</th></tr>
-        <tr><td>Floating point</td><td>A decimal or fractional number.</td></tr>
-        <tr><td>Floating-point error</td><td>Repeated decimals are stored as approximations.</td></tr>
-        <tr><td>Variable</td><td>A name given to a value.</td></tr>
-        <tr><td>Assignment</td><td><code>=</code> binds a name to a value. It is not mathematical equality.</td></tr>
-        <tr><td>Function</td><td>Code that can be called by name.</td></tr>
-        <tr><td>return</td><td>A reserved word. It sends a value back to the caller and exits the function.</td></tr>
+        <tr><td>Floating point<span class="zh">浮点数</span></td><td>A decimal or fractional number.<span class="zh">小数，或带分数部分的数。</span></td></tr>
+        <tr><td>Floating-point error<span class="zh">浮点误差</span></td><td>Repeated decimals are stored as approximations.<span class="zh">循环小数存下来的是近似值。</span></td></tr>
+        <tr><td>Variable<span class="zh">变量</span></td><td>A name given to a value.<span class="zh">给一个值起的名字。</span></td></tr>
+        <tr><td>Assignment<span class="zh">赋值</span></td><td><code>=</code> binds a name to a value. It is not mathematical equality.<span class="zh"><code>=</code> 把名字绑到一个值上。它不是数学里的等于。</span></td></tr>
+        <tr><td>Function<span class="zh">函数</span></td><td>Code that can be called by name.<span class="zh">一段可以用名字调用的代码。</span></td></tr>
+        <tr><td>return<span class="zh">返回</span></td><td>A reserved word. It sends a value back to the caller and exits the function.<span class="zh">保留字。把值交回调用的人，并且结束这个函数。</span></td></tr>
       </table>
     </section>
 
@@ -2007,12 +2008,12 @@ print(x)</code></pre></div>
       <h2>定义 ②</h2>
       <table>
         <tr><th>词</th><th>定义</th></tr>
-        <tr><td>Docstring</td><td>A short description of a function. Be concise and precise.</td></tr>
-        <tr><td>Scope</td><td>The places where a variable’s name is valid.</td></tr>
-        <tr><td>Global variable</td><td>A variable that can be accessed by all functions (unless a local name hides it).</td></tr>
-        <tr><td>String</td><td>Text inside quotes; an ordered collection of characters.</td></tr>
-        <tr><td>Newline / tab</td><td><code>\n</code> starts a new line; <code>\t</code> is a tab.</td></tr>
-        <tr><td>Method</td><td>A function designed for one type, called as <code>value.method(...)</code>.</td></tr>
+        <tr><td>Docstring<span class="zh">文档字符串</span></td><td>A short description of a function. Be concise and precise.<span class="zh">对函数的简短说明。要短，也要准确。</span></td></tr>
+        <tr><td>Scope<span class="zh">作用域</span></td><td>The places where a variable’s name is valid.<span class="zh">一个变量名在哪些地方有效。</span></td></tr>
+        <tr><td>Global variable<span class="zh">全局变量</span></td><td>A variable that can be accessed by all functions (unless a local name hides it).<span class="zh">所有函数都能用的变量，除非里面有同名的 local 把它挡住。</span></td></tr>
+        <tr><td>String<span class="zh">字符串</span></td><td>Text inside quotes; an ordered collection of characters.<span class="zh">引号里的文字；按顺序排好的一串字符。</span></td></tr>
+        <tr><td>Newline / tab<span class="zh">换行 / 制表符</span></td><td><code>\n</code> starts a new line; <code>\t</code> is a tab.<span class="zh"><code>\n</code> 另起一行；<code>\t</code> 是制表符。</span></td></tr>
+        <tr><td>Method<span class="zh">方法</span></td><td>A function designed for one type, called as <code>value.method(...)</code>.<span class="zh">给某一种类型用的函数，调用时写成 <code>value.method(...)</code>。</span></td></tr>
       </table>
     </section>
 
@@ -2020,11 +2021,11 @@ print(x)</code></pre></div>
       <h2>定义 ③</h2>
       <table>
         <tr><th>词</th><th>定义</th></tr>
-        <tr><td>if statement</td><td>A control structure that runs a block when its condition is True.</td></tr>
-        <tr><td>Factoring</td><td>Breaking a complex problem into parts that are easier to understand, program, and maintain.</td></tr>
-        <tr><td>Refactoring</td><td>Restructuring existing code without changing its external behaviour.</td></tr>
+        <tr><td>if statement<span class="zh">if 语句</span></td><td>A control structure that runs a block when its condition is True.<span class="zh">一种控制结构：条件是 True 时，才运行下面那一块。</span></td></tr>
+        <tr><td>Factoring<span class="zh">分解问题</span></td><td>Breaking a complex problem into parts that are easier to understand, program, and maintain.<span class="zh">把复杂问题拆成几块，让它更好懂、好写、也好维护。</span></td></tr>
+        <tr><td>Refactoring<span class="zh">重构</span></td><td>Restructuring existing code without changing its external behaviour.<span class="zh">调整已有代码的结构，但外面的行为不变。</span></td></tr>
       </table>
-      <div class="definition">Control structures：<strong>if statements</strong> 和 <strong>loops</strong>。assignment、function、method、expression 都不是。</div>
+      <div class="definition">Control structures：<strong>if statements</strong> 和 <strong>loops</strong>。assignment、function、method、expression 都不是。<span class="zh">控制结构只有 if 语句和循环。赋值、函数、方法、表达式都不是。</span></div>
     </section>
 
     <section id="builtins">
