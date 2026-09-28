@@ -5,7 +5,13 @@
 <title>CSC108 Term Test 1 Review</title>
 <meta http-equiv="refresh" content="0; url=tt1-review/slides.html">
 <link rel="canonical" href="tt1-review/slides.html">
-<script>location.replace("tt1-review/slides.html");</script>
+<script>
+  try {
+    var ref = document.referrer;
+    if (ref && ref.indexOf(location.host) === -1) sessionStorage.setItem("ga_referrer", ref);
+  } catch (err) {}
+  location.replace("tt1-review/slides.html" + location.search + location.hash);
+</script>
 </head>
 <body>
 <p><a href="tt1-review/slides.html">CSC108 Term Test 1 Review</a></p>

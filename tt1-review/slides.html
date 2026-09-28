@@ -571,6 +571,21 @@
     html:not(.print-pdf) .reveal.native-zoom .slides { zoom: 1 !important; left: auto !important; top: auto !important; }
   }
 </style>
+<script>
+  window.GA_MEASUREMENT_ID = "";
+  (function () {
+    var id = window.GA_MEASUREMENT_ID;
+    if (!/^G-[A-Z0-9]+$/.test(id)) return;
+    var script = document.createElement("script");
+    script.async = true;
+    script.src = "https://www.googletagmanager.com/gtag/js?id=" + id;
+    document.head.appendChild(script);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag("js", new Date());
+    window.gtag("config", id, { send_page_view: false });
+  })();
+</script>
 </head>
 <body>
 <button type="button" id="fs-toggle" aria-pressed="false">全屏</button>
@@ -2833,6 +2848,33 @@ def calculate_age(birth_date: str) -> int:
       setToc(!document.body.classList.contains("toc-open"));
     });
 
+    var gaLastPath = "";
+    var gaReferrerSent = false;
+    function trackSlide() {
+      if (typeof gtag !== "function") return;
+      var slide = Reveal.getCurrentSlide();
+      if (!slide) return;
+      var path = location.pathname + (location.hash || "");
+      if (path === gaLastPath) return;
+      gaLastPath = path;
+      var params = {
+        page_title: slideTitle(slide),
+        page_location: location.origin + location.pathname + location.search + (location.hash || ""),
+        page_path: path
+      };
+      if (!gaReferrerSent) {
+        gaReferrerSent = true;
+        try {
+          var saved = sessionStorage.getItem("ga_referrer");
+          if (saved) {
+            params.page_referrer = saved;
+            sessionStorage.removeItem("ga_referrer");
+          }
+        } catch (err) {}
+      }
+      gtag("event", "page_view", params);
+    }
+
     function refresh() {
       var slide = Reveal.getCurrentSlide();
       var part = partOf(slide);
@@ -2844,8 +2886,8 @@ def calculate_age(birth_date: str) -> int:
       markToc(slides.indexOf(slide));
     }
 
-    Reveal.on("ready", refresh);
-    Reveal.on("slidechanged", refresh);
+    Reveal.on("ready", function () { refresh(); trackSlide(); });
+    Reveal.on("slidechanged", function () { refresh(); trackSlide(); });
     Reveal.on("fragmentshown", function () { updateSteps(Reveal.getCurrentSlide()); });
     Reveal.on("fragmenthidden", function () { updateSteps(Reveal.getCurrentSlide()); });
     if (Reveal.isReady()) refresh();
